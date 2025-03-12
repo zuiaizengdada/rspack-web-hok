@@ -31,7 +31,7 @@ $subMenuActive: #0c6fff;
 $sideBarWidth: 160px; // 侧边栏所占宽度
 $headHeight: 68px; // 头部导航条 所占高度
 $historyHeight: 72px; // 历史记录面包屑 所占高度
-$pageBg: #F6FAFF;
+$pageBg: #f6faff;
 $primaryColor: #0c6fff;
 @mixin responsive-height($pxHeight) {
   height: calc(100vh - (#{$headHeight} + #{$historyHeight}) - #{$pxHeight});
@@ -39,6 +39,20 @@ $primaryColor: #0c6fff;
 // the :export directive is the magic sauce for webpack
 // https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
 :export {
+  theme: $primaryColor;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+  subMenuActive: $subMenuActive;
+}
+
+:export {
+  theme: $primaryColor;
   menuText: $menuText;
   menuActiveText: $menuActiveText;
   subMenuActiveText: $subMenuActiveText;

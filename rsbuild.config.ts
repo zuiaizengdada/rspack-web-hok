@@ -1,15 +1,134 @@
 import { defineConfig } from '@rsbuild/core'
 import { pluginVue2 } from '@rsbuild/plugin-vue2'
+import { pluginSass } from '@rsbuild/plugin-sass'
+import { pluginNodePolyfill } from '@rsbuild/plugin-node-polyfill'
+import path from 'path'
+import dotenv from 'dotenv'
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
+// 根据环境加载对应的环境变量文件
+const envMode = process.env.NODE_ENV || 'development'
+const envFiles = {
+  development: '.env.development',
+  beta: '.env.beta',
+  production: '.env.production'
+}
+
+// 加载环境变量
+dotenv.config({
+  path: path.resolve(__dirname, envFiles[envMode] || '.env')
+})
 
 export default defineConfig({
-  plugins: [pluginVue2()],
+  mode: envMode,
+  plugins: [pluginVue2(), pluginSass(), pluginNodePolyfill()],
   html: {
-    template: './public/index.html'
+    template: './public/index.html',
+    title: '伏羲云系统'
   },
   source: {
-    // 指定入口文件
     entry: {
       index: './src/main.js'
+    },
+    alias: {
+      '@': resolve('src')
+    }
+  },
+  dev: {
+    port: 9528,
+    server: {
+      middlewares: [
+        (req, res, next) => {
+          if (req.url.startsWith('/api/mock')) {
+            req.url = req.url.replace(/^\/api\/mock/, '')
+          }
+          next()
+        }
+      ]
+    },
+    proxy: {
+      '/api/mock': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/mock': ''
+        }
+      },
+      '/api': {
+        target: 'https://beta.cloud.hokkj.cn/cloud/admin',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      '/newApi': {
+        target: 'https://beta.cloud.hokkj.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/newApi': ''
+        }
+      },
+      '/mock': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/mock': ''
+        }
+      },
+      '/baidu': {
+        target: 'https://haokan.baidu.com',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/baidu': ''
+        }
+      },
+      '/bibili': {
+        target: 'https://api.bilibili.com',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/bibili': ''
+        }
+      },
+      '/whosecard': {
+        target: 'https://api.whosecard.com',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/whosecard': ''
+        }
+      },
+      '/mydy': {
+        target: 'http://101.42.242.196',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/mydy': ''
+        }
+      }
+    }
+  },
+  output: {
+    distPath: {
+      root: 'dist',
+      js: 'static/js',
+      css: 'static/css',
+      svg: 'static/svg',
+      font: 'static/fonts',
+      image: 'static/img',
+      media: 'static/media'
+    }
+  },
+  tools: {
+    sass: {
+      sassOptions: {
+        outputStyle: 'expanded',
+        additionalData: '@import "@/styles/variables.scss";'
+      }
     }
   }
 })

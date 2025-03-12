@@ -5,9 +5,9 @@
   "author": "Pan <panfree23@gmail.com>",
   "scripts": {
     "serve": "node ./script/app.js --max-old-space-size=100000",
-    "dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 rsbuild dev --mode development",
-    "dev:test": "cross-env NODE_OPTIONS=--max_old_space_size=8192 rsbuild dev --mode test",
-    "dev:beta": "cross-env NODE_OPTIONS=--max_old_space_size=8192 rsbuild dev --mode beta",
+    "dev": "rsbuild dev",
+    "dev:test": "cross-env NODE_OPTIONS=--max_old_space_size=8192 rsbuild dev",
+    "dev:beta": "cross-env NODE_OPTIONS=--max_old_space_size=8192 NODE_ENV=beta rsbuild dev --mode development",
     "dev:prod": "vue-cli-service serve --mode production",
     "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit",
     "lint": "eslint --ext .js,.vue src",
@@ -33,7 +33,6 @@
     "@riophae/vue-treeselect": "^0.4.0",
     "@tencentcloud/chat": "^3.2.1",
     "@vue-office/pdf": "^1.6.5",
-    "@vue/composition-api": "^1.7.2",
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-vue": "^1.0.2",
     "@wytxer/shepherd-vue": "^1.0.0",
@@ -57,6 +56,7 @@
     "crypto-js": "^4.1.1",
     "decimal.js": "^10.4.3",
     "dom-to-image": "^2.6.0",
+    "dotenv": "^16.4.7",
     "driver.js": "0.9.5",
     "dropzone": "5.5.1",
     "echarts": "4.2.1",
@@ -108,7 +108,7 @@
     "urlencode": "^1.1.0",
     "uuid": "9.0.1",
     "vant": "^2.12.54",
-    "vue": "2.6.14",
+    "vue": "~2.7.14",
     "vue-amap": "^0.5.10",
     "vue-area-linkage": "^5.1.0",
     "vue-count-to": "1.0.13",
@@ -145,9 +145,11 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@rsbuild/core": "^1.2.18",
+    "@rsbuild/plugin-node-polyfill": "^1.3.0",
+    "@rsbuild/plugin-sass": "^1.2.2",
     "@rsbuild/plugin-vue2": "^1.0.2",
     "@tailwindcss/postcss7-compat": "^2.2.17",
-    "@vue/cli-plugin-unit-jest": "4.4.4",
+    "@vue/cli-plugin-unit-jest": "~5.0.8",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "10.1.0",
     "babel-jest": "23.6.0",
@@ -156,7 +158,10 @@
     "chokidar": "2.1.5",
     "connect": "3.6.6",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "6.2.2",
+    "eslint-plugin-vue": "^9.0.0",
+    "@babel/eslint-parser": "^7.5.0",
+    "vue-loader": "^15.10.0",
+    "vue-demi": "^0.13.1",
     "html-webpack-plugin": "3.2.0",
     "husky": "^8.0.3",
     "increase-memory-limit": "^1.0.7",
@@ -175,7 +180,9 @@
     "svgo": "1.2.0",
     "trtc-js-sdk": "^4.12.4",
     "vue-template-compiler": "2.6.14",
-    "webpackbar": "^7.0.0"
+    "webpackbar": "^7.0.0",
+    "jest": "^27.1.0",
+    "@vue/vue2-jest": "^27.0.0-alpha.3"
   },
   "browserslist": [
     "> 1%",
@@ -206,5 +213,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PanJiaChen/vue-element-admin.git"
+  },
+  "eslintConfig":{
+    "parserOptions":{
+      "parser": "@babel/eslint-parser"
+    }
   }
 }
