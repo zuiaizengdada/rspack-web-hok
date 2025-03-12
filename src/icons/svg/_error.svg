@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" class="design-iconfont">
+  <path fill="red" d="M9 0A9 9 0 1 0 9 18A9 9 0 1 0 9 0Z"/>
+  <path d="M8.99967 15.6666C12.6816 15.6666 15.6663 12.6819 15.6663 8.99998C15.6663 5.31808 12.6816 2.33331 8.99967 2.33331C5.31777 2.33331 2.33301 5.31808 2.33301 8.99998C2.33301 12.6819 5.31777 15.6666 8.99967 15.6666Z" stroke="rgba(255, 255, 255, 1)" stroke-linejoin="round"/>
+  <path stroke="rgba(255, 255, 255, 1)" stroke-linejoin="round" stroke-linecap="round" d="M11.333 7L11.333 7.33333"/>
+  <path stroke="rgba(255, 255, 255, 1)" stroke-linejoin="round" stroke-linecap="round" d="M6.66699 7L6.66699 7.33333"/>
+  <path stroke="rgba(255, 255, 255, 1)" stroke-linejoin="round" stroke-linecap="round" d="M11.3337 11.3333C11.3337 11.3333 10.667 10 9.00033 10C7.33366 10 6.66699 11.3333 6.66699 11.3333"/>
+</svg>

@@ -1,0 +1,888 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+@import './flex.scss';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  height: 100%;
+  height: 100vh;
+  overflow: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, Arial, sans-serif;
+}
+// 重置所有滚动条样式
+*::-webkit-scrollbar {
+  width: 8px; /* 设置滚动条宽度 */
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1; /* 设置滚动条thumb颜色 */
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-track {
+  background: #f6faff; /* 设置滚动条背景色 */
+}
+// 所有内容区高度 100vh 减去导航栏+历史面包屑高度 20px是容器底部预留 padding-bootom
+.hoc-main-min-height {
+  min-height: calc(100vh - #{$headHeight} - #{$historyHeight} - 20px);
+}
+.hoc-main-height {
+  @include responsive-height(20px);
+}
+.el-message__content{
+  line-height: 1.2;
+}
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+.el-message__content{
+  max-height:calc(100vh - 200px);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 定制滚动条轨道 */
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+}
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+svg {
+  display: inline-block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ' ';
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #fff;
+  // padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    // color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(
+    90deg,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(33, 120, 241, 1) 100%,
+    rgba(33, 120, 241, 1) 100%
+  );
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+.w-80 {
+  width: 80px;
+}
+
+.w-100 {
+  width: 100px;
+}
+
+.w-120 {
+  width: 120px;
+}
+
+.w-144 {
+  width: 144px;
+}
+
+.w-150 {
+  width: 150px;
+}
+
+.w-200 {
+  width: 200px !important;
+}
+
+.w-250 {
+  width: 250px;
+}
+
+.w-300 {
+  width: 300px;
+}
+
+.w-350 {
+  width: 350px;
+}
+
+.w-500 {
+  width: 500px;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+.m-r-8 {
+  margin-right: 8px;
+}
+
+.m-r-10 {
+  margin-right: 10px !important;
+}
+
+.m-r-16 {
+  margin-right: 16px !important;
+}
+
+.m-r-20 {
+  margin-right: 20px !important;
+}
+
+.m-r-30 {
+  margin-right: 30px !important;
+}
+
+.m-r-40 {
+  margin-right: 40px !important;
+}
+
+.m-l-4 {
+  margin-left: 4px;
+}
+
+.m-l-8 {
+  margin-left: 8px;
+}
+
+.m-l-10 {
+  margin-left: 10px !important;
+}
+
+.m-l-14 {
+  margin-left: 14px !important;
+}
+
+.m-l-16 {
+  margin-left: 16px;
+}
+
+.m-l-20 {
+  margin-left: 20px !important;
+}
+
+.m-l-12 {
+  margin-left: 12px !important;
+}
+
+.m-l-30 {
+  margin-left: 30px !important;
+}
+
+.m-t-5 {
+  margin-top: 5px !important;
+}
+
+.m-t-8 {
+  margin-top: 8px !important;
+}
+
+.m-t-10 {
+  margin-top: 10px !important;
+}
+
+.m-t-12 {
+  margin-top: 12px !important;
+}
+
+.m-t-16 {
+  margin-top: 16px;
+}
+
+.m-t-18 {
+  margin-top: 16px !important;
+}
+
+.m-t-20 {
+  margin-top: 20px !important;
+}
+
+.m-t-22 {
+  margin-top: 22px !important;
+}
+
+.m-t-24 {
+  margin-top: 24px !important;
+}
+
+.m-t-50 {
+  margin-top: 50px !important;
+}
+
+.m-b-5 {
+  margin-bottom: 5px !important;
+}
+
+.m-b-6 {
+  margin-bottom: 6px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px !important;
+}
+
+.m-b-16 {
+  margin-bottom: 16px !important;
+}
+
+.m-b-20 {
+  margin-bottom: 20px !important;
+}
+
+.mw_400 {
+  max-width: 800px;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-20 {
+  padding: 20px !important;
+}
+
+.p-l-20 {
+  padding-left: 20px;
+}
+
+.p-r-20 {
+  padding-right: 20px;
+}
+
+.p-b-20 {
+  padding-bottom: 20px !important;
+}
+
+.fl {
+  display: flex;
+}
+
+.fl_ai_c {
+  align-items: center;
+}
+
+.fl_jc_c {
+  justify-content: center;
+}
+
+.fl_jc_sb {
+  justify-content: space-between;
+}
+
+.fl1 {
+  flex: 1;
+}
+
+.word_break {
+  word-break: break-all;
+}
+.text_hidden {
+  // word-break:keep-all;//规定自动换行的处理方法;keep-all:只能在半角空格或字符处换行。
+  // overflow: hidden; //当内容溢出元素框时发生的事情。
+  // text-overflow: ellipsis; // ellipsis:显示省略符号来代表被修剪的文本。
+  // white-space: nowrap;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.text_hidden_1 {
+  // word-break:keep-all;//规定自动换行的处理方法;keep-all:只能在半角空格或字符处换行。
+  // overflow: hidden; //当内容溢出元素框时发生的事情。
+  // text-overflow: ellipsis; // ellipsis:显示省略符号来代表被修剪的文本。
+  // white-space: nowrap;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.text_hidden_3 {
+  // word-break:keep-all;//规定自动换行的处理方法;keep-all:只能在半角空格或字符处换行。
+  // overflow: hidden; //当内容溢出元素框时发生的事情。
+  // text-overflow: ellipsis; // ellipsis:显示省略符号来代表被修剪的文本。
+  // white-space: nowrap;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.text_hidden_ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text_hidden_tag {
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.border_none {
+  border: none !important;
+}
+
+.page_card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.12),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.08), 0px 1px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.z_2000 {
+  z-index: 2000 !important;
+}
+
+.z_1010 {
+  z-index: 1010 !important;
+}
+
+.c_777 {
+  color: #777;
+}
+
+.c_red {
+  color: red;
+}
+
+.EC3 {
+  color: #353535;
+}
+
+.EC9 {
+  color: #999;
+}
+
+.c_00B42A {
+  color: #00b42a;
+}
+
+.c_FF7D00 {
+  color: #ff7d00;
+}
+
+.c_00B42A {
+  color: #00b42a;
+}
+
+.c_F53F3F {
+  color: #f53f3f;
+}
+
+.c-F53F3F {
+  color: #f53f3f;
+}
+
+.c_0F71FF {
+  color: #0f71ff;
+}
+
+.c_0C6FFF {
+  color: #0c6fff;
+}
+.z-i-1002 {
+  z-index: 1002 !important;
+}
+
+// 可点击跳转样式
+.a_link {
+  cursor: pointer;
+  color: #1890ff !important;
+}
+
+.b-r-50 {
+  border-radius: 50% !important;
+}
+
+.ov-h {
+  overflow: hidden;
+}
+
+#edui_fixedlayer {
+  z-index: 9999999999999 !important;
+}
+
+.cursorMove {
+  cursor: move !important;
+}
+
+.amap-sug-result {
+  z-index: 9999999999999 !important;
+}
+
+.cursorPoninter {
+  cursor: pointer;
+}
+
+.overflowOuto {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 6px;
+    // display: none;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.overflowOuto2 {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 6px;
+    // display: none;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    // 白色0.2
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.overflowOuto1 {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 6px;
+    // display: none;
+    background-color: transparent;
+  }
+
+  // &::-webkit-scrollbar-thumb {
+  //   border-radius: 6px;
+  //   background-color: rgba(0, 0, 0, 0.2);
+  //   transition: all 0.4s ease;
+  // }
+  // &::-webkit-scrollbar-track {
+  //   background-color: rgba(0, 0, 0, 0.1);
+  // }
+}
+
+.primary {
+  color: $primaryColor;
+}
+
+.btn_primary {
+  background: #ffffff;
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+/**
+西瓜视频播放器全局样式控制
+*/
+.xgplayer-skin-default .xgplayer-poster {
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+
+.el-tooltip__popper {
+  max-width: 600px;
+}
+
+// 去掉element时间选择器的此刻
+.el-picker-panel__footer > .el-button--text {
+  > span {
+    display: none;
+  }
+}
+
+.width460 {
+  width: 460px;
+}
+
+.width300 {
+  width: 300px;
+}
+
+.el-loading-mask {
+  z-index: 1000 !important;
+}
+
+.circle_blue {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5b8ff9;
+}
+
+.circle_blue_empty {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #5b8ff9;
+  background: #d9e3f9;
+}
+
+.showColor {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: -2px 4px 12px 0px rgba(22, 22, 22, 0.25);
+  border-radius: 4px;
+  border: 1px solid #75a0f9;
+}
+
+.circle {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.start-red-p {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  background-image: url('../assets/image/product/down.png');
+  background-size: 100% 100%;
+}
+
+.start-green-p {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  background-image: url('../assets/image/product/up.png');
+  background-size: 100% 100%;
+}
+
+.f_s_14 {
+  font-size: 14px !important;
+}
+
+/* 禁止文字选中 */
+.no-select {
+  -webkit-user-select: none;
+  /* Chrome、Safari、Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* 标准语法 */
+}
+
+/* 文字不换行 */
+.no-wrap {
+  white-space: nowrap;
+}
+
+.z_index_max {
+  z-index: 999999999999999 !important;
+}
+
+.whiteMessage {
+  background: #fff;
+  box-shadow: 0px 2px 8px 0px rgba(178, 178, 178, 0.5);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 500;
+  border-color: transparent;
+  color: #333333;
+  line-height: 20px;
+  padding: 8px 22px;
+
+  > i {
+    font-size: 22px;
+  }
+
+  > .el-message__content {
+    font-size: 14px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    line-height: 20px;
+  }
+}
+
+// 腾讯播放器的错误提示
+.vjs-error-display {
+  .vjs-modal-dialog-content {
+    display: none;
+  }
+}
+
+// shepherdjs 样式修改
+.shepherd-has-title.shepherd-element{
+  max-width: 300px;
+  .shepherd-arrow:before{
+    background-color: #fff !important;
+  }
+  .shepherd-header{
+    background: #fff !important;
+    .shepherd-title{
+      color: #000000;
+      font-family: "Microsoft YaHei";
+      font-size: 14px !important;
+      font-style: normal;
+      font-weight: 600;
+    }
+    .shepherd-cancel-icon{
+      color: #1778ff !important;
+      font-family: "Microsoft YaHei";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+  .shepherd-text{
+    color: #666666;
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 0 !important;
+  }
+  .shepherd-footer{
+    .shepherd-button{
+      border-radius: 4px;
+      &.shepherd-next-button {
+        height: 24px;
+        line-height: 24px;
+        background: #1778FF;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        color: #fff;
+      }
+      &.shepherd-back-button {
+        height: 24px;
+        line-height: 24px;
+        border: 1px solid #D8DCE5;
+        background: #fff;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        color: #000;
+      }
+    }
+  }
+}
+
+.move_drag_btn_primary {
+  border: 1px solid #0C6FFF!important;
+  background: #FFF;
+  color: #0c6fff;
+  box-shadow: 0 0 10px 0 #81b5ff80;
+}
+
+.hok_editor_img {
+  cursor: pointer;
+  vertical-align: bottom;
+  &:hover {
+    border: 1px solid #0C6FFF!important;
+  }
+}

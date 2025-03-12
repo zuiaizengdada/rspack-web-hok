@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>切片</title>
+    <g id="设计稿修改" stroke="none" stroke-width="1"  fill-rule="evenodd">
+        <g id="图标" transform="translate(-1198.000000, -189.000000)" >
+            <g id="编组-14" transform="translate(868.000000, 36.000000)">
+                <g id="编组备份" transform="translate(25.000000, 153.000000)">
+                    <g id="一行四张备份-2" transform="translate(305.000000, 0.000000)">
+                        <path d="M28,25.375 L28,28 L0,28 L0,25.375 L28,25.375 Z M5.25,0 L5.25,23.625 L0,23.625 L0,0 L5.25,0 Z M13.125,0 L13.125,23.625 L7,23.625 L7,0 L13.125,0 Z M21,0 L21,23.625 L14.875,23.625 L14.875,0 L21,0 Z M28,0 L28,23.625 L22.75,23.625 L22.75,0 L28,0 Z" id="形状结合"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

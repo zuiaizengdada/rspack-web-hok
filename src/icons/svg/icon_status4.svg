@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>time</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="班期详情弹窗-学员列表" transform="translate(-985.000000, -286.000000)">
+            <g id="编组-8" transform="translate(712.000000, 0.000000)">
+                <g id="编组-4" transform="translate(273.000000, 282.000000)">
+                    <g id="time" transform="translate(0.000000, 4.000000)">
+                        <path d="M0,0 L14,0 L14,14 L0,14 L0,0 Z" id="time-(Background)"></path>
+                        <g id="编组-17">
+                            <path d="M7,14 C3.13400674,14 0,10.8659935 0,7 C0,3.13400674 3.13400674,0 7,0 C10.8659935,0 14,3.13400674 14,7 C14,10.8659935 10.8659935,14 7,14 Z" id="time" fill="#FF7D00"></path>
+                            <polygon id="time" fill="#FFFFFF" points="6.5 7.3889246 9.00024414 10 9.70735168 9.29289246 7.5 6.97471142 7.5 3 6.5 3"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

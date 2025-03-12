@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>部分成功</title>
+    <defs>
+        <linearGradient x1="50%" y1="2.23696773e-13%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF5E00" offset="0%"></stop>
+            <stop stop-color="#F53F3F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="账号管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="数据一键同步-3" transform="translate(-652.000000, -371.000000)">
+            <rect fill="#EEEEEE" x="0" y="0" width="1440" height="1024"></rect>
+            <rect id="矩形" fill-opacity="0.4" fill="#000000" x="0" y="0" width="1440" height="1024"></rect>
+            <g id="弹窗" transform="translate(373.000000, 276.000000)" fill="#FFFFFF">
+                <rect id="蒙版" x="0" y="0" width="694" height="473" rx="10"></rect>
+            </g>
+            <g id="部分成功" transform="translate(652.000000, 371.000000)">
+                <rect id="矩形" x="0" y="0" width="120" height="120"></rect>
+                <circle id="椭圆形" stroke="#E6F7EA" stroke-width="10" cx="60" cy="60" r="55"></circle>
+                <path d="M60,5 C29.6243388,5 5,29.6243388 5,60 C5,90.3756612 29.6243388,115 60,115 C90.3756612,115 115,90.3756612 115,60" id="路径" stroke="#00B42A" stroke-width="10" stroke-linecap="round"></path>
+                <path d="M60,30 C62.7614237,30 65,32.2385763 65,35 L65,55 L85,55 C87.7614237,55 90,57.2385763 90,60 C90,62.7614237 87.7614237,65 85,65 L65,65 L65,85 C65,87.7614237 62.7614237,90 60,90 C57.2385763,90 55,87.7614237 55,85 L55,65 L35,65 C32.2385763,65 30,62.7614237 30,60 C30,57.2385763 32.2385763,55 35,55 L55,55 L55,35 C55,32.2385763 57.2385763,30 60,30 Z" id="形状结合" fill="url(#linearGradient-1)" transform="translate(60.000000, 60.000000) rotate(-315.000000) translate(-60.000000, -60.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>shipinzhanshi_icon</title>
+    <g id="自媒体运营1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="在线剪辑-运营" transform="translate(-24.000000, -886.000000)">
+            <g id="编组-71" transform="translate(-1.000000, 563.000000)">
+                <g id="编组-16" transform="translate(1.000000, 40.000000)">
+                    <g id="编组-37" transform="translate(24.000000, 283.000000)">
+                        <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+                        <g id="编组" transform="translate(3.000000, 3.000000)" stroke="#D9D9D9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+                            <path d="M16.5,0 L1.5,0 C0.671575,0 0,0.671575 0,1.5 L0,16.5 C0,17.32845 0.671575,18 1.5,18 L16.5,18 C17.32845,18 18,17.32845 18,16.5 L18,1.5 C18,0.671575 17.32845,0 16.5,0 Z" id="路径"></path>
+                            <polygon id="路径" points="7.25 11 7.25 7.9689 9.875 9.48445 12.5 11 9.875 12.51555 7.25 14.0311"></polygon>
+                            <line x1="0" y1="4.5" x2="18" y2="4.5" id="路径"></line>
+                            <line x1="13.5" y1="0" x2="10.5" y2="4.5" id="路径"></line>
+                            <line x1="7.5" y1="0" x2="4.5" y2="4.5" id="路径"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

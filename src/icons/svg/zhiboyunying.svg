@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="18" height="18"></rect>
+    </defs>
+    <g id="讲师管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="师资评估-左滑" transform="translate(-28.000000, -595.000000)">
+            <g id="编组-144备份" transform="translate(0.000000, 69.000000)">
+                <g id="Group-13备份" transform="translate(8.000000, 517.000000)">
+                    <g id="编组-2" transform="translate(20.000000, 9.000000)">
+                        <g id="编组" transform="translate(1.000000, 1.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="直播icon-(Background/Mask)"></g>
+                            <path d="M2.7,4.5 L15.3,4.5 C16.2941125,4.5 17.1,5.30588745 17.1,6.3 L17.1,15.3 C17.1,16.2941125 16.2941125,17.1 15.3,17.1 L2.7,17.1 C1.70588745,17.1 0.9,16.2941125 0.9,15.3 L0.9,6.3 C0.9,5.30588745 1.70588745,4.5 2.7,4.5 Z" id="Rectangle-252" stroke="#333333" stroke-dasharray="0,0" mask="url(#mask-2)"></path>
+                            <line x1="4.03738253" y1="1.28778474" x2="7.21936305" y2="4.46976526" id="Line-10" stroke="#333333" stroke-linecap="round" stroke-dasharray="0,0" mask="url(#mask-2)"></line>
+                            <line x1="13.0662687" y1="1.29380969" x2="9.88586733" y2="4.4773694" id="Line-11" stroke="#333333" stroke-linecap="round" stroke-dasharray="0,0" mask="url(#mask-2)"></line>
+                            <path d="M9.77942267,7.6499998 L12.1176913,11.6999998 C12.3662194,12.1304632 12.2187318,12.6808945 11.7882684,12.9294227 C11.6514511,13.0084142 11.4962514,13.0499998 11.3382684,13.0499998 L6.66173121,13.0499998 C6.16467494,13.0499998 5.76173121,12.6470561 5.76173121,12.1499998 C5.76173121,11.9920168 5.80331685,11.8368171 5.88230835,11.6999998 L8.22057694,7.6499998 C8.46910508,7.21953644 9.01953644,7.0720488 9.4499998,7.32057694 C9.58681709,7.39956844 9.70043117,7.51318251 9.77942267,7.6499998 Z" id="Polygon-1" fill="#0C6FFF" mask="url(#mask-2)" transform="translate(9.000000, 10.800000) scale(-1, -1) rotate(-90.000003) translate(-9.000000, -10.800000) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

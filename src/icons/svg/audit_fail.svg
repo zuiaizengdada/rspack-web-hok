@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="订单管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="订单管理-全部订单" transform="translate(-709.000000, -856.000000)">
+            <g id="编组-25" transform="translate(272.000000, 431.000000)">
+                <g id="编组-14备份-2" transform="translate(0.000000, 346.000000)">
+                    <g id="编组-12" transform="translate(21.000000, 43.000000)">
+                        <g id="标签/中标签/处理中" transform="translate(406.000000, 31.000000)">
+                            <g id="编组-57" transform="translate(10.000000, 1.000000)">
+                                <g id="close-circle-filled" transform="translate(0.000000, 4.000000)">
+                                    <path d="M0,0 L14,0 L14,14 L0,14 L0,0 Z" id="close-circle-filled-(Background)"></path>
+                                    <path d="M7.00000209,0.875 C3.61725798,0.875 0.875,3.61725423 0.875,6.99999833 C0.875,10.3827426 3.61725423,13.125 6.99999833,13.125 C10.3827426,13.125 13.125,10.382746 13.125,7.00000209 C13.125,3.61725798 10.382746,0.875 7.00000209,0.875 Z" fill="#F53F3F"></path>
+                                    <polygon fill="#FFFFFF" points="7.00001043 6.37940753 9.03797805 4.32909587 9.65856135 4.94594389 7.61686909 7.0000025 9.65855384 9.05405319 9.03796971 9.67090058 7.00001001 7.62059748 4.96205115 9.67090058 4.34146702 9.05405235 6.38315177 7.0000025 4.3414593 4.94594347 4.96204323 4.32909587"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

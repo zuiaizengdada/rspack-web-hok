@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="订单管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="订单认领弹窗-可认领" transform="translate(-283.000000, -705.000000)" fill="#27C000">
+            <g id="编组-7备份-2" transform="translate(262.000000, 117.000000)">
+                <g id="编组-49" transform="translate(20.000000, 312.000000)">
+                    <g id="编组-25" transform="translate(0.000000, 72.000000)">
+                        <g id="编组-24" transform="translate(1.000000, 202.000000)">
+                            <g id="check-circle-filled" transform="translate(0.000000, 2.000000)">
+                                <path d="M20,10 C20,4.47715248 15.5228479,0 10,0 C4.47715248,0 0,4.47715248 0,10 C0,15.5228479 4.47715248,20 10,20 C15.5228479,20 20,15.5228479 20,10 Z M6.00928579,9.28571429 L8.57142857,11.8471432 L13.9892851,6.42857143 L15,7.43928569 L8.57142857,13.8671425 L5,10.2950001 L6.00928579,9.28571429 Z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>抖音审核通过</title>
+    <defs>
+        <path d="M10,5 C10,2.23857624 7.76142393,0 5,0 C2.23857624,0 0,2.23857624 0,5 C0,7.76142393 2.23857624,10 5,10 C7.76142393,10 10,7.76142393 10,5 Z" id="path-1"></path>
+        <filter x="-30.0%" y="-30.0%" width="160.0%" height="160.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.5   0 0 0 0 0.116666667  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="智能销售1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="专栏" transform="translate(-1114.000000, -461.000000)">
+            <g id="编组-3" transform="translate(251.000000, 89.000000)">
+                <g id="编组-13" transform="translate(20.000000, 93.000000)">
+                    <g id="编组-7" transform="translate(0.000000, 38.000000)">
+                        <g id="编组-22备份-5" transform="translate(0.000000, 186.000000)">
+                            <g id="编组-21" transform="translate(20.000000, 13.000000)">
+                                <g id="编组-10备份" transform="translate(813.000000, 38.000000)">
+                                    <g id="编组-4" transform="translate(10.000000, 3.000000)">
+                                        <g id="抖音审核通过" transform="translate(0.000000, 1.000000)">
+                                            <g id="个微" fill-rule="nonzero">
+                                                <path d="M10,0 C4.47826086,0 0,4.47826086 0,10 C0,15.5217391 4.47826086,20 10,20 C15.5217391,20 20,15.5217391 20,10 C20,4.47826086 15.5217391,0 10,0 Z" id="形状" fill="#00B42A"></path>
+                                                <path d="M9.31537125,8.46614143 L9.31537125,10.5269467 C8.35744497,10.2739912 7.37576318,10.8451892 7.12232181,11.8029871 C7.08918342,11.9291 7.06973713,12.0584178 7.06431998,12.1886993 C7.07707313,13.0969426 7.78499265,13.8432336 8.69129955,13.9038662 C9.59760646,13.9644989 10.3986273,13.3191573 10.5322498,12.4207067 C10.5389055,12.3355738 10.5389055,12.2500514 10.5322498,12.1649186 L10.5322498,4 L12.5721744,4 C12.9201854,6.15708831 13.9972795,6.65822418 15.4421053,6.88907148 L15.4421053,8.95625695 C14.4412453,8.87450915 13.4757202,8.5484851 12.6301762,8.00676688 L12.6301762,12.0900962 C12.6301762,13.9380347 11.5339415,16 8.81597545,16 C7.79966804,15.9958553 6.82664205,15.5881096 6.11099581,14.8664806 C5.39534958,14.1448516 4.99571842,13.1684648 5,12.1521582 L5,12.0703756 C5.06158768,9.99622639 6.79286496,8.36466569 8.86701706,8.42612016 C9.01711807,8.43075521 9.16682235,8.44411821 9.31537125,8.46614143 Z" id="路径" fill="#E6F7EA"></path>
+                                            </g>
+                                            <g id="成功" transform="translate(10.000000, 10.000000)">
+                                                <g id="形状结合">
+                                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                                </g>
+                                                <polygon id="check-circle-filled" fill="#00B42A" points="4.28571429 6.93357127 7.5 3.71964284 6.99464253 3.21428571 4.28571429 5.92357159 3.0046429 4.64285714 2.5 5.14750004"></polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

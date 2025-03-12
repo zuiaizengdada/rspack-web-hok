@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="其他状态" transform="translate(-44.000000, -211.000000)">
+            <g id="编组" transform="translate(44.000000, 211.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="概况icon-(Background/Mask)"></g>
+                <g id="Group" mask="url(#mask-2)">
+                    <g transform="translate(0.899902, 0.050293)">
+                        <path d="M8.9784007,19.0477462 C4.16483,18.9806825 0.0679395088,14.8837904 0.000875827447,10.0702178 C-0.0661878539,5.1765691 3.72641321,1.1527467 8.5289734,0.851460498 C8.84327185,0.83144148 9.1085238,1.08268016 9.1085238,1.39797969 L9.1085238,9.39557709 C9.1085238,9.69786425 9.35275561,9.94209617 9.65504265,9.94209617 L17.6526368,9.94209617 C17.9669353,9.94109522 18.2181735,10.2063471 18.1981545,10.5206456 C17.8968684,15.3232078 13.8730485,19.1158108 8.9784007,19.0477462 Z" id="Vector" stroke="#333333" stroke-dasharray="0,0" fill-rule="nonzero"></path>
+                        <g id="Group" stroke="none" fill-rule="evenodd" transform="translate(11.111328, 0.000000)">
+                            <path d="M1.00095106,7.93824482 C0.448426078,7.93824482 0,7.48981913 0,6.93729462 L0,1.002661 C0,0.398087081 0.532506269,-0.0743614567 1.13107501,0.00971835731 C4.64841698,0.507190585 7.43106139,3.28983262 7.92853405,6.80717155 C8.01261393,7.40573977 7.54016369,7.93824482 6.93558925,7.93824482 L1.00095106,7.93824482 Z" id="Vector" fill="#0C6FFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

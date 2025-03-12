@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sokcet测试</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        padding: 100px;
+      }
+      button {
+        color: #fff;
+        border: 1px solid #1890ff;
+        background-color: #1890ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        padding: 6px 15px;
+        font-size: 16px;
+        border-radius: 2px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      button,
+      button:focus,
+      button:active {
+        outline: none;
+      }
+      .box > * {
+        margin-bottom: 40px;
+      }
+      .box > div{
+          display: inline-block;
+          width: 970px;
+      }
+      .box > div > button{
+          display: inline-block;
+          margin-right: 12px;
+          margin-bottom: 16px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        right: 20%;
+        top: 20%;
+        box-shadow: 0 0 10px 1px #dedede;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="modal">
+      二维码加载中....
+      <div>请管理员：<span class="authName">...</span> 扫码</div>
+      <div style="width: 350px; height: 350px">
+        <img class="wxcode" src="" />
+      </div>
+    </div>
+    <div class="box">
+      <h2 id="status">socket连接状态：未连接</h2>
+     <div>
+         <button id="btn">添加账号</button>
+         <button id="open">添加账号1</button>
+         <button id="open2">添加账号2</button>
+         <button id="publish-btn">发布文章</button>
+         <button id="publish-btn-video">发视频</button>
+         <button id="seeAccount">查看账号</button>
+         <button id="datasync">同步平台数据</button>
+         <button id="checkAccountStatus">检测账号登陆状态</button>
+         <button id="deleteWorks">删除作品</button>
+         <button id="workStatus">查询文章发布状态</button>
+         <button id="getActivityList">图文视频可参与的活动</button>
+         <button id="getPubilshNum">获取发文数</button>
+         <button id="getCategoryInfo">获取视频或图文发布分类</button>
+         <button id="getmediaTopicInfo">获取好友/话题/热点事件</button>
+         <button id="getPrivillegeDetail">获取账号权益</button>
+     </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+    integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const socket = io("ws://localhost:10153");
+    let _cookie = [];
+    let merchantToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBsaWNhdGlvbl9pZCI6IjNhMDZlN2FlLWM4ODktNjA2OS0zNzhiLTYzMDAwN2VmNWZlOCIsIm5iZiI6MTY3OTY1MTUzMCwiZXhwIjoxNjc5NzM3OTMwLCJpYXQiOjE2Nzk2NTE1MzAsImlzcyI6IkdhZWEiLCJhdWQiOiJHYWVhIn0.vhtyS3IOwozdTRg7SA_G64i9-iEHlfkb6y6peBXovAU';
+    socket.on("connect", () => {
+      if (socket.connected) {
+        changeStatus("socket连接状态：已连接");
+      }
+    });
+
+    socket.on("disconnect", () => {
+      changeStatus("socket连接状态：断开连接");
+      // socket.connect();
+    });
+
+    // 添加账号
+    document.getElementById("btn").onclick = function () {
+      const account = {
+        accountId: "202241901",
+        displayName: "小红书",
+        platformId: 31,
+        url: "https://cp.kuaishou.com/profile",
+        token: null,
+        cookie: ``,
+        authorizationModel: false,
+        merchantToken: merchantToken
+      };
+
+      socket.emit("account-login", JSON.stringify(account), (response) => {
+        const accountInfo = JSON.parse(response);
+        console.log("accountInfo:", accountInfo);
+        _cookie = JSON.parse(accountInfo.data.cookie);
+        console.log("cookies:", _cookie);
+      });
+    };
+
+    // 添加账号
+    document.getElementById("open").onclick = function () {
+      let cookie = [{"name":"xsecappid","value":"creator-main","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":1711181604},{"name":"a1","value":"18712adfa71irepu344trnxg5n33ccehaupkldz0950000126470","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":1711181604},{"name":"webId","value":"3a575a98f712de80ee6caf4cba8d715a","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":1711181604},{"name":"gid","value":"yYWyJ0d8Kq0YyYWyJ0fi07fuWy3FdU7q449FU8jICk2IqT28qSSdx1888yJK4W88KKy4YjJd","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":1711181605.79072},{"name":"gid.sign","value":"CZO6Riz8NkB3VcBdxopgET3YjtI=","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":true,"session":false,"expirationDate":1711181605.79074},{"name":"customerBeakerSessionId","value":"9e6459d21d23ce4a59a41e180f7231447dd20537gAJ9cQAoWBAAAABjdXN0b21lclVzZXJUeXBlcQFLAVgOAAAAX2NyZWF0aW9uX3RpbWVxAkdB2QdW8TJumFgJAAAAYXV0aFRva2VucQNYQQAAAGMyNGUyYmRlNzEyMjRiMTI5NDI3MTIyMGQ4NzhiYmJmLTkxMjdkY2RkNjYxMTQ1ZDY5MTg0ZTkxMGIzNmY3MjlmcQRYAwAAAF9pZHEFWCAAAAAwYjk3ZTk2ODQwZTI0MDIwYmYyMmFlY2NiMjNmMjdhZnEGWA4AAABfYWNjZXNzZWRfdGltZXEHR0HZB1bxMm6YWAYAAAB1c2VySWRxCFgYAAAANjM3ZGVhZjQwMDAwMDAwMDFmMDFjNTA0cQl1Lg==","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":true,"session":false,"expirationDate":1680250435.099214},{"name":"customerClientId","value":"603304612382652","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":true,"httpOnly":true,"session":false,"expirationDate":1837325635.099236},{"name":"x-user-id-creator.xiaohongshu.com","value":"637deaf4000000001f01c504","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":true,"session":false,"expirationDate":1837325635.09925},{"name":"access-token-creator.xiaohongshu.com","value":"customer.ares.AT-30d2926610a3481a9863f21b7411048f-8b82df58752d4477ab4ce4415ca17911","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":true,"session":false,"expirationDate":1711181635.152268},{"name":"galaxy.creator.beaker.session.id","value":"1679645636881038389649","domain":".xiaohongshu.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":1680250435.196021}];
+      const account = {
+        accountId: "202241901",
+        displayName: "小红薯",
+        platformId: 31,
+        url: "https://cp.kuaishou.com/profile",
+        token: null,
+        cookie: JSON.stringify(cookie),
+        authorizationModel: false,
+        merchantToken: merchantToken
+      };
+
+      socket.emit("open-account", JSON.stringify(account), (response) => {
+        const accountInfo = JSON.parse(response);
+        console.log("accountInfo:", accountInfo);
+        _cookie = JSON.parse(accountInfo.data.cookie);
+        console.log("cookies:", _cookie);
+      });
+    };
+
+    // 添加账号
+    document.getElementById("open2").onclick = function () {
+      const account = {
+        accountId: "202241902",
+        displayName: "抖音",
+        platformId: 19,
+        url: "https://cp.kuaishou.com/profile",
+        token: null,
+        cookie: ``,
+        authorizationModel: false,
+        merchantToken: merchantToken
+      };
+
+      socket.emit("open-account", JSON.stringify(account), (response) => {
+        const accountInfo = JSON.parse(response);
+        console.log("accountInfo:", accountInfo);
+        _cookie = JSON.parse(accountInfo.data.cookie);
+        console.log("cookies:", _cookie);
+      });
+    };
+
+    // 发布文章
+    document.getElementById("publish-btn").onclick = function () {
+      const _cookie =[];
+      const wxcookie2 =[];
+      const publishData = {
+          merchantToken:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBsaWNhdGlvbl9pZCI6IjNhMDY2NmNlLTIwNTctZGExYi1iYzA0LTA5YjIwZDg3NzA3ZSIsIm5iZiI6MTY2NDUyNTAxOCwiZXhwIjoxNjY0NjExNDE4LCJpYXQiOjE2NjQ1MjUwMTgsImlzcyI6IkdhZWEiLCJhdWQiOiJHYWVhIn0.JA0vQASFsw72IvrqD3UPdg7syGi60sTjxhijj23hpdM',
+        mediaContentType: "Article",
+        title: "苹果 Mac Studio 用户抱怨称有高音噪音",
+        content:
+          '<p>据 MacRumors 报道，一些 Mac Studio 用户注意到，他们的机器正在发出似乎来自风扇的高音“呜呜”声，且似乎影响了许多用户。<br/></p><p><img src="https://yixiaoer-img.oss-cn-shanghai.aliyuncs.com/20220429/c1bf7b80-918e-4b69-8785-cf91aa3dee1f.jpg" img-data="{&quot;format&quot;:&quot;jpeg&quot;,&quot;size&quot;:56137,&quot;height&quot;:345,&quot;width&quot;:640}"/></p><p><br/></p><p>据报道，大多数投诉来自&nbsp;M1 Max 版本 Mac Studio，而不是 Ultra 版本，遇到问题的用户将噪音描述为难以忽视的高频声音，并且是和风扇噪音不同。</p><p><br/></p><blockquote><p>在 2120Hz 处肯定有一个恼人的噪音（我使用了正弦波发生器进行比较）。我很确定这一噪音来自风扇，而不是线圈发出的呜呜声，因为频率会随着风扇速度的变化而变化。</p></blockquote><p>M1 Max 和 M1 Ultra 版的 Mac Studio 具有不同的散热设计，M1 Ultra 配备了更大的被动散热器，因此风扇的启动频率会低一些。</p><p>值得注意的是，并非所有 M1 Max Mac Studio 都遇到了这个问题，对于不幸遇到的用户，可以尽快申请退换货，苹果官方尚未就这一投诉给出回应。</p>',
+        jPlatforms: [
+            {
+                platformAccountId:'ed249e42-d420-4976-992e-bc6a0715b260',
+                title: "【苹果动向】再有新功能？新款Apple Watch或增卫星通讯功能",
+                platformId:2,
+                desc:'新款Apple Watch或增卫星通讯功能',
+                covers:['https://yixiaoer-img.oss-cn-shanghai.aliyuncs.com/20220426/b654c05c-374b-4185-94cc-d603e22f31a3.jpg'],
+                tags:null,
+                isOriginal:1,
+                cookie:JSON.stringify(_cookie),
+                taskId:'12323',
+                authorId:'515123123',
+                authorName:'秋落'
+            }
+            // ,{
+            //     platformAccountId: "3a0328c6-6df5-1e50-5948-428b142e3ba6",
+            //     title: "【苹果动向】再有新功能？新款Apple Watch或增卫星通讯功能",
+            //     platformId: 6,
+            //     desc: null,
+            //     covers: ["https://yixiaoer-img.oss-cn-shanghai.aliyuncs.com/20220426/e702f0b9-85ac-4826-a30c-70bdf3a2e6c3.jpg"],
+            //     prePubTime: "2022-04-26 18:15",
+            //     cookie:JSON.stringify(_cookie2)
+            // }
+        ],
+      };
+
+      socket.emit("publish", JSON.stringify(publishData), (response) => {
+        console.log(JSON.parse(response));
+      });
+    };
+
+    // 发视频
+    document.getElementById("publish-btn-video").onclick = function () {
+      const zhihucookie =[];
+      const publishData ={
+        mediaContentType: "MiniVideo",
+        title: "测试视频",
+        content: "测试视频",
+        filePathOrUrl: "E:\\48796a28919b441e92c5f178ae1334f2.mp4",
+        merchantToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBsaWNhdGlvbl9pZCI6IjNhMGExYTUwLThmNmItMjZjOC1kYmM5LTdmOGIzNzAwZjFhOSIsIm5iZiI6MTY3OTkwMzcyNywiZXhwIjoxNjc5OTkwMTI3LCJpYXQiOjE2Nzk5MDM3MjcsImlzcyI6IkdhZWEiLCJhdWQiOiJHYWVhIn0.7P1KwCYFxhTAtOiMl6fFibpNKzr-zKdvyQ6-dK6ijww",
+        jPlatforms: [{
+          platformAccountId: "1640249738467176448",
+          title: "测试视频",
+          desc: "测试视频是否可以挂车",
+          covers: ["https://test.cover.hokkj.cn/tos-vod-cn-v-fe072b997a80c0ae/b53100f460e648c6929742626a31b793~tplv-vod-obj.image"],
+          platformId: 19,
+          cookie: "[{\"name\":\"passport_csrf_token\",\"value\":\"9463db3401bfb17074f2a1fe0299e4a3\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":false,\"session\":false,\"expirationDate\":1685084990.050388},{\"name\":\"passport_csrf_token_default\",\"value\":\"9463db3401bfb17074f2a1fe0299e4a3\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"session\":false,\"expirationDate\":1685084990.050404},{\"name\":\"_tea_utm_cache_10006\",\"value\":\"undefined\",\"domain\":\".sso.douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"session\":false,\"expirationDate\":1680505790},{\"name\":\"MONITOR_WEB_ID\",\"value\":\"d318ca39-8ffd-4df6-9b57-9c0242bd5b55\",\"domain\":\"sso.douyin.com\",\"hostOnly\":true,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"session\":false,\"expirationDate\":1687676990.355164},{\"name\":\"MONITOR_DEVICE_ID\",\"value\":\"65c57ae5-3e52-4caf-9a18-1e074e2a1b8f\",\"domain\":\"sso.douyin.com\",\"hostOnly\":true,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"session\":false,\"expirationDate\":1687676990.355908},{\"name\":\"MONITOR_WEB_ID\",\"value\":\"f8db0368-81c4-4867-abe0-025aaa7062d1\",\"domain\":\".sso.douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"session\":false,\"expirationDate\":1687676990.45684},{\"name\":\"s_v_web_id\",\"value\":\"verify_lfqhoc6i_KBqaGSBN_rJf7_4vfa_84Ks_1zBLhHHL1F11\",\"domain\":\"sso.douyin.com\",\"hostOnly\":true,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"session\":false,\"expirationDate\":1685084990},{\"name\":\"passport_assist_user\",\"value\":\"CkA_oJVA56lALkmksVyyzXEuv-mgP0zguZkfBSESfcYv0Y4kKVLwJLbhSsZhCLtHnAJzPqfiPOxRuaGpb_gk93fxGkgKPNboSP0z6N7rROBFIIB5g7M2rnRzRJyT6c0GKqOQJq_IuQKAwzSCe2dG78jUrR1ku3NlXijyxqe5aru8OxDr76wNGImv1lQiAQNsoim8\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":false,\"session\":false,\"expirationDate\":4833501757.465124},{\"name\":\"n_mh\",\"value\":\"41ffxTqP2MRdcFRVJjyO7uLS6wWwX80SpdbLxlEDNaM\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"httpOnly\":true,\"session\":false,\"expirationDate\":1690269757.465133},{\"name\":\"sso_uid_tt\",\"value\":\"294256498ffdf4347ee61bdc834c4408\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.465141},{\"name\":\"sso_uid_tt_ss\",\"value\":\"294256498ffdf4347ee61bdc834c4408\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.465151},{\"name\":\"toutiao_sso_user\",\"value\":\"71de69f044aca2a6316fbec0456cdc64\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.46516},{\"name\":\"toutiao_sso_user_ss\",\"value\":\"71de69f044aca2a6316fbec0456cdc64\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.465168},{\"name\":\"sid_ucp_sso_v1\",\"value\":\"1.0.0-KDA2MTVkZTBhNjRiY2VhMGUyN2E4YmE3M2VmMzM1NzBlMDRjOGE0YWUKHwjMqOGnjfSHARC7iIWhBhiWTiAMMOPAtfgFOAZA9AcaAmxmIiA3MWRlNjlmMDQ0YWNhMmE2MzE2ZmJlYzA0NTZjZGM2NA\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.465177},{\"name\":\"ssid_ucp_sso_v1\",\"value\":\"1.0.0-KDA2MTVkZTBhNjRiY2VhMGUyN2E4YmE3M2VmMzM1NzBlMDRjOGE0YWUKHwjMqOGnjfSHARC7iIWhBhiWTiAMMOPAtfgFOAZA9AcaAmxmIiA3MWRlNjlmMDQ0YWNhMmE2MzE2ZmJlYzA0NTZjZGM2NA\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.465186},{\"name\":\"odin_tt\",\"value\":\"b7ed96879d46e80a6524248603f28b3a0aafa308e4f69ae2053868431b3b39763e40ad38eaf75a79430852abb1c2558ba10d24f728baf7612cef593eb7b064c1\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"httpOnly\":true,\"session\":false,\"expirationDate\":1711437758.695816},{\"name\":\"passport_auth_status\",\"value\":\"94aba5fd77736fad5af65fd3ceb6df9c%2C\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":false,\"httpOnly\":true,\"session\":false,\"expirationDate\":1682493758.695834},{\"name\":\"passport_auth_status_ss\",\"value\":\"94aba5fd77736fad5af65fd3ceb6df9c%2C\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1682493758.695844},{\"name\":\"sid_guard\",\"value\":\"58a84057214deeb13678962fab4ec1a4%7C1679901756%7C5183999%7CFri%2C+26-May-2023+07%3A22%3A35+GMT\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1711005758.695854},{\"name\":\"uid_tt\",\"value\":\"fc064f0b46e2e14e88227988c94792fb\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695862},{\"name\":\"uid_tt_ss\",\"value\":\"fc064f0b46e2e14e88227988c94792fb\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695871},{\"name\":\"sid_tt\",\"value\":\"58a84057214deeb13678962fab4ec1a4\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695879},{\"name\":\"sessionid\",\"value\":\"58a84057214deeb13678962fab4ec1a4\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695887},{\"name\":\"sessionid_ss\",\"value\":\"58a84057214deeb13678962fab4ec1a4\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695897},{\"name\":\"sid_ucp_v1\",\"value\":\"1.0.0-KDc0ODZjZDZkMzNjZDQ4YTBmMjVhMGIxMzU3YjI5ODM5NzkzMDMxNzYKGQjMqOGnjfSHARC8iIWhBhiWTiAMOAZA9AcaAmxmIiA1OGE4NDA1NzIxNGRlZWIxMzY3ODk2MmZhYjRlYzFhNA\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695906},{\"name\":\"ssid_ucp_v1\",\"value\":\"1.0.0-KDc0ODZjZDZkMzNjZDQ4YTBmMjVhMGIxMzU3YjI5ODM5NzkzMDMxNzYKGQjMqOGnjfSHARC8iIWhBhiWTiAMOAZA9AcaAmxmIiA1OGE4NDA1NzIxNGRlZWIxMzY3ODk2MmZhYjRlYzFhNA\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1685085757.695915},{\"name\":\"ttwid\",\"value\":\"1%7CIHc4lHRFuccSX7yUp284YkysX6j0i8lNssgQXgq_4Bo%7C1679901757%7C33c8b9625461e597a59001b51bc9deca56c599f547843faa62a3d144075cc573\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":true,\"session\":false,\"expirationDate\":1711437759.621708},{\"name\":\"msToken\",\"value\":\"7mLynogitGrfEdbG9wjTVtlfAJhRhfokbcp8o_5IzAypmmC-ev1-dmTUUDmOKPERk_QBKJpbEQP85lIYyluQfpj-Obp6mUklSYZ5RilVSwI=\",\"domain\":\".douyin.com\",\"hostOnly\":false,\"path\":\"/\",\"secure\":true,\"httpOnly\":false,\"session\":false,\"expirationDate\":1680506560.497368}]",
+          taskId: "1640315050474565632",
+          prePubTime: null,
+          authorId: "597725581694028",
+          authorName: "获客管理专营店",
+          visibilityType: 1,
+          collection: [],
+          secondCollection: [],
+          goods: [{
+            yixiaoerName: "【直播专享】郑翔洲：连锁企业的商业模式和股权模式/兑换码",
+            shortTitle: "test",
+            yixiaoerId: "3607015906020076495",
+            yixiaoerImage: ["https://p3-sign.douyinpic.com/obj/ecom-shop-material/hKrpOMMc_m_dc783756b265dc299ea5c277e5251d06_sx_255345_www600-600?x-expires=1679932800&x-signature=5txK%2Fapi29uNoaoLT9m5dJsxORY%3D&from=3604061908", "https://p6-sign.douyinpic.com/obj/ecom-shop-material/hKrpOMMc_m_dc783756b265dc299ea5c277e5251d06_sx_255345_www600-600?x-expires=1679932800&x-signature=8xZYZwJsronPmrZX1t9%2BlOAsAUI%3D&from=3604061908", "https://p26-sign.douyinpic.com/obj/ecom-shop-material/hKrpOMMc_m_d30de7c104edd9089a85810b4f79aa82_sx_208982_www600-600?x-expires=1679932800&x-signature=f5SZ3xv04PHg0Lcjli11dInPg%2FU%3D&from=3604061908", "https://p26-sign.douyinpic.com/obj/ecom-shop-material/hKrpOMMc_m_96b57155a1d64c66790683cbd39bd793_sx_200109_www600-600?x-expires=1679932800&x-signature=ESIHvMeUO%2FntJJVi2jvFF142bkc%3D&from=3604061908"],
+            platImage: "https://lf3-cm.ecombdstatic.com/obj/temai/ab_c4aef1247a86892270679b66a6a1cdd8",
+            yixiaoerPrice: "365.0",
+            yixiaoerBonus: "3.6",
+            rawData: {
+              promotion_id: "3607015906020076495",
+              elastic_title: "",
+              elastic_img: "ecom-shop-material/hKrpOMMc_m_dc783756b265dc299ea5c277e5251d06_sx_255345_www600-600,ecom-shop-material/hKrpOMMc_m_dc783756b265dc299ea5c277e5251d06_sx_255345_www600-600,ecom-shop-material/hKrpOMMc_m_d30de7c104edd9089a85810b4f79aa82_sx_208982_www600-600,ecom-shop-material/hKrpOMMc_m_96b57155a1d64c66790683cbd39bd793_sx_200109_www600-600",
+              label: null,
+              product_id: "3607013273179929860",
+              promotion_source: 4,
+              third_party: 2
+            }
+          }],
+          mentionedUser: [],
+          poiId: "6601125353043789838",
+          poiName: "长沙市·芙蓉区",
+          topics: ["1个话题"],
+          hotSentence: "",
+          allownDownload: 0,
+          shouldSync: 1
+        }]
+      }
+
+      socket.emit("publish", JSON.stringify(publishData), (response) => {
+        console.log(JSON.parse(response));
+      });
+    };
+
+    // 查看平台数据
+    document.getElementById("seeAccount").onclick = () => {
+      // accountId 为真实的账号id(添加账号成功后的account id)
+        const cookie=[];
+      const accountInfo = {
+          accountId: "11",
+          platformId:1,
+          token: "",
+        authorizationModel: false,
+        cookie: JSON.stringify(cookie),
+      };
+      socket.emit("account-login", JSON.stringify(accountInfo), (response) => {
+        console.log("see-account-response", response);
+      });
+    };
+
+    // 数据同步
+    document.getElementById("datasync").onclick = () => {
+      const _cookie =[{"name":"sessionid","value":"AATVfYAEAAABAAAAAADqrzvsYz6i2AQcYbkbZCAAAADzrBEppsryM1QLZ%2BdDmBLm9XwcA0exd%2BeEMM5e%2BlsrR6UmEsvQITaFVkcXmvT%2FpZEUx4%2FgUM%2FhKwCoqbI2BnlW33p%2BOC6kQV%2BI2UTrmjB3%2Bi5PPPAOrFUflBEttBrN%2B4k%3D","domain":"channels.weixin.qq.com","hostOnly":true,"path":"/","secure":true,"httpOnly":false,"session":false,"expirationDate":255081838530.80298},{"name":"wxuin","value":"2129325701","domain":"channels.weixin.qq.com","hostOnly":true,"path":"/","secure":true,"httpOnly":false,"session":false,"expirationDate":255081838530.803},{"name":"authorId","value":"v2_060000231003b20faec8c6e78a18cad2cc06ef36b07760523b2e96995c291729ce332d36fc59@finder","domain":".channels.weixin.qq.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":255033043504.14465}];
+      const syncAccountInfo = [
+        {
+          accountId: 111,
+          platformId: 32,
+          cookie: JSON.stringify(_cookie),
+          syncAction: [
+            "SyncAccountReportListData",
+            "SyncAccountData",
+            "SyncAccountNotificationList",
+            "SyncAccountContentList",
+          ],
+          token: "",
+          startTime: "2023-03-15",
+          endTime: "2023-04-21",
+          callbackUrl:"https://***"
+        },
+        // {
+        //   accountId: 222,
+        //   platformId: 3,
+        //   cookie: JSON.stringify([{ domain: ".baidu.com", hostOnly: false, session: true, storeId: null, value: "7"}]),
+        //   syncAction: ["SyncAccountReportListData", "SyncAccountData"],
+        //   token: "",
+        //   startTime: "2022-03-25",
+        //   endTime: "2022-04-25",
+        // },
+      ];
+
+      console.log("syncAccountInfo", syncAccountInfo);
+      socket.emit(
+        "platforms-data-sync",
+        JSON.stringify(syncAccountInfo),
+        (response) => {
+          console.log(response);
+        }
+      );
+    };
+
+    // 监听数据同步回调
+    socket.on("sync-data-complete", (data) => {
+      console.log(JSON.parse(data));
+    });
+
+    const wxInfo = [];
+    // 监听发布进度
+    socket.on("publish-progress", (data) => {
+      const result = JSON.parse(data);
+      console.log(result);
+
+      // 打开微信扫码等待
+      if (result.wxPlatformAccountId.length > 0) {
+        document.querySelector(".modal").style = "display:block";
+      }
+
+      // 多个平台就会返回多个二维码
+      // 二维码已获取到
+      if (result.data && result.data.qrCodeUrl) {
+        const { wxPlatformAccountId, qrCodeUrl, authorName } = result.data;
+
+        // 查找是否存在
+        const current = wxInfo.find(
+          (x) => x.authorName === result.data.authorName
+        );
+        if (!current) {
+          // 添加进去
+          wxInfo.push({
+            authorName: authorName,
+            qrCodeUrl: qrCodeUrl,
+            accountPlatformId: wxPlatformAccountId,
+          });
+        }
+      }
+
+      if (result.message === "管理员取消发布" && wxInfo.length > 0) {
+        wxInfo.splice(0, 1);
+        // 如果有多个微信公众号，
+        // 需要把当前显示的二维码 换成下一个
+        if (wxInfo.length === 0) {
+          document.querySelector(".modal").style = "display:none";
+          return;
+        }
+        document
+          .querySelector(".wxcode")
+          .setAttribute("src", wxInfo[0].qrCodeUrl);
+        document.querySelector(".authName").innerText = wxInfo[0].authorName;
+        return;
+      }
+      if (wxInfo.length > 0) {
+        document
+          .querySelector(".wxcode")
+          .setAttribute("src", wxInfo[0].qrCodeUrl);
+        document.querySelector(".authName").innerText = wxInfo[0].authorName;
+      }
+    });
+
+    // 监听发布状态
+    socket.on("publish-status", (data) => {
+      const result = JSON.parse(data);
+      console.log("监听发布状态", JSON.parse(data));
+    });
+
+    // 检测账号登录状态
+    document.getElementById("checkAccountStatus").onclick = () => {
+      const _cookie =[
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254049,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sessionid",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "0539603a933bce235c114166c3ccf972"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1694744565,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "_S_IPAD",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "0"
+          },
+          {
+              "domain": ".mp.toutiao.com",
+              "expirationDate": 1663813298.194324,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "gfgarrcache_cc45d883",
+              "path": "/profile_v4/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1665986512.253963,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "passport_auth_status_ss",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "403097c3391dabd25c8382d9dbffded7%2C"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254078,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sid_ucp_v1",
+              "path": "/",
+              "sameSite": null,
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1.0.0-KGZjMDlkODQ0N2JjM2IwMmE4N2JjMTE4NzkwZGRlMjJlZTM2NDhkOTEKGQi-uJDW4PX9BRDQxZWZBhjPCSAMOAZA9AcaAmhsIiAwNTM5NjAzYTkzM2JjZTIzNWMxMTQxNjZjM2NjZjk3Mg"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578510.933993,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "ssid_ucp_sso_v1",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1.0.0-KGJmYzc3N2QyODAzNzE4MDBmNjM3NmI2YTE1NDlkODNkNGY2YjhhZDUKHwi-uJDW4PX9BRDOxZWZBhjPCSAMMMzbgvcFOAZA9AcaAmxmIiAzMmNiYTBlZGM0ZmM2ZjBhNzBmYjZhODEzYjZmZjUyMw"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254036,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sid_tt",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "0539603a933bce235c114166c3ccf972"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1694498512.25398,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sid_guard",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "0539603a933bce235c114166c3ccf972%7C1663394512%7C5183999%7CWed%2C+16-Nov-2022+06%3A01%3A51+GMT"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1663813390.361802,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "msToken",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "EPEQCzF8LM_8PsWj-G9xZAtBXcRXXd5ILusIZXSLum2AL0pxvfISPdMZZd8WxUAs1iKlMgsz4nRhgCBGtc47geREGJSFrYACxsyREW2I3fjq"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1673762510.933907,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "n_mh",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "EXP0mB_-2i_6-5QLsRUX0CHlZAoaevuCbRunT497-tk"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1694930485.310015,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "ttwid",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1%7C7fesX3hQYL2yfkvssB1REtVeCd3cLFcHXs1PKKbKo1E%7C1663394485%7Ccf40c9df25d3fba9d36ea518da1302363048d956b3d4a42b464c8f97dd2dcb1d"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254063,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sessionid_ss",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "0539603a933bce235c114166c3ccf972"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578510.933937,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sso_uid_tt_ss",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "6be85e6b851b4fa72a6aea126e1f2c94"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578510.933979,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sid_ucp_sso_v1",
+              "path": "/",
+              "sameSite": null,
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1.0.0-KGJmYzc3N2QyODAzNzE4MDBmNjM3NmI2YTE1NDlkODNkNGY2YjhhZDUKHwi-uJDW4PX9BRDOxZWZBhjPCSAMMMzbgvcFOAZA9AcaAmxmIiAzMmNiYTBlZGM0ZmM2ZjBhNzBmYjZhODEzYjZmZjUyMw"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578510.933965,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "toutiao_sso_user_ss",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "32cba0edc4fc6f0a70fb6a813b6ff523"
+          },
+          {
+              "domain": "mp.toutiao.com",
+              "expirationDate": 1696056564.088983,
+              "hostOnly": true,
+              "httpOnly": false,
+              "name": "_ba",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "BA0.2-20220625-5110e-SaxRejFwip9wwNHwNbpV"
+          },
+          {
+              "domain": ".mp.toutiao.com",
+              "expirationDate": 1696056601.632281,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "_ba",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "BA0.2-20220823-5110e-CXmP1utmSqp1StI2uX0X"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1694744565,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "_S_DPR",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "1"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1694744565,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "_S_WIN_WH",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "1920_937"
+          },
+          {
+              "domain": ".mp.toutiao.com",
+              "expirationDate": 1663999312.839219,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "gfgarrcache_7f99e34c",
+              "path": "/profile_v4/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1"
+          },
+          {
+              "domain": ".mp.toutiao.com",
+              "expirationDate": 1663999312.839259,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "gfsitesid",
+              "path": "/profile_v4/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "MDUzOTYwM2E5M3wxNjYzMzk0NTEyMzB8fDMzNjg1NTE2MjA4MTE4MzgHBwcHBwcH"
+          },
+          {
+              "domain": ".mp.toutiao.com",
+              "expirationDate": 1663999312.839281,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "gftoken",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "MDUzOTYwM2E5M3wxNjYzMzk0NTEyMzB8fDAGBgYGBgY"
+          },
+          {
+              "domain": ".mp.toutiao.com",
+              "expirationDate": 1671170485.397783,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "MONITOR_WEB_ID",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "308e461e-f2b5-48d7-bf60-412746dab37d"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1694930512.253903,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "odin_tt",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "62a60644d396a34a23c9174020f8aa732de6b219b58acbb28b3cf6155d5c4537cb06e44f9a6d83e26f7c79977bfc406a0ef6eb433ae35e529739159f016a8f3d"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1665986512.253948,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "passport_auth_status",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "403097c3391dabd25c8382d9dbffded7%2C"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1666436206.615787,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "passport_csrf_token",
+              "path": "/",
+              "sameSite": null,
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "a2e4c27ab645fe8bbb867d2b9c746183"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1666436206.615812,
+              "hostOnly": false,
+              "httpOnly": false,
+              "name": "passport_csrf_token_default",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "a2e4c27ab645fe8bbb867d2b9c746183"
+          },
+          {
+              "domain": "mp.toutiao.com",
+              "expirationDate": 1666436207,
+              "hostOnly": true,
+              "httpOnly": false,
+              "name": "s_v_web_id",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "verify_l762o763_9w6MPhTD_6pom_4U7v_A9Ct_p99WUxObciBS"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254093,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "ssid_ucp_v1",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "1.0.0-KGZjMDlkODQ0N2JjM2IwMmE4N2JjMTE4NzkwZGRlMjJlZTM2NDhkOTEKGQi-uJDW4PX9BRDQxZWZBhjPCSAMOAZA9AcaAmhsIiAwNTM5NjAzYTkzM2JjZTIzNWMxMTQxNjZjM2NjZjk3Mg"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578510.933922,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "sso_uid_tt",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "6be85e6b851b4fa72a6aea126e1f2c94"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578510.933951,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "toutiao_sso_user",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "32cba0edc4fc6f0a70fb6a813b6ff523"
+          },
+          {
+              "domain": "mp.toutiao.com",
+              "expirationDate": 1694930514,
+              "hostOnly": true,
+              "httpOnly": false,
+              "name": "tt_scid",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "oXvCkh8pYLogRPB2T09eTssOtnjRcbP.WTx308D7vP8zTKlHrZooMzBjcDd8DiPFb4dc"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1671170481.226544,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "tt_webid",
+              "path": "/",
+              "sameSite": null,
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "7135023023124760072"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254005,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "uid_tt",
+              "path": "/",
+              "sameSite": null,
+              "secure": false,
+              "session": false,
+              "storeId": null,
+              "value": "9d273d735e483c512250c7c45b631a3b"
+          },
+          {
+              "domain": ".toutiao.com",
+              "expirationDate": 1668578511.254022,
+              "hostOnly": false,
+              "httpOnly": true,
+              "name": "uid_tt_ss",
+              "path": "/",
+              "sameSite": "no_restriction",
+              "secure": true,
+              "session": false,
+              "storeId": null,
+              "value": "9d273d735e483c512250c7c45b631a3b"
+          }
+      ];
+      const params = [
+        {
+          platformId: 1,
+          platformAccountId: "b80fad38-d2b4-4c8e-b48a-fd8206009da8",
+          cookie: JSON.stringify(_cookie),
+          token: "222222222222222222222123",
+        },
+        {
+          platformId: 3,
+          platformAccountId: "b80fad38-d2b4-4c8e-b48a-fd8206009da8",
+          cookie: 'qweqweqwe',
+           token: "22222222222222222222212366666666666666666666666",
+        },
+      ];
+      socket.emit(
+        "check-account-login-status",
+        JSON.stringify(params),
+        (response) => {
+          console.log(JSON.parse(response));
+        }
+      );
+    };
+
+    // 删除作品
+    document.getElementById("deleteWorks").onclick = () => {
+        const cookie=[];
+      const params = {
+        platformId: 29,
+        cookie: JSON.stringify(cookie),
+        accountId: "45ce0cda-4a38-40e0-bdc3-6c6591318155",
+        mediaTypeEnum: "Article",
+        publishId: "506069612",
+      };
+
+      socket.emit(
+        "delete-account-works",
+        JSON.stringify(params),
+        (response) => {
+          console.log(JSON.parse(response));
+        }
+      );
+    };
+
+    // 获取文章发布状态
+    document.getElementById("workStatus").onclick = () => {
+      // getMediaContentStatus
+      const zhihucookie =[];
+      const params = {
+        platformId: 2,
+        cookie: JSON.stringify(zhihucookie),
+        token: "",
+        accountId: "45ce0cda-4a38-40e0-bdc3-6c6591318155",
+        mediaTypeEnum: "Article",
+        publishId: "1732162886649299112",
+        title: "古代好听的名字",
+      };
+
+      socket.emit("get-publish-status", JSON.stringify(params), (response) => {
+        console.log(JSON.parse(response));
+      });
+    };
+
+    // 监听用户在取消登陆时的动作(废弃，但可以使用)
+    socket.on('user-cancel-login',(response)=>{
+        console.log(JSON.parse(response))
+    })
+
+
+    // 获取图文视频发布分类
+    document.getElementById('getCategoryInfo').onclick=()=>{
+        const cookie=[];
+        const params={
+            platformId:15,
+            platformAccountCookie:JSON.stringify(cookie),
+            platformAccountToken:null,
+            platformAccountId:'36c5626a-cf43-4ed0-8435-f7dd39720743',
+            mediaTypeEnum:'Article' //  'Video' : 'MiniVideo',
+        };
+
+        socket.emit('get-categoryInfo',JSON.stringify(params),response=>{
+            const result=JSON.parse(response);
+            console.log('分类',result)
+        })
+
+    };
+
+    // 获取图文视频可参入活动
+    document.getElementById('getActivityList').onclick=()=>{
+        const cookie=[{"name":"sessionid","value":"AATVfYAEAAABAAAAAADqrzvsYz6i2AQcYbkbZCAAAADzrBEppsryM1QLZ%2BdDmBLm9XwcA0exd%2BeEMM5e%2BlsrR6UmEsvQITaFVkcXmvT%2FpZEUx4%2FgUM%2FhKwCoqbI2BnlW33p%2BOC6kQV%2BI2UTrmjB3%2Bi5PPPAOrFUflBEttBrN%2B4k%3D","domain":"channels.weixin.qq.com","hostOnly":true,"path":"/","secure":true,"httpOnly":false,"session":false,"expirationDate":255081838530.80298},{"name":"wxuin","value":"2129325701","domain":"channels.weixin.qq.com","hostOnly":true,"path":"/","secure":true,"httpOnly":false,"session":false,"expirationDate":255081838530.803},{"name":"authorId","value":"v2_060000231003b20faec8c6e78a18cad2cc06ef36b07760523b2e96995c291729ce332d36fc59@finder","domain":".channels.weixin.qq.com","hostOnly":false,"path":"/","secure":false,"httpOnly":false,"session":false,"expirationDate":255033043504.14465}];
+        const params={
+            platformId:32,
+            platformAccountCookie:JSON.stringify(cookie),
+            platformAccountToken:null,
+            platformAccountId:'36c5626a-cf43-4ed0-8435-f7dd39720743',
+            keyword:'王者',
+            mediaTypeEnum:1,// 0 图文  1 视频
+        };
+
+        socket.emit('get-activity-list',JSON.stringify(params),response=>{
+            const result=JSON.parse(response);
+            console.log('活动列表',result)
+        })
+    };
+
+
+    // 获取好友， 话题，热点事件
+    // GetMediaTopicInfo
+    document.getElementById('getmediaTopicInfo').onclick=()=>{
+        const cookie= [];
+
+        const params={
+            platformId:30,
+            platformAccountCookie:JSON.stringify(cookie),
+            platformAccountToken:null,
+            platformAccountId:'36c5626a-cf43-4ed0-8435-f7dd39720743',
+            mediaTypeEnum:'Video',// Video Article MiniVideo
+            dataType:2, // 1好友 2话题 3热点
+            keyWord:null // 搜索关键词
+        };
+
+        socket.emit('get-mediaTopicInfo',JSON.stringify(params),response=>{
+            const result=JSON.parse(response);
+            console.log('获取好友/话题/热点',result)
+        })
+    }
+
+    // 获取账号权益
+    document.getElementById('getPrivillegeDetail').onclick=()=>{
+        const cookie= [];
+        const params={
+            platformId:2,
+            platformAccountCookie:JSON.stringify(cookie),
+            platformAccountToken:null,
+            platformAccountId:'36c5626a-cf43-4ed0-8435-f7dd39720743',
+            mediaTypeEnum:'Article',// Video Article MiniVideo
+        };
+        socket.emit('get-account-privillege',JSON.stringify(params),response=>{
+            const result=JSON.parse(response);
+            console.log('账号权益',result)
+        })
+    }
+
+    // 获取地理位置 :暂无
+
+    // 获取图文视频当日剩余可发文数
+    document.getElementById('getPubilshNum').onclick=()=>{
+        const cookie= []
+        const cookie2=[]
+
+        const params=[
+            {
+                platformId:15,
+                platformAccountId:'36c5626a-cf43-4ed0-8435-f7dd39720743',
+                platformAccountCookie:JSON.stringify(cookie),
+                platformAccountToken:null,
+            },
+            {
+                platformId:2,
+                platformAccountId:'36c5626a-cf43-4ed0-8435-f7dd39720743',
+                platformAccountCookie:JSON.stringify(cookie2),
+                platformAccountToken:null,
+            }
+        ];
+
+        socket.emit('get-publishNum',JSON.stringify(params),(response)=>{
+            const result=JSON.parse(response);
+            console.log('剩余发文数',result)
+        })
+    }
+
+    // 修改连接状态
+    function changeStatus(msg) {
+      document.getElementById("status").innerText = msg;
+    }
+  </script>
+</html>

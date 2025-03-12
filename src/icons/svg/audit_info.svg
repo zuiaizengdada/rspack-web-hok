@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="短信中台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="短信管理-短信模版" transform="translate(-1163.000000, -761.000000)">
+            <g id="编组-10备份" transform="translate(272.000000, 287.000000)">
+                <g id="编组-4备份-4" transform="translate(0.000000, 448.000000)">
+                    <g id="标签/中标签/未申请" transform="translate(881.000000, 21.000000)">
+                        <g id="编组-57" transform="translate(10.000000, 2.000000)">
+                            <g id="time" transform="translate(0.000000, 3.000000)">
+                                <path d="M0,0 L14,0 L14,14 L0,14 L0,0 Z" id="time-(Background)"></path>
+                                <path d="M7.125,13.25 C3.7422559,13.25 1,10.5077443 1,7.125 C1,3.7422559 3.7422559,1 7.125,1 C10.5077443,1 13.25,3.7422559 13.25,7.125 C13.25,10.5077443 10.5077443,13.25 7.125,13.25 Z" fill="#717075"></path>
+                                <polygon id="路径" fill="#FFFFFF" fill-rule="nonzero" points="10 6.5 10 7.5 4 7.5 4 6.5"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

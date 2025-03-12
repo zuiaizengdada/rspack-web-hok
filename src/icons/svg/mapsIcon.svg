@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 31</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-1剪辑视频界面（大）" transform="translate(-28.000000, -160.000000)">
+            <g id="编组-31" transform="translate(28.000000, 160.000000)">
+                <rect id="矩形" x="0" y="0" width="32" height="32"></rect>
+                <g id="编组-27" transform="translate(2.500000, 2.500000)">
+                    <path d="M3.41437707,22.793288 L7.97689936,18.0135027 C8.64971774,17.3086453 9.73258527,17.1912649 10.5408112,17.7355803 L15.0249945,20.7555405 C15.529604,21.0953796 16.1614616,21.1870614 16.7418485,21.0046541 L19.9225098,20.0050177 C20.3584453,19.8680094 20.8281529,19.8844142 21.2534677,20.0515021 L24.4143771,21.293288 L24.4143771,21.293288" id="路径-2" stroke="#939799" stroke-width="1.2" stroke-linecap="round"></path>
+                    <circle id="椭圆形" stroke="#939799" stroke-width="1.2" cx="8.91437707" cy="9.79328796" r="3"></circle>
+                    <circle id="椭圆形" stroke="#999999" stroke-width="2" cx="13.5" cy="13.5" r="13.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

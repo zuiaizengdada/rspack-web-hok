@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 17</title>
+    <g id="自媒体运营" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="任务中心-文件传输" transform="translate(-1113.000000, -87.000000)">
+            <g id="编组-2备份" transform="translate(775.000000, 53.000000)">
+                <g id="编组-85" transform="translate(338.000000, 30.000000)">
+                    <g id="编组-17" transform="translate(0.000000, 4.000000)">
+                        <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
+                        <g id="编组" transform="translate(1.600000, 2.400000)" stroke="#777777" stroke-linejoin="round">
+                            <polygon id="路径" stroke-linecap="round" points="5.05263158 0 7.74736842 0 7.74736842 2.77570828 12.8 2.77570828 12.8 5.55140268 0 5.55140268 0 2.77570828 5.05263158 2.77570828"></polygon>
+                            <polygon id="路径" points="1.01052632 11.8265191 11.7894737 11.8265191 11.7894737 5.5812067 1.01052632 5.5812067"></polygon>
+                            <line x1="3.70526316" y1="11.7909902" x2="3.70526316" y2="9.71494428" id="路径" stroke-linecap="round"></line>
+                            <line x1="6.4" y1="11.7910249" x2="6.4" y2="9.70925411" id="路径" stroke-linecap="round"></line>
+                            <line x1="9.09473684" y1="11.7909902" x2="9.09473684" y2="9.71494428" id="路径" stroke-linecap="round"></line>
+                            <line x1="2.35789474" y1="11.8265191" x2="10.4421053" y2="11.8265191" id="路径" stroke-linecap="round"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,8 @@
+#!/bin/sh
+export COMSPEC="$(which cmd.exe)"
+export PATH="./node_modules/.bin:$PATH"
+
+# 确保 commitlint 安装在 node_modules 中
+commitlint --edit "$1"
+
+# 其他 linter 或脚本

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="师资管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="师资授权" transform="translate(-736.000000, -299.000000)" fill-rule="nonzero">
+            <g id="编组-4备份" transform="translate(272.000000, 292.000000)">
+                <g id="编组-4" transform="translate(464.000000, 4.000000)">
+                    <g id="24px/面性/提示/Error_强备份" transform="translate(0.000000, 3.000000)">
+                        <path d="M14,0 L0,0 L0,14 L14,14 L14,0 Z" id="矩形"></path>
+                        <g id="编组" transform="translate(0.583333, 0.583333)" fill="#F53F3F">
+                            <polygon id="路径" points="-2.80027187e-16 1.50980392 1.44319493 3.78628309e-16 6.41666667 4.88465975 11.3679354 5.75830553e-16 12.8333333 1.46539792 7.94867359 6.41666667 12.8333333 11.3457324 11.4123414 12.8333333 6.41666667 7.92647059 1.46539792 12.8333333 -3.78628309e-16 11.3679354 4.95126874 6.41666667"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

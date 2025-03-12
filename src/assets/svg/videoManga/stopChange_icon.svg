@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>close-circle-filled</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-账号管理" transform="translate(-730.000000, -434.000000)">
+            <g id="编组-136" transform="translate(245.000000, 89.000000)">
+                <g id="编组-10" transform="translate(20.000000, 196.000000)">
+                    <g id="编组-3备份" transform="translate(0.000000, 117.000000)">
+                        <g id="标签/中标签/未初始化" transform="translate(455.000000, 27.000000)">
+                            <g id="编组-57" transform="translate(10.000000, 2.000000)">
+                                <g id="close-circle-filled" transform="translate(0.000000, 3.000000)">
+                                    <path d="M0,0 L14,0 L14,14 L0,14 L0,0 Z" id="close-circle-filled-(Background)"></path>
+                                    <path d="M7.00000209,0.875 C3.61725798,0.875 0.875,3.61725423 0.875,6.99999833 C0.875,10.3827426 3.61725423,13.125 6.99999833,13.125 C10.3827426,13.125 13.125,10.382746 13.125,7.00000209 C13.125,3.61725798 10.382746,0.875 7.00000209,0.875 Z" fill="#F53F3F"></path>
+                                    <rect id="矩形" fill="#FFFFFF" x="4" y="6.5" width="6" height="1" rx="0.5"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

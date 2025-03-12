@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>启动互动</title>
+    <g id="直播列表-原型修改" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4-1.2-运营直播间-公共" transform="translate(-995.000000, -627.000000)">
+            <g id="编组-78" transform="translate(975.000000, 487.000000)">
+                <g id="编组-58备份-5" transform="translate(0.000000, 130.000000)">
+                    <g id="启动互动" transform="translate(20.000000, 10.000000)">
+                        <rect id="矩形" x="0" y="0" width="20" height="20"></rect>
+                        <path d="M5.91595947,1.97783552 C2.9981277,3.46625352 1,6.4997829 1,10 C1,14.9705627 5.02943725,19 10,19 C14.9705627,19 19,14.9705627 19,10 C19,6.49506535 16.9964826,3.45807727 14.0722377,1.97182574" id="路径" stroke="#333333" stroke-width="1.5" stroke-linecap="round"></path>
+                        <rect id="矩形" fill="#333333" x="9.3" y="0" width="1.4" height="8" rx="0.7"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

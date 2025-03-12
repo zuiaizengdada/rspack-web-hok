@@ -1,0 +1,34 @@
+{
+  "path-intellisense.mappings": {
+    "/@/": "${workspaceRoot}/src"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "[vue]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+      },
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "cSpell.words": [
+      "Bilibili",
+      "Kuaishou",
+      "Tiktok",
+      "Wechat",
+      "Xiaohongshu"
+    ],
+    "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+  },
+  "editor.inlineSuggest.showToolbar": "always",
+  "cSpell.words": [
+    "SMSAREALIST"
+  ]
+}

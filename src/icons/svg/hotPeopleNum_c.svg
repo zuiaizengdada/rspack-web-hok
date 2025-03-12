@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>椭圆形</title>
+    <defs>
+        <rect id="path-1" x="525" y="602.993151" width="272" height="144.006849" rx="10"></rect>
+        <filter x="-4.8%" y="-7.6%" width="109.6%" height="118.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.587805707   0 0 0 0 0.587805707   0 0 0 0 0.587805707  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="直播间加热弹窗" transform="translate(-545.000000, -623.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="1920" height="1080"></rect>
+            <g id="编组-79" transform="translate(-1.000000, 0.000000)" fill="#F5F5F5">
+                <rect id="矩形备份-13" x="341" y="69" width="1212" height="1011"></rect>
+            </g>
+            <rect id="矩形" fill="#5F5F5F" opacity="0.607096354" x="-2" y="0" width="1922" height="1081"></rect>
+            <g id="编组-62备份" transform="translate(485.000000, 203.000000)" fill="#FFFFFF">
+                <rect id="矩形" x="0" y="0" width="950" height="636" rx="10"></rect>
+            </g>
+            <g id="矩形备份-21">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <rect stroke="#00A3FF" stroke-width="1" stroke-linejoin="square" fill="#F4FBFF" fill-rule="evenodd" x="525.5" y="603.493151" width="271" height="143.006849" rx="10"></rect>
+            </g>
+            <g id="编组-85" transform="translate(545.000000, 623.000000)">
+                <circle id="椭圆形" fill="#01A3FF" cx="12" cy="12" r="12"></circle>
+                <g id="编组-81" transform="translate(3.000000, 3.000000)">
+                    <rect id="矩形" x="0" y="0" width="18" height="18"></rect>
+                    <g id="编组-80" transform="translate(0.900000, 2.700000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <g id="编组">
+                            <path d="M11.8013245,12.8741722 L10.7284768,12.8741722 C10.7284768,10.192053 8.58278146,8.04635762 5.90066226,8.04635762 C3.21854305,8.04635762 1.07284768,10.192053 1.07284768,12.8741722 L0,12.8741722 C0,9.65562913 2.68211921,6.97350992 5.90066226,6.97350992 C9.11920531,6.97350992 11.8013245,9.65562913 11.8013245,12.8741722 Z" id="路径"></path>
+                            <path d="M5.90066226,7.50993377 C3.86225167,7.50993377 2.14569537,5.90066224 2.14569537,3.75496689 C2.14569537,1.60927153 3.86225167,0 5.90066226,0 C7.93907285,0 9.65562914,1.71655629 9.65562914,3.75496689 C9.65562914,5.79337748 7.93907285,7.50993377 5.90066226,7.50993377 Z M5.90066226,1.07284768 C4.3986755,1.07284768 3.21854305,2.25298013 3.21854305,3.75496689 C3.21854305,5.25695364 4.3986755,6.43708609 5.90066226,6.43708609 C7.40264902,6.43708609 8.58278146,5.25695363 8.58278146,3.75496689 C8.58278146,2.25298014 7.40264902,1.07284768 5.90066226,1.07284768 Z M15.1271523,12.3377483 C15.1271523,10.2993377 13.9470199,8.58278145 12.1231788,7.83178807 L11.2649007,7.50993377 L11.9086093,6.97350992 C12.5523179,6.43708608 12.981457,5.68609271 12.981457,4.82781456 C12.981457,4.07682118 12.6596027,3.43311257 12.2304636,2.89668874 C11.6940397,2.36026489 11.0503311,2.14569536 10.2993378,2.14569536 L10.2993378,1.07284768 C11.2649007,1.07284768 12.2304636,1.50198675 12.981457,2.14569536 C13.7324503,2.89668874 14.0543046,3.75496689 14.0543046,4.82781456 C14.0543046,5.68609271 13.7324503,6.54437086 13.1960265,7.18807947 C15.0198676,8.26092715 16.2,10.192053 16.2,12.3377483 L15.1271523,12.3377483 Z" id="形状"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <rect id="矩形" stroke="#E7E7E7" x="505.5" y="540.5" width="909" height="227" rx="10"></rect>
+        </g>
+    </g>
+</svg>

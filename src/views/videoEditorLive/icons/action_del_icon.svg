@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 98备份 2</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-1剪辑视频界面（大）" transform="translate(-264.000000, -692.000000)">
+            <g id="下" transform="translate(0.000000, 682.000000)">
+                <g id="编组-98备份-2" transform="translate(264.000000, 10.000000)">
+                    <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+                    <g id="编组-97" transform="translate(3.000000, 3.000000)" stroke="#DEDEDE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                        <line x1="12" y1="7" x2="12" y2="15" id="路径"></line>
+                        <line x1="6" y1="15" x2="6" y2="7" id="路径"></line>
+                        <path d="M1,4 L17,4 L17,16.2 C17,17.1941126 16.1941126,18 15.2,18 L2.79999995,18 C1.80588743,18 1,17.1941126 1,16.2 L1,4 L1,4 Z" id="矩形"></path>
+                        <path d="M4,0 L14,0 L14,2.20000005 C14,3.19411257 13.1941126,4 12.2,4 L5.79999995,4 C4.80588743,4 4,3.19411257 4,2.20000005 L4,0 L4,0 Z" id="矩形" transform="translate(9.000000, 2.000000) scale(1, -1) translate(-9.000000, -2.000000) "></path>
+                        <polyline id="路径" points="0 4 0 4 18 4"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

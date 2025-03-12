@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 22</title>
+    <g id="1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="人才档案" transform="translate(-28.000000, -90.000000)">
+            <g id="编组-22" transform="translate(28.000000, 90.000000)">
+                <rect id="矩形" x="0" y="0" width="20" height="20"></rect>
+                <path d="M8.74341649,10 L11.2565835,10 C14.0893058,10 16.6042146,11.8126437 17.5,14.5 L18.1225148,16.3675445 C18.4718104,17.4154311 17.9054904,18.5480711 16.8576038,18.8973666 C16.6536708,18.9653442 16.4401124,19 16.2251482,19 L3.77485177,19 C2.67028227,19 1.77485177,18.1045695 1.77485177,17 C1.77485177,16.7850358 1.80950753,16.5714774 1.87748518,16.3675445 L2.5,14.5 C3.39578544,11.8126437 5.91069422,10 8.74341649,10 Z" id="矩形" stroke="#333333"></path>
+                <circle id="椭圆形" stroke="#333333" cx="10" cy="4.5" r="4"></circle>
+                <g id="编组-11" transform="translate(7.085786, 9.760000)" fill="#0C6FFF" stroke="#0C6FFF" stroke-linejoin="round" stroke-width="1.35">
+                    <rect id="矩形" transform="translate(2.914214, 1.414214) rotate(45.000000) translate(-2.914214, -1.414214) " x="1.91421356" y="0.414213562" width="2" height="2"></rect>
+                    <polygon id="矩形备份-7" transform="translate(2.914214, 5.914214) rotate(45.000000) translate(-2.914214, -5.914214) " points="0.853553391 3.85355339 4.97487373 5.97487373 4.97487373 7.97487373 2.97487373 7.97487373"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

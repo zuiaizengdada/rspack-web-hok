@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="直播列表-原型修改" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-1-直播列表" transform="translate(-1095.000000, -620.000000)">
+            <g id="编组-13" transform="translate(272.000000, 285.000000)">
+                <g id="编组-7" transform="translate(0.000000, 38.000000)">
+                    <g id="编组-22备份-4" transform="translate(0.000000, 276.000000)">
+                        <g id="编组-21" transform="translate(56.000000, 16.000000)">
+                            <g id="标签/中标签/未申请" transform="translate(757.000000, 0.000000)">
+                                <g id="编组-57" transform="translate(10.000000, 2.000000)">
+                                    <g id="time" transform="translate(0.000000, 3.000000)">
+                                        <path d="M0,0 L14,0 L14,14 L0,14 L0,0 Z" id="time-(Background)"></path>
+                                        <path d="M7.125,13.25 C3.7422559,13.25 1,10.5077443 1,7.125 C1,3.7422559 3.7422559,1 7.125,1 C10.5077443,1 13.25,3.7422559 13.25,7.125 C13.25,10.5077443 10.5077443,13.25 7.125,13.25 Z" fill="#F53F3F"></path>
+                                        <polygon id="路径" fill="#FFFFFF" fill-rule="nonzero" transform="translate(7.000000, 6.000000) rotate(-270.000000) translate(-7.000000, -6.000000) " points="10 5.5 10 6.5 4 6.5 4 5.5"></polygon>
+                                        <path d="M7.5,10.5 C7.5,10.7761424 7.27614237,11 7,11 C6.72385763,11 6.5,10.7761424 6.5,10.5 C6.5,10.2238576 6.72385763,10 7,10 C7.27614237,10 7.5,10.2238576 7.5,10.5 Z" id="路径备份-2" fill="#FFFFFF" fill-rule="nonzero" transform="translate(7.000000, 10.500000) rotate(-270.000000) translate(-7.000000, -10.500000) "></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

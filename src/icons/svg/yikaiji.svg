@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="自媒体运营2.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="云桌面弹窗-已开机" transform="translate(-859.000000, -84.000000)">
+            <g id="编组-2" transform="translate(601.000000, 51.000000)">
+                <g id="编组-5" transform="translate(258.000000, 31.000000)">
+                    <g id="编组-4" transform="translate(0.000000, 2.000000)">
+                        <rect id="矩形" x="0" y="0" width="20" height="20"></rect>
+                        <g id="编组" transform="translate(3.000000, 4.000000)" stroke="currentColor">
+                            <rect id="矩形" stroke-linecap="round" stroke-linejoin="round" x="5.15789474" y="8.59701493" width="3.68421053" height="3.2238806"></rect>
+                            <rect id="矩形" x="0" y="0" width="14" height="8.59701493" rx="0.736842105"></rect>
+                            <line x1="6.26315789" y1="6.80597015" x2="7.73684211" y2="6.80597015" id="路径" stroke-linecap="round" stroke-linejoin="round"></line>
+                            <line x1="3.31578947" y1="11.8208955" x2="10.6842105" y2="11.8208955" id="路径" stroke-linecap="round" stroke-linejoin="round"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

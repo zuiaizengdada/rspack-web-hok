@@ -1,0 +1,3429 @@
+{
+  "code": 1,
+  "data": [
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "teacherCenter/kanban/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "Kanban",
+            "noCache": true,
+            "permsList": [],
+            "redirect": "jying",
+            "title": "数据看板"
+          },
+          "name": "Kanban",
+          "path": "Kanban",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/findTeacher/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/findTeacher",
+                "icon": "#",
+                "link": "list",
+                "noCache": false,
+                "permsList": [
+                  "web:findTeacher:baidu",
+                  "web:findTeacher:B",
+                  "web:findTeacher:douyin",
+                  "web:findTeacher:kuaishou",
+                  "web:findTeacher:hong"
+                ],
+                "redirect": null,
+                "title": "寻找师资列表"
+              },
+              "name": "FindTeacherList",
+              "path": "list",
+              "query": null
+            }
+          ],
+          "component": "teacherCenter/findTeacher/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "findTeacher",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "寻找师资"
+          },
+          "name": "FindTeacher",
+          "path": "findTeacher",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teachFile/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teachFile",
+                "icon": "#",
+                "link": "list",
+                "noCache": false,
+                "permsList": [
+                  "web:teachFileList:page",
+                  "web:teachFileList:add",
+                  "web:teachFileList:detail",
+                  "web:teachFileList:edit",
+                  "web:teachFileList:schedule",
+                  "web:teachFileList:assess",
+                  "web:teachFileList:authorize",
+                  "web:teachFileList:plan",
+                  "web:teachFileList:case",
+                  "web:teachFileList:courseware",
+                  "web:teachFileList:order",
+                  "web:teachFileList:reminder"
+                ],
+                "redirect": null,
+                "title": "师资档案列表"
+              },
+              "name": "TeachFileList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "teacherCenter/teachFile/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/teacherCenter/teachFile",
+                "icon": "#",
+                "link": "detail/:id",
+                "noCache": true,
+                "permsList": [
+                  "web:teachFileDetail:page",
+                  "web:teachFileDetail:edit"
+                ],
+                "redirect": null,
+                "title": "师资档案详情"
+              },
+              "name": "TeachFileDetail",
+              "path": "detail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teachFile/add",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teachFile",
+                "icon": "#",
+                "link": "add",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "新增师资"
+              },
+              "name": "TeachFileAdd",
+              "path": "add",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teachFile/edit",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teachFile",
+                "icon": "#",
+                "link": "edit/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "编辑师资"
+              },
+              "name": "TeachFileEdit",
+              "path": "edit/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "teacherCenter/teachFile/teacherNameModify",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "",
+                "icon": "#",
+                "link": "teacherNameModify",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "讲师姓名修改"
+              },
+              "name": "teacherNameModify",
+              "path": "teacherNameModify",
+              "query": null
+            }
+          ],
+          "component": "teacherCenter/teachFile/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "teachFile",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "师资档案"
+          },
+          "name": "TeachFileList",
+          "path": "teachFile",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teacherAssessment/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teacherAssessment",
+                "icon": "#",
+                "link": "list",
+                "noCache": false,
+                "permsList": [
+                  "web:teachAssessmentList:page",
+                  "web:teachAssessmentList:detail"
+                ],
+                "redirect": null,
+                "title": "师资评估列表"
+              },
+              "name": "TeacherAssessmentList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teacherAssessment/detail",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teacherAssessment",
+                "icon": "#",
+                "link": "detail/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "师资评估详情"
+              },
+              "name": "TeachFileDetail",
+              "path": "detail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teacherAssessment/assess",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teacherAssessment",
+                "icon": "#",
+                "link": "assess/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "师资评估"
+              },
+              "name": "TeachFileAssess",
+              "path": "assess/:id",
+              "query": null
+            }
+          ],
+          "component": "teacherCenter/teacherAssessment/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "teacherAssessment",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "师资评估"
+          },
+          "name": "TeacherAssessment",
+          "path": "teacherAssessment",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teacherAuthorization/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teacherAuthorization",
+                "icon": "#",
+                "link": "list",
+                "noCache": false,
+                "permsList": [
+                  "web:teachAuthorList:page",
+                  "web:teachAuthorList:detail",
+                  "web:teachAuthorList:edit"
+                ],
+                "redirect": null,
+                "title": "师资授权列表"
+              },
+              "name": "teacherAuthorizationList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teacherAuthorization/detail",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teacherAuthorization",
+                "icon": "#",
+                "link": "detail/:id",
+                "noCache": true,
+                "permsList": [
+                  "web:teachAuthorDetail:page",
+                  "web:teachAuthorDetail:export"
+                ],
+                "redirect": null,
+                "title": "师资授权详情"
+              },
+              "name": "teacherAuthorizationDetail",
+              "path": "detail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/teacherAuthorization/edit",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/teacherAuthorization",
+                "icon": "#",
+                "link": "edit/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "师资授权编辑"
+              },
+              "name": "TeacherAuthorizationEdit",
+              "path": "edit/:id",
+              "query": null
+            }
+          ],
+          "component": "teacherCenter/teacherAuthorization/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "teacherAuthorization",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "师资授权"
+          },
+          "name": "TeacherAuthorization",
+          "path": "teacherAuthorization",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/contractFile/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/contractFile",
+                "icon": "#",
+                "link": "list",
+                "noCache": false,
+                "permsList": [
+                  "web:contractList:page",
+                  "web:contractList:add",
+                  "web:contractList:edit",
+                  "web:contractList:detail",
+                  "web:contractList:setting",
+                  "web:contractList:batchImport"
+                ],
+                "redirect": null,
+                "title": "合同档案列表"
+              },
+              "name": "ContractFileList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/contractFile/detail",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/contractFile",
+                "icon": "#",
+                "link": "detail/:id",
+                "noCache": true,
+                "permsList": [
+                  "web:contractDetailt:page",
+                  "web:contractDetailt:remove"
+                ],
+                "redirect": null,
+                "title": "合同档案详情"
+              },
+              "name": "ContractFileDetail",
+              "path": "detail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/contractFile/add",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/contractFile",
+                "icon": "#",
+                "link": "add",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "合同档案新增"
+              },
+              "name": "ContractFileAdd",
+              "path": "add",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/contractFile/edit",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/contractFile",
+                "icon": "#",
+                "link": "edit/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "合同档案编辑"
+              },
+              "name": "ContractFileEdit",
+              "path": "edit/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "teacherCenter/contractFile/rescind",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/teacherCenter/contractFile",
+                "icon": "#",
+                "link": "rescind/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "解除合同档案"
+              },
+              "name": "RescindContract",
+              "path": "rescind/:id",
+              "query": null
+            }
+          ],
+          "component": "teacherCenter/contractFile/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "contractFile",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "合同档案"
+          },
+          "name": "ContractFile",
+          "path": "contractFile",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "teacherCenter/schedule/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "schedule",
+            "noCache": true,
+            "permsList": [
+              "web:schduleList:page",
+              "web:schduleList:setting",
+              "web:schedule:edit",
+              "web:teachFileList:schedule"
+            ],
+            "redirect": null,
+            "title": "排期表"
+          },
+          "name": "Schedule",
+          "path": "schedule",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "yonghu",
+        "link": "/teacherCenter",
+        "noCache": true,
+        "permsList": ["web:teachFileList:page"],
+        "redirect": null,
+        "title": "师资管理"
+      },
+      "name": "",
+      "path": "/teacherCenter",
+      "query": null
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/productDataBoard/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "productDataBoard",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "数据看板"
+          },
+          "name": "productDataBoard",
+          "path": "productDataBoard",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "productManage/problemManage/index",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/productManage/problemManage",
+                "icon": "#",
+                "link": "/productManage/problemManage/list",
+                "noCache": false,
+                "permsList": [
+                  "web:problemManage:results",
+                  "web:problemManage:import",
+                  "web:problemManage:detail",
+                  "web:demandManage:add"
+                ],
+                "redirect": null,
+                "title": "列表"
+              },
+              "name": "problemManageList",
+              "path": "/productManage/problemManage/list",
+              "query": null
+            }
+          ],
+          "component": "layout",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "problemManage",
+            "noCache": true,
+            "permsList": [],
+            "redirect": "/productManage/problemManage/list",
+            "title": "问题管理"
+          },
+          "name": "problemManage",
+          "path": "/productManage/problemManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/demandManage/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "/productManage/demandManage",
+            "noCache": true,
+            "permsList": [
+              "web:demandManage:add",
+              "web:demandManage:edit",
+              "web:demandManage:seek"
+            ],
+            "redirect": null,
+            "title": "话题管理"
+          },
+          "name": "DemandManage",
+          "path": "/productManage/demandManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "productManage/caseManage/modal",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/productManage/caseManage",
+                "icon": "#",
+                "link": "/caseManage/modal",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "新增选题-页面"
+              },
+              "name": "caseManageModal",
+              "path": "/caseManage/modal",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "productManage/caseManage/details",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/productManage/caseManage",
+                "icon": "#",
+                "link": "/caseManage/details/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "选题详情-页面"
+              },
+              "name": "caseManageDetails",
+              "path": "/caseManage/details/:id",
+              "query": null
+            }
+          ],
+          "component": "productManage/caseManage/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "/productManage/caseManage",
+            "noCache": true,
+            "permsList": [
+              "web:caseManage:seek",
+              "web:caseManage:add",
+              "web:caseManage:detail",
+              "web:caseManage:edit"
+            ],
+            "redirect": null,
+            "title": "选题管理"
+          },
+          "name": "caseManage",
+          "path": "/productManage/caseManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/caseFinding/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "/productManage/caseFinding",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "寻找选题"
+          },
+          "name": "caseFinding",
+          "path": "/productManage/caseFinding",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "productManage/teacherCaseManage/index",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "",
+                "icon": "#",
+                "link": "/caseManage/teacherList/:teacherId",
+                "noCache": true,
+                "permsList": [
+                  "web:teacherCaseManage:batchDelete",
+                  "web:teacherCaseManage:detail",
+                  "web:teacherCaseManage:edit",
+                  "web:teacherCaseManage:delete"
+                ],
+                "redirect": null,
+                "title": "讲师管理"
+              },
+              "name": "caseManageTeacherList",
+              "path": "/caseManage/teacherList/:teacherId",
+              "query": null
+            }
+          ],
+          "component": "productManage/planManage/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "/productManage/planManage",
+            "noCache": true,
+            "permsList": [
+              "web:planManage:add",
+              "web:planManage:edit",
+              "web:planManage:check",
+              "web:planManage:createLink",
+              "web:planManage:review",
+              "web:planManage:demonstration",
+              "web:planManage:download"
+            ],
+            "redirect": null,
+            "title": "计划管理"
+          },
+          "name": "planManage",
+          "path": "/productManage/planManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "productManage/courseManage/courseInsert",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "",
+                "icon": "#",
+                "link": "courseInsert",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "课件新增"
+              },
+              "name": "courseInsert",
+              "path": "courseInsert",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "productManage/courseManage/courseDetail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "",
+                "icon": "#",
+                "link": "courseDetail",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "课件详情"
+              },
+              "name": "courseDetail",
+              "path": "courseDetail",
+              "query": null
+            }
+          ],
+          "component": "productManage/courseManage/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "courseManage",
+            "noCache": true,
+            "permsList": [
+              "web:courseManage:add",
+              "web:courseManage:detail",
+              "web:courseManage:edit",
+              "web:courseManage:copy"
+            ],
+            "redirect": null,
+            "title": "课件管理"
+          },
+          "name": "courseManage",
+          "path": "courseManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/courseDoc/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "/productManage/courseDoc",
+            "noCache": true,
+            "permsList": [
+              "system:courseDoc:tree:add",
+              "system:courseDoc:tree:edit",
+              "system:courseDoc:tree:del",
+              "system:material:recycleBin:reduction",
+              "system:material:recycleBin:del",
+              "system:material:recycleBin:reductionAll",
+              "system:material:recycleBin:delAll",
+              "system:courseDoc:moveAll",
+              "system:courseDoc:copyAll",
+              "system:courseDoc:delAll",
+              "system:courseDoc:addFile",
+              "system:courseDoc:see",
+              "system:courseDoc:download",
+              "system:courseDoc:more",
+              "system:courseDoc:cover",
+              "system:courseDoc:move",
+              "system:courseDoc:copy",
+              "system:courseDoc:open",
+              "system:courseDoc:editName",
+              "system:courseDoc:del"
+            ],
+            "redirect": null,
+            "title": "课程文件"
+          },
+          "name": "courseDoc",
+          "path": "/productManage/courseDoc",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "productManage/casePlatform/index",
+          "hidden": true,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "caseCourseManage",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "选题平台管理"
+          },
+          "name": "caseCourseManage",
+          "path": "caseCourseManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "productManage/problemManage/keyword",
+          "hidden": true,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "/problemDetails/:keyword",
+            "noCache": true,
+            "permsList": ["web:demandManage:add", "web:problemManage:detail"],
+            "redirect": null,
+            "title": "问题关键词管理"
+          },
+          "name": "problemDetails",
+          "path": "/problemDetails/:keyword",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "education",
+        "link": "/productManagement",
+        "noCache": true,
+        "permsList": [],
+        "redirect": null,
+        "title": "产品管理"
+      },
+      "name": "",
+      "path": "/productManagement",
+      "query": null
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "privateArea/CWChat",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "CWChat",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "企微设置"
+          },
+          "name": "CWChat",
+          "path": "CWChat",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "privateArea/CWRobot",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "CWRobot",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "企微机器人"
+          },
+          "name": "CWRobot",
+          "path": "CWRobot",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "privateArea/CWUser",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "CWUser",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "企微员工"
+          },
+          "name": "CWUser",
+          "path": "CWUser",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "privateArea/group/list",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/privateArea/group",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "企微群发列表"
+              },
+              "name": "PrivateAreaGroupList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "privateArea/group/detail",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/group",
+                "icon": "#",
+                "link": "detail",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "企微群发详情"
+              },
+              "name": "PrivateAreaGroupDetail",
+              "path": "detail",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "privateArea/group/add",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/group",
+                "icon": "#",
+                "link": "add",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "企微群发添加"
+              },
+              "name": "PrivateAreaGroupAdd",
+              "path": "add",
+              "query": null
+            }
+          ],
+          "component": "privateArea/group/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "group",
+            "noCache": true,
+            "permsList": ["user:query"],
+            "redirect": null,
+            "title": "企微群发"
+          },
+          "name": "PrivateAreaGroup",
+          "path": "group",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "privateArea/class/allClass",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/class",
+                "icon": "#",
+                "link": "allClass",
+                "noCache": true,
+                "permsList": ["web:class:export"],
+                "redirect": null,
+                "title": "全部班级"
+              },
+              "name": "PrivateAreaAllClass",
+              "path": "allClass",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "privateArea/class/deptClass",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/class",
+                "icon": "#",
+                "link": "deptClass",
+                "noCache": true,
+                "permsList": ["web:class:export"],
+                "redirect": null,
+                "title": "部门班级"
+              },
+              "name": "PrivateAreaDeptClass",
+              "path": "deptClass",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "privateArea/class/myClass",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/privateArea/class",
+                "icon": "#",
+                "link": "myClass",
+                "noCache": true,
+                "permsList": ["web:class:export"],
+                "redirect": null,
+                "title": "我的班级"
+              },
+              "name": "PrivateAreaMyClass",
+              "path": "myClass",
+              "query": null
+            }
+          ],
+          "component": "privateArea/class/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "class",
+            "noCache": true,
+            "permsList": ["user:query"],
+            "redirect": null,
+            "title": "我的班级"
+          },
+          "name": "PrivateAreaClass",
+          "path": "class",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "marketingManagement/distribution/promoteProducts",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/distribution",
+                "icon": "#",
+                "link": "promoteProducts",
+                "noCache": true,
+                "permsList": [
+                  "web:promoteProducts:add",
+                  "web:promoteProducts:edit",
+                  "web:promoteProducts:remove",
+                  "web:promoteProducts:list"
+                ],
+                "redirect": null,
+                "title": "推广商品"
+              },
+              "name": "PromoteProducts",
+              "path": "promoteProducts",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "marketingManagement/distribution/promoter",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/distribution",
+                "icon": "#",
+                "link": "promoter",
+                "noCache": true,
+                "permsList": [
+                  "web:promotePromoter:add",
+                  "web:promotePromoter:edit",
+                  "web:promotePromoter:remove",
+                  "web:promotePromoter:log",
+                  "web:promotePromoter:list"
+                ],
+                "redirect": null,
+                "title": "推广员"
+              },
+              "name": "Promoter",
+              "path": "promoter",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "marketingManagement/distribution/promotionPerformance",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/distribution",
+                "icon": "#",
+                "link": "promotionPerformance",
+                "noCache": true,
+                "permsList": [
+                  "web:promotePerformance:export",
+                  "web:promoteLog:export",
+                  "web:promotePerformance:list"
+                ],
+                "redirect": null,
+                "title": "推广业绩"
+              },
+              "name": "PromotionPerformance",
+              "path": "promotionPerformance",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "marketingManagement/distribution/promotionStatistics",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/privateArea/distribution",
+                "icon": "#",
+                "link": "promotionStatistics",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "推广统计"
+              },
+              "name": "PromotionStatistics",
+              "path": "promotionStatistics",
+              "query": null
+            }
+          ],
+          "component": "marketingManagement/distribution/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "distribution",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "分销"
+          },
+          "name": "Distribution",
+          "path": "distribution",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "marketingManagement/CWActivateTask",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "CWActivateTask",
+            "noCache": true,
+            "permsList": ["system:template:query"],
+            "redirect": null,
+            "title": "企微激活任务"
+          },
+          "name": "CWActivateTask",
+          "path": "CWActivateTask",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "tools/questionnaire/list",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/privateArea/questionnaire",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "问卷列表"
+              },
+              "name": "QuestionnaireList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "tools/questionnaire/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/privateArea/questionnaire",
+                "icon": "#",
+                "link": "detail",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "问卷数据"
+              },
+              "name": "QuestionnaireDetail",
+              "path": "detail",
+              "query": null
+            }
+          ],
+          "component": "tools/questionnaire/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "questionnaire",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "问卷"
+          },
+          "name": "Questionnaire",
+          "path": "questionnaire",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "component": "privateArea/weChatOpenCapacity/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "weChatOpenCapacity",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "企微能力开放"
+          },
+          "name": "WeChatOpenCapacity",
+          "path": "weChatOpenCapacity",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "siyuyunying",
+        "link": "/privateArea",
+        "noCache": true,
+        "permsList": [],
+        "redirect": null,
+        "title": "私域运营"
+      },
+      "name": "",
+      "path": "/privateArea",
+      "query": null
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "deliver/liveDeliver",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "liveDeliver",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "直播交付"
+          },
+          "name": "LiveDeliver",
+          "path": "liveDeliver",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "deliver/myLiveDeliver",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "myLiveDeliver",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "我的直播交付"
+          },
+          "name": "MyLiveDeliver",
+          "path": "myLiveDeliver",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "deliver/deliverStatistics",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "deliverStatistics",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "数据看板"
+          },
+          "name": "DeliverStatistics",
+          "path": "deliverStatistics",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "component": "deliver/scheduleManagement/allSchedule",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/deliver/scheduleManagement",
+                "icon": "#",
+                "link": "scheduleManagementAllSchedule",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "全部班期"
+              },
+              "name": "ScheduleManagementAllSchedule",
+              "path": "scheduleManagementAllSchedule",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "component": "deliver/scheduleManagement/mySchedule",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/deliver/scheduleManagement",
+                "icon": "#",
+                "link": "scheduleManagementMySchedule",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "我的班期"
+              },
+              "name": "ScheduleManagementMySchedule",
+              "path": "scheduleManagementMySchedule",
+              "query": null
+            }
+          ],
+          "component": "deliver/scheduleManagement/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "scheduleManagement",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "班期管理"
+          },
+          "name": "ScheduleManagement",
+          "path": "scheduleManagement",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "component": "deliver/studentManagement/allStudent",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/deliver/studentManagement",
+                "icon": "#",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "全部学员"
+              },
+              "name": "StudentManagementAllStudent",
+              "path": "studentManagementAllStudent",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "component": "deliver/studentManagement/myStudent",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/deliver/studentManagement",
+                "icon": "#",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "我的学员"
+              },
+              "name": "StudentManagementMyStudent",
+              "path": "studentManagementMyStudent",
+              "query": null
+            }
+          ],
+          "component": "deliver/studentManagement/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "学员管理"
+          },
+          "name": "StudentManagement",
+          "path": "studentManagement",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "zhibo",
+        "link": "/deliver",
+        "noCache": true,
+        "permsList": [],
+        "redirect": null,
+        "title": "售后管理"
+      },
+      "name": "",
+      "path": "/deliver",
+      "query": null
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "shop/material",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "material",
+            "noCache": true,
+            "permsList": [
+              "system:material:query",
+              "system:material:add",
+              "system:material:edit",
+              "system:material:remove",
+              "system:recycle:query",
+              "system:recycle:edit",
+              "system:recycle:remove",
+              "web:material:down",
+              "system:dir:add",
+              "system:dir:edit",
+              "system:dir:remove",
+              "system:dir:query",
+              "system:material:relationOff",
+              "system:material:relationOn",
+              "system:material:addFile"
+            ],
+            "redirect": null,
+            "title": "素材中心"
+          },
+          "name": "Material",
+          "path": "material",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "shop/thirdShop",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "thirdShop",
+            "noCache": true,
+            "permsList": [
+              "system:shop:third:query",
+              "system:shop:third:add",
+              "system:shop:third:edit",
+              "system:shop:third:remove"
+            ],
+            "redirect": null,
+            "title": "第三方店铺"
+          },
+          "name": "ThirdShop",
+          "path": "thirdShop",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "shop/thirdImputation",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "thirdImputation",
+            "noCache": true,
+            "permsList": [
+              "system:third:query",
+              "system:third:add",
+              "system:third:edit",
+              "system:third:remove"
+            ],
+            "redirect": null,
+            "title": "第三方归集"
+          },
+          "name": "ThirdImputation",
+          "path": "thirdImputation",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "course/video/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/shop/video",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:goods:query",
+                  "system:goods:add",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf"
+                ],
+                "redirect": null,
+                "title": "视频列表"
+              },
+              "name": "VideoList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/video/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/video",
+                "icon": "#",
+                "link": "videoDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "system:recommend:add",
+                  "system:recommend:edit",
+                  "system:recommend:remove",
+                  "system:practice:query",
+                  "system:practice:add",
+                  "system:practice:edit",
+                  "system:practice:remove",
+                  "system:comment:query",
+                  "system:comment:add",
+                  "system:comment:edit",
+                  "system:comment:remove",
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "system:dou:query",
+                  "system:dou:add",
+                  "system:dou:remove",
+                  "system:shop:third:query",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf",
+                  "system:order:expired",
+                  "web:user:add",
+                  "web:content:add",
+                  "web:content:edit",
+                  "web:content:remove",
+                  "web:content:watch",
+                  "web:content:sort"
+                ],
+                "redirect": null,
+                "title": "视频详情"
+              },
+              "name": "VideoDetail",
+              "path": "videoDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/video/add",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/video",
+                "icon": "#",
+                "link": "videoAdd",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "视频新增"
+              },
+              "name": "VideoEdit",
+              "path": "videoAdd",
+              "query": null
+            }
+          ],
+          "component": "course/video/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "video",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "视频"
+          },
+          "name": "Video",
+          "path": "video",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "course/audio/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/shop/audio",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:goods:query",
+                  "system:goods:add",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf"
+                ],
+                "redirect": null,
+                "title": "音频列表"
+              },
+              "name": "AudioList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/audio/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/audio",
+                "icon": "#",
+                "link": "audioDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "system:recommend:add",
+                  "system:recommend:edit",
+                  "system:recommend:remove",
+                  "system:practice:query",
+                  "system:practice:add",
+                  "system:practice:edit",
+                  "system:practice:remove",
+                  "system:comment:query",
+                  "system:comment:add",
+                  "system:comment:edit",
+                  "system:comment:remove",
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "system:dou:query",
+                  "system:dou:add",
+                  "system:dou:remove",
+                  "system:shop:third:query",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf",
+                  "system:order:expired",
+                  "web:user:add",
+                  "web:content:add",
+                  "web:content:sort"
+                ],
+                "redirect": null,
+                "title": "音频详情"
+              },
+              "name": "AudioDetail",
+              "path": "audioDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/audio/add",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/audio",
+                "icon": "#",
+                "link": "audioAdd",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "音频新增"
+              },
+              "name": "AudioAdd",
+              "path": "audioAdd",
+              "query": null
+            }
+          ],
+          "component": "course/audio/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "audio",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "音频"
+          },
+          "name": "Audio",
+          "path": "audio",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "course/image/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/shop/image",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:goods:query",
+                  "system:goods:add",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf"
+                ],
+                "redirect": null,
+                "title": "图文列表"
+              },
+              "name": "ImageList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/image/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/image",
+                "icon": "#",
+                "link": "imageDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "system:recommend:add",
+                  "system:recommend:edit",
+                  "system:recommend:remove",
+                  "system:practice:query",
+                  "system:practice:add",
+                  "system:practice:edit",
+                  "system:practice:remove",
+                  "system:comment:query",
+                  "system:comment:add",
+                  "system:comment:edit",
+                  "system:comment:remove",
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "system:dou:query",
+                  "system:dou:add",
+                  "system:dou:remove",
+                  "system:shop:third:query",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf",
+                  "system:order:expired",
+                  "web:user:add",
+                  "web:content:add",
+                  "web:content:sort"
+                ],
+                "redirect": null,
+                "title": "图文详情"
+              },
+              "name": "ImageDetail",
+              "path": "imageDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/image/add",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/image",
+                "icon": "#",
+                "link": "imageAdd",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "图文新增"
+              },
+              "name": "ImageAdd",
+              "path": "imageAdd",
+              "query": null
+            }
+          ],
+          "component": "course/image/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "image",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "图文"
+          },
+          "name": "Image",
+          "path": "image",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "course/column/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/shop/packageColumn",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:goods:query",
+                  "system:goods:add",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf"
+                ],
+                "redirect": null,
+                "title": "专栏列表"
+              },
+              "name": "PackageColumn",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/liveColumn/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/packageColumn",
+                "icon": "#",
+                "link": "liveColumnDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "user:add",
+                  "system:recommend:edit",
+                  "system:practice:query",
+                  "user:query",
+                  "system:dou:query",
+                  "system:shop:third:query",
+                  "system:dou:add",
+                  "user:edit",
+                  "system:recommend:remove",
+                  "user:remove",
+                  "user:export",
+                  "user:label:add",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:recommend:add",
+                  "system:goods:shelf",
+                  "web:user:add",
+                  "system:order:expired",
+                  "web:content:add",
+                  "system:dou:remove",
+                  "system:comment:query",
+                  "system:practice:add",
+                  "user:import",
+                  "web:content:sort",
+                  "web:content:remove",
+                  "web:content:watch"
+                ],
+                "redirect": null,
+                "title": "直播专栏详情"
+              },
+              "name": "liveColumnDetail",
+              "path": "liveColumnDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/column/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/packageColumn",
+                "icon": "#",
+                "link": "columnDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "system:recommend:add",
+                  "system:recommend:edit",
+                  "system:recommend:remove",
+                  "system:practice:query",
+                  "system:practice:add",
+                  "system:practice:edit",
+                  "system:practice:remove",
+                  "system:comment:query",
+                  "system:comment:add",
+                  "system:comment:edit",
+                  "system:comment:remove",
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "system:dou:query",
+                  "system:dou:add",
+                  "system:dou:remove",
+                  "system:shop:third:query",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf",
+                  "web:user:add",
+                  "system:order:expired",
+                  "web:content:add",
+                  "web:content:sort",
+                  "web:content:remove",
+                  "web:content:watch"
+                ],
+                "redirect": null,
+                "title": "专栏详情"
+              },
+              "name": "ColumnDetail",
+              "path": "columnDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/column/add",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/packageColumn",
+                "icon": "#",
+                "link": "columnAdd",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "专栏新增"
+              },
+              "name": "ColumnAdd",
+              "path": "columnAdd",
+              "query": null
+            }
+          ],
+          "component": "course/column/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "packageColumn",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "专栏"
+          },
+          "name": "PackageColumn",
+          "path": "packageColumn",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "course/collegeColumn/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/shop/packageCollegeColumn",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:goods:query",
+                  "system:goods:add",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf"
+                ],
+                "redirect": null,
+                "title": "大专栏列表"
+              },
+              "name": "PackageCollegeColumnList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/collegeColumn/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/packageCollegeColumn",
+                "icon": "#",
+                "link": "collegeColumnDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "system:recommend:add",
+                  "system:recommend:edit",
+                  "system:recommend:remove",
+                  "system:practice:query",
+                  "system:practice:add",
+                  "system:practice:edit",
+                  "system:practice:remove",
+                  "system:comment:query",
+                  "system:comment:add",
+                  "system:comment:edit",
+                  "system:comment:remove",
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "system:dou:query",
+                  "system:dou:add",
+                  "system:dou:remove",
+                  "system:shop:third:query",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf",
+                  "system:order:expired",
+                  "web:user:add",
+                  "web:content:add",
+                  "web:content:sort"
+                ],
+                "redirect": null,
+                "title": "大专栏详情"
+              },
+              "name": "CollegeColumnDetail",
+              "path": "collegeColumnDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/collegeColumn/edit",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/package/collegeColumn",
+                "icon": "#",
+                "link": "collegeColumnEdit/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "大专栏编辑"
+              },
+              "name": "CollegeColumnEdit",
+              "path": "collegeColumnEdit/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/collegeColumn/add",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/packageCollegeColumn",
+                "icon": "#",
+                "link": "collegeColumnAdd",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "大专栏新增"
+              },
+              "name": "CollegeColumnAdd",
+              "path": "collegeColumnAdd",
+              "query": null
+            }
+          ],
+          "component": "course/collegeColumn/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "packageCollegeColumn",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "大专栏"
+          },
+          "name": "PackageCollegeColumn",
+          "path": "packageCollegeColumn",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "course/offline/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/shop/offline",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:goods:query",
+                  "system:goods:add",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf"
+                ],
+                "redirect": null,
+                "title": "线下课程列表"
+              },
+              "name": "Offline",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/offline/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/offline",
+                "icon": "#",
+                "link": "offlineDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:recommend:query",
+                  "system:recommend:add",
+                  "system:recommend:edit",
+                  "system:recommend:remove",
+                  "system:practice:query",
+                  "system:practice:add",
+                  "system:practice:edit",
+                  "system:practice:remove",
+                  "system:comment:query",
+                  "system:comment:add",
+                  "system:comment:edit",
+                  "system:comment:remove",
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "system:dou:query",
+                  "system:dou:add",
+                  "system:dou:remove",
+                  "system:shop:third:query",
+                  "system:goods:query",
+                  "system:goods:edit",
+                  "system:goods:remove",
+                  "web:goods:share",
+                  "system:goods:shelf",
+                  "system:order:expired",
+                  "web:user:add",
+                  "web:content:add",
+                  "web:content:sort"
+                ],
+                "redirect": null,
+                "title": "线下课程详情"
+              },
+              "name": "OfflineDetail",
+              "path": "offlineDetail/:id",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/offline/add",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/offline",
+                "icon": "#",
+                "link": "offlineAdd",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "线下课程新增"
+              },
+              "name": "OfflineAdd",
+              "path": "offlineAdd",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "course/offline/edit",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/shop/offline",
+                "icon": "#",
+                "link": "offlineEdit/:id",
+                "noCache": true,
+                "permsList": [],
+                "redirect": null,
+                "title": "线下课程编辑"
+              },
+              "name": "OfflineEdit",
+              "path": "offlineEdit/:id",
+              "query": null
+            }
+          ],
+          "component": "course/offline/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "offline",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "线下课程"
+          },
+          "name": "Offline",
+          "path": "offline",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "liveManagement/index",
+          "hidden": true,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "live",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "直播"
+          },
+          "name": "Live",
+          "path": "live",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "shop/thirdShop/shopCheck",
+          "hidden": true,
+          "meta": {
+            "activeMenu": "/shop/thirdShop",
+            "icon": "#",
+            "link": "thirdShopCheck",
+            "noCache": true,
+            "permsList": [
+              "system:goods:third:query",
+              "system:goods:third:remove",
+              "system:goods:third:export"
+            ],
+            "redirect": null,
+            "title": "三方商品核对"
+          },
+          "name": "ThirdShopCheck",
+          "path": "thirdShopCheck",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "shop/thirdShop/shopDetail",
+          "hidden": true,
+          "meta": {
+            "activeMenu": "/shop/thirdShop",
+            "icon": "#",
+            "link": "shopDetail",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "售后单数量详情"
+          },
+          "name": "ShopThirdShopDetail",
+          "path": "shopDetail",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "shop",
+        "link": "/shop",
+        "noCache": true,
+        "permsList": [],
+        "redirect": null,
+        "title": "店铺运营"
+      },
+      "name": "Shop",
+      "path": "/shop",
+      "query": ""
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "business/order/orderList",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/business/order",
+                "icon": "#",
+                "link": "orderList",
+                "noCache": true,
+                "permsList": [
+                  "system:order:query",
+                  "system:order:add",
+                  "system:order:edit",
+                  "system:order:remove",
+                  "system:order:export",
+                  "system:student:query",
+                  "system:order:price",
+                  "system:order:send",
+                  "system:order:active:send",
+                  "system:order:expired",
+                  "system:order:follower"
+                ],
+                "redirect": null,
+                "title": "订单管理列表"
+              },
+              "name": "OrderList",
+              "path": "orderList",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "business/order/orderDetail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/business/order",
+                "icon": "#",
+                "link": "order/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:after:confirm",
+                  "system:order:query",
+                  "system:order:follower",
+                  "system:after:card"
+                ],
+                "redirect": null,
+                "title": "订单详情"
+              },
+              "name": "OrderDetail",
+              "path": "order/:id",
+              "query": null
+            }
+          ],
+          "component": "business/order/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "order",
+            "noCache": true,
+            "permsList": ["system:my:order:query"],
+            "redirect": null,
+            "title": "订单管理"
+          },
+          "name": "Order",
+          "path": "order",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "business/order/myOrder/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/business/myOrder",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:my:order:query",
+                  "system:order:export",
+                  "system:order:add",
+                  "system:order:edit",
+                  "system:order:remove",
+                  "system:order:price",
+                  "system:order:send",
+                  "system:order:active:send",
+                  "system:order:expired",
+                  "system:student:query",
+                  "system:order:follower"
+                ],
+                "redirect": null,
+                "title": "我的订单列表"
+              },
+              "name": "MyOrderList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "business/order/myOrder/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/business/myOrder",
+                "icon": "#",
+                "link": "myOrder/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:after:confirm",
+                  "system:order:query",
+                  "system:order:follower",
+                  "system:after:card"
+                ],
+                "redirect": null,
+                "title": "我的订单详情"
+              },
+              "name": "MyOrderDetail",
+              "path": "myOrder/:id",
+              "query": null
+            }
+          ],
+          "component": "business/order/myOrder/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "myOrder",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "我的订单"
+          },
+          "name": "MyOrder",
+          "path": "myOrder",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "business/paySetting/paySettingList",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/business/paySetting",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": ["system:after:query"],
+                "redirect": null,
+                "title": "售后列表"
+              },
+              "name": "PaySetting",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "business/paySetting/paySettingDetail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/business/paySetting",
+                "icon": "#",
+                "link": "paySetting/:id",
+                "noCache": true,
+                "permsList": ["system:after:confirm", "system:after:query"],
+                "redirect": null,
+                "title": "售后详情"
+              },
+              "name": "PaySettingDetail",
+              "path": "paySetting/:id",
+              "query": null
+            }
+          ],
+          "component": "business/paySetting/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "paySetting",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "售后维权"
+          },
+          "name": "PaySetting",
+          "path": "paySetting",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "business/earlyWarning/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "earlyWarning",
+            "noCache": true,
+            "permsList": [
+              "web:order:link",
+              "system:warning:query",
+              "system:order:manual",
+              "system:warning:edit",
+              "web:warning:follow",
+              "system:order:active:send"
+            ],
+            "redirect": null,
+            "title": "预警订单"
+          },
+          "name": "EarlyWarning",
+          "path": "earlyWarning",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "business/myEarlyWarning/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "MyEarlyWarning",
+            "noCache": true,
+            "permsList": [
+              "system:my:warning:query",
+              "system:my:warning:edit",
+              "system:my:order:active:send",
+              "system:my:order:manual",
+              "web:my:order:link",
+              "web:warning:follow"
+            ],
+            "redirect": null,
+            "title": "我的预警订单"
+          },
+          "name": "MyEarlyWarning",
+          "path": "MyEarlyWarning",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "finance/virtualCurrency/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "virtualCurrency",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "虚拟币"
+          },
+          "name": "VirtualCurrency",
+          "path": "virtualCurrency",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "jiaoyi",
+        "link": "/business",
+        "noCache": false,
+        "permsList": ["system:after:query", "system:warning:query"],
+        "redirect": null,
+        "title": "交易管理"
+      },
+      "name": "Business",
+      "path": "/business",
+      "query": ""
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "messageManager/message",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "message",
+            "noCache": true,
+            "permsList": [
+              "system:message:edit",
+              "system:message:remove",
+              "system:message:query"
+            ],
+            "redirect": null,
+            "title": "留言反馈"
+          },
+          "name": "Message",
+          "path": "message",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "messageManager/blacklist",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "blacklist",
+            "noCache": true,
+            "permsList": [
+              "system:blackwhite:query",
+              "system:blackwhite:add",
+              "system:blackwhite:edit",
+              "system:blackwhite:remove"
+            ],
+            "redirect": null,
+            "title": "黑白名单"
+          },
+          "name": "Blacklist",
+          "path": "blacklist",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "messageManager/messageLog",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "messageLog",
+            "noCache": true,
+            "permsList": ["system:msg:remove", "system:msg:query"],
+            "redirect": null,
+            "title": "消息记录"
+          },
+          "name": "MessageLog",
+          "path": "messageLog",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "messageManager/template",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "messageTemplate",
+            "noCache": true,
+            "permsList": [
+              "system:template:query",
+              "system:template:add",
+              "system:template:edit",
+              "system:template:remove"
+            ],
+            "redirect": null,
+            "title": "消息模板"
+          },
+          "name": "MessageTemplate",
+          "path": "messageTemplate",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "messageManager/messagesetup",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "messagesetup",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "消息设置"
+          },
+          "name": "Messagesetup",
+          "path": "messagesetup",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "shop/goodsDivision/list",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/messageManager/goodsDivision",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:catalogue:query",
+                  "system:catalogue:add",
+                  "system:catalogue:edit",
+                  "system:catalogue:remove",
+                  "web:catalogue:share"
+                ],
+                "redirect": null,
+                "title": "商品分类列表"
+              },
+              "name": "GoodsDivisionList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "shop/goodsDivision/edit",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/messageManager/goodsDivision",
+                "icon": "#",
+                "link": "goodsDivision/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:grouping:add",
+                  "system:grouping:edit",
+                  "system:grouping:remove",
+                  "system:grouping:query",
+                  "system:catalogue:edit",
+                  "system:catalogue:remove",
+                  "web:catalogue:share",
+                  "web:grouping:share"
+                ],
+                "redirect": null,
+                "title": "内容管理"
+              },
+              "name": "GoodsDivisionEdit",
+              "path": "goodsDivision/:id",
+              "query": null
+            }
+          ],
+          "component": "shop/goodsDivision/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "goodsDivision",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "商品分类"
+          },
+          "name": "GoodsDivision",
+          "path": "goodsDivision",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "shop/grouping/list",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/messageManager/goodsGrouping",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "system:group:add",
+                  "system:group:query",
+                  "system:group:edit",
+                  "system:group:remove"
+                ],
+                "redirect": null,
+                "title": "商品分组列表"
+              },
+              "name": "GoodsGroupingList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "shop/grouping/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/messageManager/goodsGrouping",
+                "icon": "#",
+                "link": "goodsGrouping/:id",
+                "noCache": true,
+                "permsList": [
+                  "system:grouping:relation:query",
+                  "system:grouping:relation:add",
+                  "system:grouping:relation:remove",
+                  "web:groupDetail:edit"
+                ],
+                "redirect": null,
+                "title": "分组详情"
+              },
+              "name": "GoodsGroupingDetail",
+              "path": "goodsGrouping/:id",
+              "query": null
+            }
+          ],
+          "component": "shop/grouping/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "goodsGrouping",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "商品分组"
+          },
+          "name": "GoodsGrouping",
+          "path": "goodsGrouping",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "shop/teacher",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "teacher",
+            "noCache": true,
+            "permsList": [
+              "system:lecturer:query",
+              "system:lecturer:add",
+              "system:lecturer:edit",
+              "system:lecturer:remove111"
+            ],
+            "redirect": null,
+            "title": "讲师管理"
+          },
+          "name": "Teacher",
+          "path": "teacher",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "shop/banner",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "banner",
+            "noCache": true,
+            "permsList": [
+              "system:banner:query",
+              "system:banner:add",
+              "system:banner:edit",
+              "system:banner:remove"
+            ],
+            "redirect": null,
+            "title": "轮播图"
+          },
+          "name": "Banner",
+          "path": "banner",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "shop/search",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "search",
+            "noCache": true,
+            "permsList": [
+              "system:search:query",
+              "system:search:add",
+              "system:search:edit",
+              "system:search:remove"
+            ],
+            "redirect": null,
+            "title": "搜索管理"
+          },
+          "name": "Search",
+          "path": "search",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "xiaoxiguanli",
+        "link": "/messageManager",
+        "noCache": false,
+        "permsList": [],
+        "redirect": null,
+        "title": "平台运营"
+      },
+      "name": "Message",
+      "path": "/messageManager",
+      "query": ""
+    },
+    {
+      "alwaysShow": true,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "basicSettings/industry",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "industry",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "行业管理"
+          },
+          "name": "Industry",
+          "path": "industry",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "basicSettings/area",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "area",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "领域管理"
+          },
+          "name": "Area",
+          "path": "area",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/wordsManage/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "wordsManage",
+            "noCache": true,
+            "permsList": [
+              "web:wordsManage:delete",
+              "web:wordsManage:import",
+              "web:wordsManage:add"
+            ],
+            "redirect": null,
+            "title": "分词管理"
+          },
+          "name": "wordsManage",
+          "path": "wordsManage",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/deliveryScenario/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "deliveryScenario",
+            "noCache": true,
+            "permsList": [
+              "web:deliveryScenario:add",
+              "web:deliveryScenario:edit",
+              "web:deliveryScenario:delete"
+            ],
+            "redirect": null,
+            "title": "交付场景管理"
+          },
+          "name": "deliveryScenario",
+          "path": "deliveryScenario",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "productManage/casePlatform/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "casePlatform",
+            "noCache": true,
+            "permsList": [
+              "web:casePlatform:add",
+              "web:casePlatform:edit",
+              "web:casePlatform:delete"
+            ],
+            "redirect": null,
+            "title": "选题平台管理"
+          },
+          "name": "casePlatform",
+          "path": "casePlatform",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "system/employee",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "employee",
+            "noCache": false,
+            "permsList": [
+              "system:user:query",
+              "system:user:add",
+              "system:user:edit",
+              "system:user:remove",
+              "system:user:export",
+              "system:user:import",
+              "system:user:resetPwd",
+              "system:user:disable",
+              "system:dept:query",
+              "system:dept:add",
+              "system:dept:edit",
+              "system:dept:remove",
+              "system:user:edit1",
+              "system:role:query"
+            ],
+            "redirect": null,
+            "title": "员工管理"
+          },
+          "name": "User",
+          "path": "employee",
+          "query": ""
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "system/role",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "role",
+            "noCache": false,
+            "permsList": [
+              "system:role:query",
+              "system:role:add",
+              "system:role:edit",
+              "system:role:remove",
+              "system:role:export"
+            ],
+            "redirect": null,
+            "title": "角色管理"
+          },
+          "name": "Role",
+          "path": "role",
+          "query": ""
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "system/modules/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "role",
+            "noCache": false,
+            "permsList": [
+              "system:role:query",
+              "system:role:add",
+              "system:role:edit",
+              "system:role:remove",
+              "system:role:export"
+            ],
+            "redirect": null,
+            "title": "模块管理"
+          },
+          "name": "modulesManage",
+          "path": "modules",
+          "query": ""
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "system/menu",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "menu",
+            "noCache": false,
+            "permsList": [
+              "system:menu:query",
+              "system:menu:add",
+              "system:menu:edit",
+              "system:menu:remove"
+            ],
+            "redirect": null,
+            "title": "菜单管理"
+          },
+          "name": "Menu",
+          "path": "menu",
+          "query": ""
+        },
+        {
+          "alwaysShow": null,
+          "children": [
+            {
+              "alwaysShow": null,
+              "children": [],
+              "component": "system/member/member",
+              "hidden": false,
+              "meta": {
+                "activeMenu": "/system/member",
+                "icon": "#",
+                "link": "list",
+                "noCache": true,
+                "permsList": [
+                  "user:query",
+                  "user:add",
+                  "user:edit",
+                  "user:remove",
+                  "user:export",
+                  "user:import",
+                  "user:label:add",
+                  "user:edit"
+                ],
+                "redirect": null,
+                "title": "用户管理列表"
+              },
+              "name": "MemberList",
+              "path": "list",
+              "query": null
+            },
+            {
+              "alwaysShow": null,
+              "children": null,
+              "component": "system/member/detail",
+              "hidden": true,
+              "meta": {
+                "activeMenu": "/system/member",
+                "icon": "#",
+                "link": "memberDetail/:id",
+                "noCache": true,
+                "permsList": [
+                  "user:edit",
+                  "web:wallet:handsel",
+                  "web:wallet:freeze",
+                  "user:query",
+                  "web:user:follower"
+                ],
+                "redirect": null,
+                "title": "用户详情"
+              },
+              "name": "MemberDetail",
+              "path": "memberDetail/:id",
+              "query": null
+            }
+          ],
+          "component": "system/member/index",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "member",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "用户管理"
+          },
+          "name": "MemberManage",
+          "path": "member",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "system/label",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "label",
+            "noCache": true,
+            "permsList": [
+              "system:label:query",
+              "system:label:add",
+              "system:label:edit",
+              "system:label:remove"
+            ],
+            "redirect": null,
+            "title": "标签管理"
+          },
+          "name": "Label",
+          "path": "label",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "system/dept/index",
+          "hidden": true,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "dept",
+            "noCache": false,
+            "permsList": [],
+            "redirect": null,
+            "title": "部门管理"
+          },
+          "name": "Dept",
+          "path": "dept",
+          "query": ""
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "basicSettings/videoDeliverySettings",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "视频交付设置"
+          },
+          "name": "VideoDeliverySettings",
+          "path": "videoDeliverySettings",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "basicSettings/reminderSettings",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "提醒设置"
+          },
+          "name": "ReminderSettings",
+          "path": "reminderSettings",
+          "query": null
+        },
+        {
+          "alwaysShow": null,
+          "children": [],
+          "component": "basicSettings/paymentChannel",
+          "hidden": false,
+          "meta": {
+            "activeMenu": "",
+            "icon": "#",
+            "link": "",
+            "noCache": true,
+            "permsList": [],
+            "redirect": null,
+            "title": "收款渠道"
+          },
+          "name": "PaymentChannel",
+          "path": "paymentChannel",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": false,
+      "meta": {
+        "activeMenu": "",
+        "icon": "xitongguanli",
+        "link": "/system",
+        "noCache": false,
+        "permsList": [],
+        "redirect": null,
+        "title": "系统管理"
+      },
+      "name": "User",
+      "path": "/system",
+      "query": ""
+    },
+    {
+      "alwaysShow": null,
+      "children": [
+        {
+          "alwaysShow": null,
+          "children": null,
+          "component": "InnerLink",
+          "hidden": false,
+          "meta": null,
+          "name": "Component",
+          "path": "component",
+          "query": null
+        }
+      ],
+      "component": "Layout",
+      "hidden": true,
+      "meta": {
+        "activeMenu": "",
+        "icon": "#",
+        "link": "component",
+        "noCache": true,
+        "permsList": [
+          "system:user:list",
+          "system:lecturer:query",
+          "system:shop:third:query",
+          "system:label:query",
+          "system:catalogue:query",
+          "system:goods:query",
+          "system:dir:query",
+          "system:material:query"
+        ],
+        "redirect": null,
+        "title": "系统基础组件权限【权限】"
+      },
+      "name": "",
+      "path": "/",
+      "query": null
+    }
+  ],
+  "msg": null
+}

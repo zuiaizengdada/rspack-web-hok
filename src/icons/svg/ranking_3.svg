@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 17</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.86024913%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FEA14A" offset="0%"></stop>
+            <stop stop-color="#FFC98C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.86024913%" x2="50%" y2="97.9786557%" id="linearGradient-2">
+            <stop stop-color="#FE9E49" offset="0%"></stop>
+            <stop stop-color="#FFD294" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFD600" offset="0%"></stop>
+            <stop stop-color="#FFAC00" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.05751266%" x2="50%" y2="99.2651879%" id="linearGradient-4">
+            <stop stop-color="#FAB34E" offset="0%"></stop>
+            <stop stop-color="#FF9D49" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="138.28125%" y1="115.639468%" x2="-12.9930106%" y2="14.490316%" id="linearGradient-5">
+            <stop stop-color="#FF945C" offset="0%"></stop>
+            <stop stop-color="#FFE2A3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="2.2.1榜单数据" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="运营数据榜单方案二" transform="translate(-302.000000, -568.000000)">
+            <g id="编组-17" transform="translate(302.000000, 568.000000)">
+                <rect id="矩形备份-5" x="0" y="0" width="32" height="32"></rect>
+                <g id="编组-14" transform="translate(6.000000, 2.000000)">
+                    <polygon id="路径-2" fill="url(#linearGradient-1)" points="3.03306334 17.0731707 2.30248307 3.03422398 7.59049263 3.03422398 7.59049263 14.757976"></polygon>
+                    <polygon id="路径-2备份" fill="url(#linearGradient-2)" transform="translate(15.014208, 10.053697) scale(-1, 1) translate(-15.014208, -10.053697) " points="13.1007834 17.0731707 12.3702032 3.03422398 17.6582127 3.03422398 17.6582127 14.757976"></polygon>
+                    <rect id="矩形" fill="url(#linearGradient-3)" x="0" y="0" width="20" height="3.03422398"></rect>
+                    <circle id="椭圆形" fill="url(#linearGradient-4)" cx="10" cy="19" r="10"></circle>
+                    <circle id="椭圆形备份-10" stroke="url(#linearGradient-5)" cx="10" cy="19" r="8.5"></circle>
+                    <text id="3" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" fill="#BC640F">
+                        <tspan x="6" y="24">3</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,498 @@
+<template>
+  <div class="channel">
+    <div v-if="!queryParams.isShowLogo" class="title">渠道业绩</div>
+    <div v-else class="title-t">
+      <div class="label-t">
+        <img class="icon-t" :src="icon" alt="">
+        <span>{{ name }}店铺业绩</span>
+      </div>
+      <div class="back-t" @click="backQD">
+        <img
+          class="icon-b"
+          src="@/assets/image/operateData/backqd.png"
+          alt=""
+        >
+        <span>返回</span>
+      </div>
+    </div>
+    <div class="tables">
+      <div class="tr-t">
+        <div class="th-t one" style="">{{ getLabel }}</div>
+        <div class="th-t two" style="">{{ getTotalCountLabel }}</div>
+        <div class="th-t three">{{ getTotalRatioLabel }}</div>
+      </div>
+      <div
+        id="channelList"
+        v-loading="loading"
+        class="body-t"
+        element-loading-spinner="el-icon-loading"
+      >
+        <div
+          v-for="(item, tIndex) in tableData"
+          :id="'channel' + tIndex"
+          :key="tIndex"
+          class="tr-d"
+        >
+          <div
+            :class="{ 'td-t': true, 'select-td': item.isCheck }"
+            @click="checkItem(item)"
+          >
+            <div class="headImg" style="width: 41%">
+              <img :src="item.logoImgUrl" alt="">
+              <span>{{ item.name }}</span>
+            </div>
+            <div class="amount" style="width: 25%">
+              <el-tooltip class="item" effect="dark" :content="filterPriceTo(item.amount)" placement="top">
+                <span>{{ filterPrice(item.amount) }}</span>
+              </el-tooltip>
+            </div>
+            <div style="width: 30%" class="totalRatio">
+              <img v-if="item.compareRatio >= 0" :src="up" alt="">
+              <img v-else :src="down" alt="">
+              <span>{{ fillDataString(item.compareRatio) }}</span>
+            </div>
+          </div>
+          <span
+            v-if="!queryParams.isShowLogo"
+            class="detail"
+            @click="toDetail(item)"
+          >明细
+            <img :src="gotoImg" alt="">
+          </span>
+        </div>
+        <el-empty
+          v-if="tableData.length < 1"
+          :image-size="70"
+          description="暂无数据"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import {
+  getChannelData,
+  getTabRefundAmount,
+  getShopData,
+  getShopDataRefund
+} from '@/api/business'
+import down from '@/assets/image/operateData/down.png'
+import up from '@/assets/image/operateData/up.png'
+import gotoImg from '@/assets/image/operateData/goto.png'
+import { orderSourceFilter } from '../utils'
+export default {
+  components: {},
+  props: {
+    index: {
+      type: Number,
+      default: 0
+    }
+  },
+  data() {
+    return {
+      down,
+      up,
+      gotoImg,
+      tableData: [],
+      loading: false,
+      active: 0, // 时间组件状态
+      icon: '', // 图标
+      name: '', // 店铺名称
+      queryParams: {
+        channelId: undefined, // 渠道id
+        channelLevel: undefined, // 渠道级别
+        shopId: undefined, // 店铺id
+        orderSource: '-1', // 订单来源
+        isShowLogo: false // 是否显示logo
+      }
+    }
+  },
+  computed: {
+    // 获取动态列文本
+    getLabel() {
+      return this.queryParams.isShowLogo ? '店铺' : '渠道'
+    },
+    // 获取动态列文本
+    getTotalCountLabel() {
+      return {
+        '-1': '成交金额',
+        999: '退款金额',
+        1: '内容带货',
+        2: '直播带货',
+        0: '自然成交'
+      }[this.queryParams.orderSource]
+    },
+    // 获取动态列文本
+    getTotalRatioLabel() {
+      return {
+        0: '昨日',
+        2: '上7天',
+        3: '上周期',
+        4: '上周期',
+        '': '上周期'
+      }[this.active]
+    }
+  },
+  methods: {
+    position() {
+      const i = this.tableData.findIndex(f => f.isCheck)
+      if (i > -1) {
+        this.$nextTick(() => {
+          const el = document.getElementById('channelList')
+          if (el) {
+            const q = el.querySelector('#channel' + i)
+            if (q) {
+              q.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+              })
+            }
+          }
+        })
+      } else {
+        this.$nextTick(() => {
+          const el = document.getElementById('channelList')
+          el.scroll({ top: 0, behavior: 'smooth' })
+        })
+      }
+    },
+    // 获取店铺数据
+    getDetail() {
+      this.loading = true
+      // orderSource为退款时调用退款接口
+      const api =
+        this.queryParams.orderSource === 999 ? getShopDataRefund : getShopData
+
+      api({
+        ...this.queryParams,
+        shopId: undefined,
+        orderSource: orderSourceFilter(this.queryParams.orderSource)
+      })
+        .then(res => {
+          this.loading = false
+          if (res.code === 1) {
+            this.tableData = res.data.map((m, index) => ({
+              ...m,
+              isCheck: this.queryParams.shopId === m.shopId,
+              channelLevel: 3,
+              index: index + 1,
+              orderChannel: this.queryParams.channelId
+            }))
+          }
+          this.position()
+        })
+        .catch(() => {
+          this.loading = false
+          this.tableData = []
+        })
+    },
+    // 返回渠道
+    backQD() {
+      this.queryParams.channelId = undefined
+      this.queryParams.channelLevel = undefined
+      this.queryParams.shopId = undefined
+      this.name = ''
+      this.icon = ''
+      this.$emit('checkItem', {
+        isShowLogo: false
+      })
+    },
+    // 进入店铺
+    toDetail(record) {
+      this.name = record.name
+      this.icon = record.logoImgUrl
+      this.queryParams.channelId = record.orderChannel
+      this.queryParams.isShowLogo = true
+
+      this.getDetail()
+      this.$emit('checkItem', {
+        ...record,
+        isShowLogo: true,
+        channelLevel: 2
+      })
+    },
+    // 选择数据就行查询（渠道不同层级情况-方法共用）
+    checkItem(record) {
+      if (!record.isCheck) {
+        record.isCheck = true
+        this.tableData.forEach(m => {
+          if (m.index !== record.index) {
+            m.isCheck = false
+          }
+        })
+      } else {
+        record.isCheck = false
+      }
+
+      this.$emit('checkItem', {
+        ...record,
+        orderChannel:
+          record.isCheck || record.channelLevel > 1 ? record.orderChannel : '',
+        isShowLogo: record.channelLevel > 1,
+        channelLevel: record.isCheck
+          ? record.channelLevel
+          : record.channelLevel - 1,
+        shopId:
+          record.isCheck && record.channelLevel > 1 ? record.shopId : undefined
+      })
+    },
+    fillDataString(num) {
+      const nums = num > 1000 ? '1000%+' : num.toFixed(2) + '%'
+      return nums
+    },
+    // 过滤所有的数值
+    filterPrice(value) {
+      const v = (parseInt((Number(value) / 100) * 100) / 100).toFixed(2) // Number((Number(value) / 100).toFixed(2))
+      if (v < 10000) {
+        return v
+      }
+      if (v >= 10000) return (parseInt((v * 0.0001) * 100) / 100).toFixed(2) + '万' // (v * 0.0001).toFixed(2)
+    },
+    filterPriceTo(value) {
+      const v = Number(value) / 100 + ''
+      return v
+    },
+    // 初始化数据
+    initData(params) {
+      if (params) {
+        this.queryParams = {
+          ...this.queryParams,
+          ...params
+        }
+        this.active = this.queryParams.type
+        this.queryParams.type =
+          this.queryParams.type === 0 ? 1 : this.queryParams.type
+        if (!params.channelId) {
+          this.queryParams.channelLevel = undefined
+          this.queryParams.shopId = undefined
+          this.name = ''
+          this.icon = ''
+        }
+      }
+      if (
+        !this.queryParams.channelLevel ||
+        this.queryParams.channelLevel === 1
+      ) {
+        this.getData()
+      } else {
+        this.getDetail()
+      }
+      // orderSource为退款时调用退款接口
+    },
+    getData() {
+      this.loading = true
+      const api =
+        this.queryParams.orderSource === 999
+          ? getTabRefundAmount
+          : getChannelData
+
+      api({
+        ...this.queryParams,
+        channelId: undefined,
+        orderSource: orderSourceFilter(this.queryParams.orderSource)
+      })
+        .then(res => {
+          this.loading = false
+          if (res.code === 1) {
+            this.tableData = res.data.map((m, index) => ({
+              ...m,
+              isCheck: this.queryParams.channelId === m.orderChannel,
+              channelLevel: 1,
+              index: index + 1
+            }))
+          }
+          this.position()
+        })
+        .catch(() => {
+          this.tableData = []
+          this.loading = false
+        })
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+.channel {
+  width: 35%;
+  min-width: 440px;
+  height: 315px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 3px 11px 0px rgba(49, 66, 82, 0.1);
+  overflow: hidden;
+  .title {
+    font-size: 14px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #2c3242;
+    padding: 24px;
+    padding-bottom: 16px;
+  }
+  .tables {
+    width: 100%;
+
+    .tr-t {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      padding-bottom: 16px;
+      .th-t {
+        font-size: 12px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #2c3242;
+      }
+    }
+
+    .body-t {
+      width: 99.6%;
+      overflow-y: auto;
+      height: 200px;
+      &::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+        // display: none;
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background: #d0d0d0;
+        transition: all 0.4s ease;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #fff;
+      }
+      .tr-d {
+        position: relative;
+        .td-t {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          padding: 6px 0 6px 6px;
+          margin-left: 18px;
+          .headImg {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-weight: 600;
+            color: #0586fe;
+            img {
+              width: 28px;
+              height: 28px;
+              margin-right: 10px;
+            }
+            span {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          .amount {
+            font-size: 14px;
+            font-family: ArialMT;
+            color: #2c3242;
+            padding-left: 2px;
+            text-align: right;
+          }
+          .totalRatio {
+            text-align: right;
+            span {
+              float: right;
+            }
+            img {
+              float: right;
+              width: 12px;
+              height: 14px;
+              margin-left: 6px;
+              margin-top: 5px;
+            }
+          }
+          &:hover {
+            background-color: #fff;
+            box-shadow: 0px 3px 11px 0px rgba(32, 58, 82, 0.13);
+            border-radius: 8px;
+          }
+        }
+        .select-td {
+          border: 1px solid #00a3ff;
+          background-color: #f4fbff !important;
+          box-shadow: none !important;
+          border-radius: 8px;
+        }
+        .detail {
+          font-size: 12px;
+          position: absolute;
+          top: 27%;
+          right: 20px;
+          font-weight: 400;
+          color: #00a3ff;
+          margin-right: 4px;
+          display: flex;
+          align-items: center;
+          img {
+            width: 8px;
+            height: 12px;
+            margin-left: 8px;
+            padding-top: 1px;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .one {
+      min-width: 36%;
+      width: 36%;
+    }
+    .two {
+      width: 22%;
+      text-align: right;
+    }
+    .three {
+      width: 26%;
+      text-align: right;
+    }
+  }
+  .title-t {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    padding-bottom: 16px;
+    .label-t {
+      font-size: 14px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #2c3242;
+      display: flex;
+      align-items: center;
+      .icon-t {
+        width: 28px;
+        height: 28px;
+        margin-right: 16px;
+      }
+    }
+    .back-t {
+      font-size: 12px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #2f3545;
+      display: flex;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
+      .icon-b {
+        width: 14px;
+        height: 12px;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+</style>

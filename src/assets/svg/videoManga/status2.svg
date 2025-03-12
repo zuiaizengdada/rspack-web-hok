@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>成功</title>
+    <defs>
+        <linearGradient x1="78.063293%" y1="5.95820474%" x2="23.5987747%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#00D151" offset="0%"></stop>
+            <stop stop-color="#00B42A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="60.1027855%" y1="5.95820474%" x2="40.4955589%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#00D151" offset="0%"></stop>
+            <stop stop-color="#00B42A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="25-视频发布成功提示语" transform="translate(-680.000000, -375.000000)">
+            <g id="弹窗" transform="translate(420.000000, 290.000000)">
+                <g id="成功" transform="translate(260.000000, 85.000000)">
+                    <rect id="矩形" x="0" y="0" width="80" height="80"></rect>
+                    <g id="编组">
+                        <circle id="椭圆形备份" fill="#E6F7EA" cx="40" cy="40" r="36.6666667"></circle>
+                        <path d="M40,0 C17.90861,0 0,17.90861 0,40 C0,62.09139 17.90861,80 40,80 C62.09139,80 80,62.09139 80,40 C80,17.90861 62.09139,0 40,0 Z M40,6.66666667 C58.4094917,6.66666667 73.3333333,21.5905083 73.3333333,40 C73.3333333,58.4094917 58.4094917,73.3333333 40,73.3333333 C21.5905083,73.3333333 6.66666667,58.4094917 6.66666667,40 C6.66666667,21.5905083 21.5905083,6.66666667 40,6.66666667 Z" id="椭圆形" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                        <path d="M48.6666667,16 C50.5076158,16 52,17.4923842 52,19.3333333 L52,52.6666667 C52,54.5076158 50.5076158,56 48.6666667,56 L48.629,55.999 L31.3333333,56 C29.4923842,56 28,54.5076158 28,52.6666667 C28,50.8257175 29.4923842,49.3333333 31.3333333,49.3333333 L45.333,49.333 L45.3333333,19.3333333 C45.3333333,17.4923842 46.8257175,16 48.6666667,16 Z" id="形状结合" fill="url(#linearGradient-2)" transform="translate(40.000000, 36.000000) rotate(-315.000000) translate(-40.000000, -36.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

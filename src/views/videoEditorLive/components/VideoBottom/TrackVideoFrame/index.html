@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>火山引擎VePlayer</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+          <link rel="stylesheet" href="https://unpkg.byted-static.com/volcengine/veplayer/1.5.15/dist/index.min.css">
+          <script src="https://unpkg.byted-static.com/volcengine/veplayer/1.5.15/dist/index.min.js"></script>
+        
+   
+</head>
+<body>
+<div id="mse"></div>
+<button id="change">切换视频</button>
+<script>
+    var url = "https://test.hs.hokkj.cn/046a4584b0fc48bbb59400a6563db308/main.m3u8?a=0&auth_key=1992235428-e81729c9f81248b79b77064f567c6429-0-740822151f808f04cba1daaf469e390f&br=767&bt=767&cd=0%7C0%7C0&ch=0&cr=0&cs=0&dr=0&ds=2&er=&l=20230220144344A32F37D8C5B2D330BE44&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3ZtODNkaDdraTUzNGQ2M0ApaDQ3Zzo5aTs5N2U1OGloNGdxcG9fcmlvYW1gLS1kNmFzczUvMDRiMjZfYTY1LmBjLzY6Yw%3D%3D&vl=&vr="
+
+    var url2 = "https://test.hs.hokkj.cn/b38a931a9765491ca32ef781860d7311/main.m3u8?a=0&auth_key=1992225139-9d77c8a8a16f4c1283cfda6052c5ed23-0-b156436ee03312ab33635a33c9e92920&br=921&bt=921&cd=0%7C0%7C0&ch=0&cr=0&cs=0&dr=0&ds=2&er=&l=20230220115047EA66DBFC34D09A18A3DD&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amZocTRkaHloaTUzNGQ2M0ApNGk8ZWU4Zzs4N2g6NDplZ2dfZTBucmlfb21gLS1kNmFzc2E0YzIuNDZhMGNhLzMzNjQ6Yw%3D%3D&vl=&vr="
+    var playerSdk = new VePlayer({
+        id: 'mse',
+        url: url,
+        width: 640,
+        height: 360,
+        autoplay: true,
+        poster: "//console-image.volcvod.com/tos-vod-cn-v-8a997967cc533b04/0d36e7aa133945fa84b65c321b4cd0f0~noop.jpeg",
+        vodLogOpts: {
+            vtype: 'MP4',
+            tag: '普通视频',
+            line_app_id: 348293,
+            line_user_id: 'veplayer_web_demo'
+        },
+    });
+    var isChange = false
+    playerSdk.on('timeupdate', (player) => {
+        // if(player.currentTime>1&&!isChange){
+        //     playerSdk.switchURL(url2)
+        //     // playerSdk.autoplay(true)
+        //     isChange=true
+
+        // }
+    })
+
+
+    const doms=document.querySelectorAll('.Eie04v01._Vm86aQ7.PISbKxf7 a')
+    const list=[]
+    doms.forEach(item=>{
+        const href='https://www.douyin.com/video/'+item.getAttribute('href')
+        list.push(href)
+    })
+    
+    console.log(list)
+    const changeBtn = document.getElementById('change');
+    changeBtn.addEventListener('click', () => {
+        playerSdk.playNext({
+            url: url2
+        });
+
+
+    });
+
+    playerSdk.on('loadeddata', () => {
+        playerSdk.player.seek(20)
+    })
+</script>
+</body>
+
+</html>

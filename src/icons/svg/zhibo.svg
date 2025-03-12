@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="其他状态" transform="translate(-93.000000, -211.000000)">
+            <g id="编组" transform="translate(93.000000, 211.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="直播icon-(Background/Mask)"></g>
+                <path d="M3,5 L17,5 C18.1045695,5 19,5.8954305 19,7 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,7 C1,5.8954305 1.8954305,5 3,5 Z" id="Rectangle-252" stroke="#333333" stroke-dasharray="0,0" mask="url(#mask-2)"></path>
+                <line x1="4.48598059" y1="1.43087193" x2="8.0215145" y2="4.96640584" id="Line-10" stroke="#333333" stroke-linecap="round" stroke-dasharray="0,0" mask="url(#mask-2)"></line>
+                <line x1="14.5180763" y1="1.43756632" x2="10.984297" y2="4.97485488" id="Line-11" stroke="#333333" stroke-linecap="round" stroke-dasharray="0,0" mask="url(#mask-2)"></line>
+                <path d="M10.8660252,8.49999978 L13.4641014,12.9999998 C13.7402438,13.4782924 13.5763686,14.0898828 13.098076,14.3660252 C12.9460568,14.4537935 12.7736127,14.4999998 12.598076,14.4999998 L7.40192357,14.4999998 C6.84963882,14.4999998 6.40192357,14.0522845 6.40192357,13.4999998 C6.40192357,13.3244631 6.44812983,13.152019 6.53589817,12.9999998 L9.13397438,8.49999978 C9.41011675,8.02170716 10.0217072,7.857832 10.4999998,8.13397438 C10.652019,8.22174271 10.7782569,8.34798057 10.8660252,8.49999978 Z" id="Polygon-1" fill="#0C6FFF" mask="url(#mask-2)" transform="translate(10.000000, 12.000000) scale(-1, -1) rotate(-90.000003) translate(-10.000000, -12.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

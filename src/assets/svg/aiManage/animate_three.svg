@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="4" viewBox="0 0 20 4" fill="none">
+<ellipse cx="2" cy="2" rx="2" ry="2" fill="#FFC71F">
+                                    <animate attributeName="fill" values="#FFC71F;#FFFFFF;#FFFFFF;#FFFFFF;#FFC71F" begin="0s" dur="2s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.146;0.5;0.854;1"/></ellipse>
+<ellipse cx="10" cy="2" rx="2" ry="2" fill="#FFFFFF">
+                                    <animate attributeName="fill" values="#FFFFFF;#FFC71F;#FFFFFF;#FFC71F;#FFFFFF" begin="0s" dur="2s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.146;0.5;0.854;1"/></ellipse>
+<ellipse cx="18" cy="2" rx="2" ry="2" fill="#FFFFFF">
+                                    <animate attributeName="fill" values="#FFFFFF;#FFFFFF;#FFC71F;#FFFFFF;#FFFFFF" begin="0s" dur="2s" repeatCount="indefinite" fill="freeze" calcMode="linear" keyTimes="0;0.146;0.5;0.854;1"/></ellipse>
+</svg>

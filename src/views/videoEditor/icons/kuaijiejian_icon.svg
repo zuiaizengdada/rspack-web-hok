@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>kuaijiejian_icon</title>
+    <g id="自媒体运营1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="在线剪辑-运营" transform="translate(-1114.000000, -24.000000)">
+            <g id="编组-5" transform="translate(1114.000000, 23.000000)">
+                <g id="编组-4" transform="translate(0.000000, 1.000000)">
+                    <rect id="矩形" x="0" y="0" width="20" height="20"></rect>
+                    <g id="编组" transform="translate(1.000000, 2.000000)">
+                        <rect id="矩形" stroke="#D9D9D9" stroke-width="1.5" stroke-linejoin="round" x="0" y="5.33333333" width="18" height="10.6666667" rx="0.9"></rect>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="4.5" cy="8" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="5.4" cy="10.6666667" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="2.7" cy="10.6666667" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="7.2" cy="8" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="8.1" cy="10.6666667" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="9.9" cy="8" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="10.8" cy="10.6666667" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="12.6" cy="8" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="13.5" cy="10.6666667" rx="1" ry="1"></ellipse>
+                        <ellipse id="椭圆形" fill="#D9D9D9" fill-rule="nonzero" cx="15.3" cy="8" rx="1" ry="1"></ellipse>
+                        <line x1="5.85" y1="13.3333333" x2="12.15" y2="13.3333333" id="路径" stroke="#D9D9D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <path d="M13.05,5.33333333 L13.05,3.16666667 C13.05,2.9212 13.251465,2.72222222 13.5,2.72222222 L15.75,2.72222222 C15.998535,2.72222222 16.2,2.52324444 16.2,2.27777778 L16.2,0" id="路径" stroke="#D9D9D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

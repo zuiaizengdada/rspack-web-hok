@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>check-circle-filled</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="交付状态" transform="translate(-69.000000, -213.000000)">
+            <g id="编组-4备份-14" transform="translate(69.000000, 209.000000)">
+                <g id="check-circle-filled" transform="translate(0.000000, 4.000000)">
+                    <path d="M0,0 L14,0 L14,14 L0,14 L0,0 Z" id="check-circle-filled-(Background)"></path>
+                    <path d="M14,7 C14,3.13400674 10.8659935,0 7,0 C3.13400674,0 0,3.13400674 0,7 C0,10.8659935 3.13400674,14 7,14 C10.8659935,14 14,10.8659935 14,7 Z M3,6.5 L11,6.5 L11,7.5 L3,7.5 L3,6.5 Z" fill="#777777"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

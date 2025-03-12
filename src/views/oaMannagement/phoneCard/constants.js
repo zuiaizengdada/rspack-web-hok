@@ -1,0 +1,18 @@
+export const communicationCompanyList = [
+  { label: '移动', value: '1' },
+  { label: '联通', value: '2' },
+  { label: '电信', value: '3' }
+]
+
+export const stateList = [
+  { label: '使用中', value: 0 },
+  { label: '未使用', value: 1 },
+  { label: '闲置', value: 2 },
+  { label: '已注销', value: 3 }
+]
+
+export const operateTypeOption = [
+  { label: '新增', value: 1 },
+  { label: '电话卡信息修改', value: 2 },
+  { label: '电话卡调拨', value: 3 }
+]

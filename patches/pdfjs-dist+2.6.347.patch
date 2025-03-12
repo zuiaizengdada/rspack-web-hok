@@ -1,0 +1,26 @@
+diff --git a/node_modules/pdfjs-dist/build/pdf.worker.js b/node_modules/pdfjs-dist/build/pdf.worker.js
+index 58bdf7c..f7010a1 100644
+--- a/node_modules/pdfjs-dist/build/pdf.worker.js
++++ b/node_modules/pdfjs-dist/build/pdf.worker.js
+@@ -19638,7 +19638,7 @@ class WidgetAnnotation extends Annotation {
+ 
+     if (data.fieldType === "Sig") {
+       data.fieldValue = null;
+-      this.setFlags(_util.AnnotationFlag.HIDDEN);
++      // this.setFlags(_util.AnnotationFlag.HIDDEN);
+     }
+   }
+ 
+diff --git a/node_modules/pdfjs-dist/es5/build/pdf.worker.js b/node_modules/pdfjs-dist/es5/build/pdf.worker.js
+index 578da90..dc96919 100644
+--- a/node_modules/pdfjs-dist/es5/build/pdf.worker.js
++++ b/node_modules/pdfjs-dist/es5/build/pdf.worker.js
+@@ -31687,7 +31687,7 @@ var WidgetAnnotation = /*#__PURE__*/function (_Annotation2) {
+     if (data.fieldType === "Sig") {
+       data.fieldValue = null;
+ 
+-      _this3.setFlags(_util.AnnotationFlag.HIDDEN);
++      // _this3.setFlags(_util.AnnotationFlag.HIDDEN);
+     }
+ 
+     return _this3;

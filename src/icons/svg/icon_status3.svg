@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>已交付</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="班期详情弹窗-学员列表" transform="translate(-985.000000, -340.000000)">
+            <g id="编组-5" transform="translate(712.000000, 0.000000)">
+                <g id="编组-2" fill="#FFFFFF">
+                    <rect id="矩形" x="0" y="0" width="728" height="1024"></rect>
+                </g>
+                <path d="M273,340 L287,340 L287,354 L273,354 L273,340 Z" id="check-circle-filled-(Background)"></path>
+                <path d="M287,347 C287,343.134007 283.865993,340 280,340 C276.134007,340 273,343.134007 273,347 C273,350.865993 276.134007,354 280,354 C283.865993,354 287,350.865993 287,347 Z M279,349.707 L283.5,345.2075 L282.7925,344.5 L279,348.293 L277.2065,346.5 L276.5,347.2065 L279,349.707 Z" id="check-circle-filled" fill="#00B42A"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <g id="我的店铺" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="菜单栏图标" transform="translate(-449.000000, -132.000000)">
+            <g id="编组-2" transform="translate(421.000000, 66.000000)">
+                <g id="Group-13备份" transform="translate(8.000000, 57.000000)">
+                    <g id="编组" transform="translate(20.000000, 9.000000)">
+                        <path d="M0,0 L20,0 L20,20 L0,20 L0,0 Z" id="内容icon-(Background/Mask)"></path>
+                        <path d="M12,1 C13.1045695,1 14,1.8954305 14,3 L14,5 L8,5 C6.9456382,5 6.08183488,5.81587779 6.00548574,6.85073766 L6,7 L6,15 L4,15 C2.8954305,15 2,14.1045695 2,13 L2,3 C2,1.8954305 2.8954305,1 4,1 L12,1 Z" id="Subtract" stroke="#333333" stroke-dasharray="0,0"></path>
+                        <path d="M8,5 L16,5 C17.1045695,5 18,5.8954305 18,7 L18,17 C18,18.1045695 17.1045695,19 16,19 L8,19 C6.8954305,19 6,18.1045695 6,17 L6,7 C6,5.8954305 6.8954305,5 8,5 Z" id="Rectangle-255" stroke="#333333" stroke-dasharray="0,0"></path>
+                        <line x1="8.01886792" y1="10.05" x2="13.9811321" y2="10.05" id="Line-12" stroke="#0C6FFF" stroke-linecap="round" stroke-dasharray="0,0"></line>
+                        <line x1="8.02515723" y1="13.05" x2="15.9748428" y2="13.05" id="Line-13" stroke="#0C6FFF" stroke-linecap="round" stroke-dasharray="0,0"></line>
+                        <line x1="8.02515723" y1="16.05" x2="15.9748428" y2="16.05" id="Line-14" stroke="#0C6FFF" stroke-linecap="round" stroke-dasharray="0,0"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

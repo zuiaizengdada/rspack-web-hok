@@ -1,0 +1,1212 @@
+<template>
+  <!-- 顶部筛选栏 -->
+  <div class="search-box">
+    <div class="search-main">
+      <el-form ref="form" class="filter-module" :model="search" label-width="80px" size="small" :inline="true">
+        <el-row>
+          <el-form-item label="订单搜索">
+            <el-input v-model.trim="search.order.value" placeholder="请输入内容" class="input-with-input" clearable>
+              <el-select slot="prepend" v-model="search.order.label" placeholder="请选择" class="input-with-select">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+            </el-input>
+          </el-form-item>
+          <el-form-item label="订单时间">
+            <div class="order-time-box">
+              <el-select v-model="search.time.label" placeholder="请选择" class="input-with-select input-with-select-chang">
+                <el-option v-for="item in optionsTime" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+              <el-date-picker
+                v-model="search.time.value"
+                class="input-with-time"
+                type="daterange"
+                value-format="yyyy-MM-dd"
+                :picker-options="pickerOptions"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                :unlink-panels="true"
+              />
+            </div>
+            <!-- <el-input v-model="search.time.value" placeholder="请输入内容" class="input-with-input" /> -->
+          </el-form-item>
+          <el-form-item label="订单类型">
+            <el-select v-model="search.orderType" clearable placeholder="请选择" class="input-with-select select-width-200" @change="sureSearch" @clear="sureSearch">
+              <el-option v-for="item in optionsType" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
+          </el-form-item>
+          <!-- <el-form-item label="订单搜索">
+            <el-select v-model="search" placeholder="请选择" class="w-120">
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
+            <el-input
+              v-model.trim="search"
+              class="w-250 m-l-20"
+              clearable
+              @clear="sureSearch"
+              @keyup.enter.native="sureSearch"
+            />
+          </el-form-item> -->
+        </el-row>
+        <el-row>
+          <el-form-item label="订单状态">
+            <div class="common-width">
+              <el-select v-model="search.orderStatus" clearable placeholder="请选择" class="input-with-select select-width-200" @change="sureSearch" @clear="sureSearch">
+                <el-option v-for="item in orderStatus" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+            </div>
+          </el-form-item>
+          <el-form-item v-if="search.activeName !== '我的审批'" label="审核状态">
+            <div class="common-width common-w336">
+              <el-select v-model="search.orderAudit" clearable placeholder="请选择" class="input-with-select select-width-200" @change="sureSearch('audit',search.orderAudit)" @clear="sureSearch">
+                <el-option v-for="item in optionsAudit" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+            </div>
+          </el-form-item>
+          <el-form-item label="推广订单">
+            <div class="common-width" :class="search.activeName === '我的审批' ?'common-w336':''">
+              <el-select
+                v-model="search.payPromotion"
+                placeholder="请选择"
+                class="w-200"
+                clearable
+                @change="sureSearch"
+                @clear="sureSearch"
+              >
+                <el-option v-for="item in payPromotion" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
+            </div>
+          </el-form-item>
+          <el-form-item v-if="search.activeName === '我的审批'" label="订单金额">
+            <div class="common-width">
+              <el-input
+                v-model="search.starPrice"
+                placeholder="请输入"
+                maxlength="6"
+                clearable
+                class="price-in"
+              />
+              -
+              <el-input
+                v-model="search.endPrice"
+                placeholder="请输入"
+                maxlength="6"
+                clearable
+                class="price-in"
+              />
+              <div />
+            </div>
+          </el-form-item>
+          <!-- <el-form-item label="跟进人员">
+            <div class="common-width">
+              <el-tag v-if="search.folowerId" closable @close="delFolower">{{ search.folowerNickName }}</el-tag>
+              <el-button v-else class="folower-btn" @click="selectUser">选择人员</el-button>
+            </div>
+          </el-form-item> -->
+        </el-row>
+        <template v-if="searchOpen">
+          <el-row>
+            <!-- <el-form-item label="推广订单">
+              <div class="common-width">
+                <el-select
+                  v-model="search.payPromotion"
+                  placeholder="请选择"
+                  class="w-200"
+                  clearable
+                  @change="sureSearch"
+                  @clear="sureSearch"
+                >
+                  <el-option v-for="item in payPromotion" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
+              </div>
+            </el-form-item> -->
+            <!-- <el-form-item label="支付方式">
+              <div class="common-width">
+                <el-select v-model="search.paymentType" clearable placeholder="请选择" class="w-200">
+                  <el-option label="全部" value="" />
+                  <el-option v-for="item in paymentType_options" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
+              </div>
+            </el-form-item>
+            <el-form-item label="订单金额">
+              <div class="common-width">
+                <el-input
+                  v-model="search.starPrice"
+                  placeholder="请输入"
+                  maxlength="6"
+                  clearable
+                  class="price-in"
+                />
+                -
+                <el-input
+                  v-model="search.endPrice"
+                  placeholder="请输入"
+                  maxlength="6"
+                  clearable
+                  class="price-in"
+                />
+                <div />
+              </div>
+            </el-form-item> -->
+          </el-row>
+          <el-row>
+            <el-form-item v-if="search.activeName !== '我的审批'" label="订单金额">
+              <div class="common-width">
+                <el-input
+                  v-model="search.starPrice"
+                  placeholder="请输入"
+                  maxlength="6"
+                  clearable
+                  class="price-in"
+                />
+                -
+                <el-input
+                  v-model="search.endPrice"
+                  placeholder="请输入"
+                  maxlength="6"
+                  clearable
+                  class="price-in"
+                />
+                <div />
+              </div>
+            </el-form-item>
+            <el-form-item label="渠道平台">
+              <div class="common-width common-w336">
+                <el-select
+                  v-model="search.channelSource"
+                  clearable
+                  placeholder="请选择"
+                  class="w-200"
+                  @change="channelSourceChange()"
+                >
+                  <el-option
+                    v-for="item in channelSourceType"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  />
+                </el-select>
+              </div>
+            </el-form-item>
+
+            <el-form-item
+              v-if="search.channelSource && (search.channelSource !== 3 && search.channelSource !== 13)"
+              label="渠道来源"
+            >
+              <div class="common-width">
+                <el-input v-model="search.thirdShopName" disabled class="w-200 m-r-10" />
+                <el-button type="primary" @click="selectThirdShop()">选择</el-button>
+              </div>
+            </el-form-item>
+
+            <el-form-item v-if="search.channelSource === 3 || search.channelSource === 13" label="渠道来源">
+              <div class="common-width">
+                <el-select v-model="search.userTerminal" clearable placeholder="请选择" class="w-200" @change="sureSearch" @clear="sureSearch">
+                  <el-option
+                    v-for="item in optionsUserTerminal"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  />
+                </el-select>
+              </div>
+            </el-form-item>
+
+            <el-form-item v-if="search.channelSource === 13" label="直播间">
+              <el-input v-model="search.liveRoomCode" placeholder="请输入直播间ID" clearable @clear="sureSearch" />
+            </el-form-item>
+
+            <el-form-item v-if="search.activeName === '我的审批'" label="审批类型">
+              <div class="common-width">
+                <el-select v-model="search.auditType" placeholder="请选择" class="w-200" @change="handleAuditTypeChange">
+                  <el-option label="录单" :value="1" />
+                  <el-option label="认领订单" :value="2" />
+                </el-select>
+              </div>
+            </el-form-item>
+          </el-row>
+        </template>
+      </el-form>
+    </div>
+    <div class="search-control">
+      <div class="search-control-l">
+        <el-button type="primary" size="small" class="control-btn-primary" @click="sureSearch">查询</el-button>
+        <el-button size="small" class="control-btn" @click="clear()">重置</el-button>
+        <!-- <div v-permission="['web:order:orderSign', permsList]" class="searchBtn" @click="orderSignConfig.visible = true">订单标记</div> -->
+        <el-button type="text" class="more-box" @click="searchOpen = !searchOpen">
+          {{ searchOpen ? '收起' : '更多' }}
+          <i class="el-icon-arrow-up btn_more" :class="{ btn_close: searchOpen }" />
+        </el-button>
+      </div>
+      <div class="search-control-r">
+        <el-button
+          v-if="tableDataNum>0"
+          v-permission="['system:order:export', permsList]"
+          size="small"
+          class="control-btn"
+          :loading="exportLoading"
+          @click="goodsOrderExport"
+        >导出</el-button>
+        <el-button v-if="search.activeName === '全部订单' || search.activeName === '我的订单'" v-permission="['system:order:addOrderAndUpdate', permsList]" size="small" class="control-btn" @click="onClickEntryForm">录单</el-button>
+        <el-button v-if="search.activeName === '全部订单'" v-permission="['system:order:adopt', permsList]" size="small" class="control-btn" @click="onClickReceiveModel">订单认领</el-button>
+        <el-button v-permission="['web:order:orderSign', permsList]" size="small" class="control-btn" @click="orderSignConfig.visible = true">订单标记</el-button>
+      </div>
+    </div>
+    <div style="width: 100%">
+      <div v-if="optionsApproval.length > 1 && search.activeName === '我的审批'" class="approval-control">
+        <div class="approval-list">
+          <div v-for="item in optionsApproval" :key="item.id" class="approval-child" :class="[item.status ? 'approval-active':'']" @click="onClickApproval(item.label,item.id)">{{ item.name }}</div>
+        </div>
+      </div>
+      <el-button v-permission="['system:order:reviewyj', permsList]" style="float: right; margin-right: 20px;" type="primary" @click="toReviewForAll">一键审批</el-button>
+    </div>
+
+    <el-drawer
+      :title="orderSignConfig.title"
+      :visible.sync="orderSignConfig.visible"
+      size="1000px"
+      :wrapper-closable="false"
+      direction="rtl"
+    >
+      <orderSign ref="orderSignBj" :config="orderSignConfig" />
+    </el-drawer>
+    <!-- 订单认领弹框 -->
+    <AppDialog v-model="receiveModel.visible" :title="receiveModel.title" width="916px" height="auto">
+      <div class="model-conten">
+        <div class="notice-box notice-top">
+          <div class="notice-title">认领须知：</div>
+          <div class="notice-info">1、请遵守公司订单认领制度，认领属于自己产出的订单。</div>
+          <div class="notice-info">2、订单认领要求：订单已全额付款，无关联的招生老师，未产生退款。</div>
+          <div class="notice-info">3、若出现认领他人订单等违反公司规定的认领行为时，由认领人承担相关责任，请确认订单信息。</div>
+        </div>
+        <div class="notice-box">
+          <div class="notice-title">认领流程：</div>
+          <div class="notice-info">1、通过第三方订单号或获客订单号查询订单。</div>
+          <div class="notice-info">2、核对售卖商品信息。</div>
+          <div class="notice-info">3、确认认领</div>
+        </div>
+        <div class="notice-box">
+          <div class="notice-title">智能销售任务：</div>
+          <el-select
+            v-model="form.taskId"
+            :remote-method="remoteMethodTask"
+            filterable
+            remote
+            clearable
+            placeholder="请选择"
+            class="w-296"
+            @clear="handleChangeTask"
+          >
+            <el-option
+              v-for="item in optionsTask"
+              :key="item.id"
+              :label="item.taskName"
+              :value="item.id"
+            />
+          </el-select>
+        </div>
+        <div class="list-box">
+          <div class="list-title">订单查询：</div>
+          <div class="list-info">
+            <div class="info-search">
+              <el-input v-model="receiveModel.order.value" placeholder="请输入内容" class="model-with-input" clearable>
+                <el-select slot="prepend" v-model="receiveModel.order.label" placeholder="请选择" class="model-with-select">
+                  <el-option v-for="item in optionsAccurate" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
+              </el-input>
+              <!-- <el-button v-permission="['system:order:findOrderNo', permsList]" type="primary" size="small" @click="onClickReceiveModelSearch">查询</el-button> -->
+              <el-button type="primary" size="small" @click="onClickReceiveModelSearch">查询</el-button>
+              <el-button size="small" @click="onClickReceiveModelReset">重置</el-button>
+            </div>
+            <div class="info-item">
+              <order-list ref="orderList" :show-border="true" :operation-column="false" :operation="false" :see-detail-model="false" @sizeChange="receiveSizeChange" @tableDataNum="receiveTableDataNum" @tableDataPrecisen="tableDataPrecisen" />
+            </div>
+            <div v-if="searchPrecisen.isGive" class="info-pop info-pop-pass">
+              <svg-icon icon-class="pickUp_ok" class="icon-svg" />
+              <span>当前订单可认领</span>
+            </div>
+            <div v-if="!searchPrecisen.isGive && searchPrecisen.content" class="info-pop">
+              <svg-icon icon-class="pickUp_no" class="icon-svg" />
+              <span>{{ searchPrecisen.content }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div slot="footer">
+        <div class="footer-box">
+          <el-button type="primary" size="small" @click="onClickReceiveModelOk">认领</el-button>
+          <el-button size="small" @click="onClickReceiveModel">取消</el-button>
+        </div>
+      </div>
+    </AppDialog>
+  </div>
+</template>
+
+<script>
+import {
+  goodsOrderExport,
+  findTypeList,
+  orderAdopt,
+  postToReviewAll
+} from '@/api/business'
+import { taskSelect } from '@/api/business/addOrder'
+import orderSign from '../../orderSign' // 订单标记弹框
+import AppDialog from '@/components/AppDialog'
+import OrderList from '../orderList/index.vue'
+import { mapGetters } from 'vuex'
+import { userTerminal } from '@/utils/enum'
+import moment from 'moment'
+export default {
+  name: 'SearchTop',
+  components: {
+    orderSign,
+    AppDialog,
+    OrderList
+  },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['search', 'optionsApproval'],
+  data() {
+    return {
+      searchStatus: true,
+      permsList: this.$route.meta.permsList || [],
+      exportLoading: false,
+      searchs: '',
+      approvalName: '',
+      currentTime: '',
+      pickerOptions: {
+        onPick: ({ maxDate, minDate }) => {
+          this.currentTime = minDate.getTime()
+          if (maxDate) {
+            this.currentTime = ''
+          }
+        },
+        disabledDate: (time) => {
+          if (this.currentTime) {
+            // 一年以内
+            const minTime = moment(this.currentTime).subtract(90, 'days').valueOf()
+            const maxTime = moment(this.currentTime).add(90, 'days').valueOf()
+            return time.getTime() < minTime || time.getTime() > maxTime
+          }
+        }
+      },
+      options: [
+        { label: '订单号', value: 'orderNo' },
+        { label: '交易单号', value: 'transactionId' },
+        { label: '商品名称', value: 'goodsName' },
+        { label: '买家昵称', value: 'userName' },
+        { label: '买家手机号', value: 'userPhone' },
+        { label: '用户ID', value: 'userId' }
+      ],
+      optionsAccurate: [
+        { label: '获客订单号', value: 'orderNo' },
+        { label: '第三方订单号', value: 'transactionId' }
+      ],
+      optionsTime: [
+        { label: '下单时间', value: 1 },
+        { label: '入账时间', value: 2 }
+      ],
+      optionsType: [
+        { label: '全部', value: '' }
+      ],
+      optionsAudit: [
+        { label: '全部', value: '' },
+        { label: '待初审', value: 0 },
+        { label: '待复审', value: 1 },
+        { label: '审核失败', value: 2 },
+        { label: '审核成功', value: 3 }
+      ],
+      optionsUserTerminal: [
+        { label: '全部', value: '' },
+        ...userTerminal
+      ],
+      paymentType: [
+        { label: '全部', value: '' },
+        { label: '微信', value: 1 },
+        { label: '支付宝', value: 2 }
+      ],
+      orderStatus: [
+        { label: '全部', value: '' },
+        { label: '未支付', value: 1 },
+        { label: '支付成功', value: 2 },
+        { label: '超时已关闭', value: 3 },
+        { label: '用户已取消', value: 4 },
+        { label: '退款中', value: 5 },
+        { label: '部分退款', value: 6 },
+        { label: '全部退款', value: 7 },
+        { label: '交易结束', value: 8 },
+        { label: '没有向第三方发起支付请求', value: 9 },
+        { label: '退款金额异常', value: 10 },
+        { label: '部分付款', value: 11 },
+        { label: '转课关闭', value: 12 }
+      ],
+      payPromotion: [
+        { label: '全部', value: '' },
+        { label: '推广付费', value: 1 }
+      ],
+      searchOpen: true,
+      orderSignConfig: {
+        visible: false,
+        title: '订单标记'
+      },
+      tableDataNum: 0,
+      receiveModel: {
+        visible: false,
+        title: '订单认领',
+        order: { label: 'orderNo', value: '' } // 订单搜索
+      },
+      form: {
+        taskId: ''
+      },
+      optionsTask: [],
+      searchPrecisen: { // 精准搜索
+        content: '',
+        isGive: ''
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(['channelSourceType', 'paymentType_options'])
+  },
+  watch: {
+    // 'search': {
+    //   handler(val) {
+    //     // if (this.searchStatus) {
+    //     //   if (val.activeName === '我的审批') {
+    //     //     if (val.approvalName === '初审订单') {
+    //     //       this.onClickApproval(0)
+    //     //       this.searchStatus = false
+    //     //     } else {
+    //     //       this.onClickApproval(1)
+    //     //       this.searchStatus = false
+    //     //     }
+    //     //   }
+    //     //   console.log('val---====', val)
+    //     // }
+
+    //     this.searchs = val
+    //   },
+    //   deep: true,
+    //   immediate: true
+    // }
+  },
+  created() {
+    this.$store.dispatch('option/getChannelsourceType')
+    this.getFindTypeList()
+    this.remoteMethodTask()
+  },
+  mounted() {
+    console.log('this.search', this.search)
+    // if (this.search.approvalName === '初审订单') {
+    //   this.onClickApproval(0)
+    // } else if (this.search.approvalName === '复审订单') {
+    //   this.onClickApproval(1)
+    // }
+  },
+  methods: {
+    toReviewForAll() {
+      let type = 3 // 1、全部订单 2、我的订单 3、我的审核
+      console.log('search', this.search)
+      if (this.search.activeName === '全部订单') {
+        type = 1
+      } else if (this.search.activeName === '我的订单') {
+        type = 2
+      } else if (this.search.activeName === '我的审批') {
+        type = 3
+        console.log('this.search.approvalName', this.search.approvalName)
+        if (this.search.approvalName === '初审订单') {
+          console.log('初审订单')
+          // this.search.orderAudit === 0 || this.search.orderAudit === '' ? this.search.orderAudit = 0 : ''
+        } else if (this.search.approvalName === '复审订单') {
+          console.log('复审订单')
+          // this.search.orderAudit === 1 || this.search.orderAudit === '' ? this.search.orderAudit = 1 : ''
+        }
+      }
+      const params = {
+        // ...this.search,
+        // order: this.search.order.value,
+        current: this.search.current,
+        size: this.search.size,
+        [this.search.order.label]: this.search.order.value,
+        timeType: this.search.time.label,
+        startTime: this.search.time.value && this.search.time.value[0],
+        endTime: this.search.time.value && this.search.time.value[1],
+        orderStatus: this.search.orderStatus || '',
+        paymentType: this.search.paymentType || '',
+        userTerminal: this.search.userTerminal || '',
+        channelSource: this.search.channelSource,
+        thirdShopId: this.search.thirdShopId,
+        folowerId: this.search.folowerId,
+        payPromotion: this.search.payPromotion,
+        examineStatus: this.search.activeName === '我的审批' ? this.search.examineStatus : this.search.orderAudit,
+        orderMax: this.search.endPrice,
+        orderMin: this.search.starPrice,
+        orderConfigId: this.search.orderType,
+        liveRoomCode: this.search.liveRoomCode,
+        type
+      }
+      postToReviewAll(params).then(res => {
+        if (res.code === 1) {
+          this.$message.success('批量审批中，点击查询可查询仍未审批的订单数据！')
+        }
+      })
+    },
+    getFindTypeList() {
+      const param = {}
+      findTypeList(param)
+        .then((res) => {
+          res.data.map(v => {
+            this.optionsType.push({ label: v.type, value: Number(v.id) })
+          })
+        })
+        .catch(() => {
+        })
+    },
+    handleChangeTask() {
+      this.remoteMethodTask()
+    },
+    async remoteMethodTask(query) {
+      const { data } = await taskSelect({
+        pageIndex: 1,
+        pageSize: 100,
+        taskName: query || undefined
+      })
+      this.optionsTask = data.items
+    },
+    async onClickEntryForm() {
+      const res = await this.$store.dispatch('user/viewingFlag', 'newAddOrder')
+      if (res) return
+      this.$router.push({ path: `/business/orderManage/addOrder` })
+    },
+    isNumeric(n) {
+      var reg = /^[0-9]+\.?[0-9]*$/
+      if (reg.test(n)) {
+        return true
+      }
+      return false
+    },
+    sureSearch(type, num) {
+      if (type === 'audit') {
+        if (num === 0) {
+          this.onClickApproval(0, 0)
+        } else if (num === 1) {
+          this.onClickApproval(1, 1)
+        } else if (num === 2) {
+          this.onClickApproval(2, 3)
+        } else if (num === 3) {
+          this.onClickApproval(3, 2)
+        } else {
+          if (this.optionsApproval.length) {
+            this.optionsApproval.map(v => {
+              v.status = false
+            })
+          }
+        }
+      }
+      const starPrice = this.search.starPrice
+      const endPrice = this.search.endPrice
+      if (starPrice !== '' && starPrice !== undefined && starPrice !== null || endPrice !== '' && endPrice !== undefined && endPrice !== null) {
+        if (this.isNumeric(starPrice) && this.isNumeric(endPrice)) {
+          if (endPrice - starPrice >= 0) {
+            this.search.current = 1
+            this.$emit('search', this.search)
+          } else {
+            this.$message.error('订单金额开始值不能大于结束值')
+          }
+        } else {
+          this.$message.error('订单金额请输入数字')
+        }
+      } else {
+        this.search.current = 1
+        this.$emit('search', this.search)
+      }
+    },
+    clear() {
+      const res = {
+        type: 3,
+        order: { label: 'orderNo', value: '' }, // 订单搜索
+        time: { label: 1, value: ['', ''] }, // 订单时间
+        goodsName: '', // 商品名称
+        orderStatus: '', // 订单状态
+        orderType: '', // 订单类型
+        userTerminal: '', // 渠道来源
+        channelSource: '', // 渠道来源
+        thirdShopId: '', // 第三方店铺id
+        thirdShopName: '', // 第三方店铺名称
+        paymentType: '', // 支付方式
+        folowerId: '', // 跟进人员id
+        folowername: '', // 跟进人员姓名
+        payPromotion: '', // 筛选推广
+        orderAudit: '', // 订单tab审核状态
+        examineStatus: '', // 审核tab状态
+        current: 1, // 当前页
+        size: 10, // 每页条数
+        activeIndex: 0, // 当前类别
+        activeName: '', // 当前类别名称
+        approvalName: '', // 当前审批名称
+        pagination: true, // 开启分页显示
+        noDate: '',
+        auditType: 1
+      }
+      const now = new Date()
+      const y = now.getFullYear()
+      const m = now.getMonth() + 1
+      const d = now.getDate()
+      const result = y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d)
+      const startTime = now.setDate(now.getDate() - 30)
+      const starty = new Date(startTime).getFullYear()
+      const startm = new Date(startTime).getMonth() + 1
+      const startd = new Date(startTime).getDate()
+      const resultStart = starty + '-' + (startm < 10 ? '0' + startm : startm) + '-' + (startd < 10 ? '0' + startd : startd)
+      res.time.value = [resultStart, result]
+      res.activeIndex = this.search.activeIndex
+      res.activeName = this.search.activeName
+      res.approvalName = this.search.approvalName
+      if (this.optionsApproval.length) {
+        let statusBtn = true
+        this.optionsApproval.map(v => {
+          v.status = false
+          if (statusBtn) {
+            if (v.name === this.approvalName) {
+              this.optionsApproval.map(v => {
+                v.status = false
+              })
+              const key = v.name === '初审订单' ? 0 : 1
+              res.examineStatus = key
+              this.optionsApproval[key].status = true
+              res.approvalName = this.optionsApproval[key].name
+              statusBtn = false
+            }
+          }
+        })
+      }
+      this.$emit('search', res)
+    },
+    listTypeChange(val) {
+      console.log('打印')
+      if (val.activeName === '我的审批') {
+        this.approvalName = val.approvalName
+        if (val.optionsApproval.length) {
+          val.optionsApproval.map(v => {
+            console.log(v)
+            if (v.status) {
+              val.approvalName = v.name
+              if (v.name === '初审订单') {
+                val.examineStatus = 0
+              } else if (v.name === '复审订单') {
+                val.examineStatus = 1
+              } else if (v.name === '审批通过') {
+                val.examineStatus = 3
+              } else if (v.name === '审批驳回') {
+                val.examineStatus = 2
+              }
+            }
+          })
+        }
+        this.$emit('search', val)
+      }
+      //   if (val.approvalName === '初审订单') {
+      //     this.optionsApproval.map(v => {
+      //       v.status = false
+      //     })
+      //     res.examineStatus = 0
+      //     this.optionsApproval[0].status = true
+      //     res.approvalName = this.optionsApproval[0].name
+      //   } else {
+      //     console.log('this.optionsApproval', this.optionsApproval)
+      //     if (this.optionsApproval.length === 1) {
+      //       this.optionsApproval.map(v => {
+      //         v.status = false
+      //       })
+      //       res.examineStatus = 1
+      //       this.optionsApproval[0].status = true
+      //       res.approvalName = this.optionsApproval[0].name
+      //     } else {
+      //       this.optionsApproval.map(v => {
+      //         v.status = false
+      //       })
+      //       res.examineStatus = 1
+      //       this.optionsApproval[1].status = true
+      //       res.approvalName = this.optionsApproval[1].name
+      //     }
+      //   }
+      // }
+      // this.$emit('search', res)
+      // this.$emit('searchFnApproval', res)
+    },
+    approvalChange(val) {
+      this.approvalName = val
+    },
+    sizeChange(e) {
+      this.search.size = e
+    },
+    receiveSizeChange(e) {
+      this.$refs.orderSearch.sizeChange(e)
+      console.log('this.search', this.search)
+    },
+    receiveTableDataNum(e) {
+      console.log(e)
+      this.$refs.orderSearch.tableDataNumChange(e)
+    },
+    onClickApproval(key, id) {
+      this.optionsApproval.map(v => {
+        v.status = false
+      })
+      this.search.examineStatus = id
+      this.optionsApproval.map(v => {
+        if (v.label === key) {
+          v.status = true
+          this.search.approvalName = v.name
+        }
+      })
+      this.sureSearch()
+    },
+    selectThirdShop() {
+      this.$Select({
+        type: 'shop',
+        visible: true,
+        multiple: false,
+        params: { type: this.search.channelSource },
+        success: (res) => {
+          const search = JSON.parse(JSON.stringify(this.search))
+          search.current = 1
+          search.thirdShopName = res.shopName
+          search.thirdShopId = res.shopId
+          this.$emit('search', search)
+        }
+      })
+    },
+    channelSourceChange() {
+      const search = JSON.parse(JSON.stringify(this.search))
+      search.current = 1
+      search.thirdShopName = ''
+      search.thirdShopId = ''
+      this.$emit('search', search)
+    },
+    delFolower() {
+      const search = JSON.parse(JSON.stringify(this.search))
+      search.folowerId = ''
+      search.folowername = ''
+      search.current = 1
+      this.$emit('search', search)
+    },
+    selectUser() {
+      this.$AddressBook({
+        visible: true,
+        multiple: false,
+        type: [1],
+        success: (res) => {
+          if (res.user.length > 0) {
+            const search = JSON.parse(JSON.stringify(this.search))
+            search.current = 1
+            search.folowerId = res.user[0].userId
+            search.folowerNickName = res.user[0].nickName
+            search.folowername = res.user[0].userName
+            this.$emit('search', search)
+          }
+        }
+      })
+    },
+    // 点击导出
+    goodsOrderExport() {
+      this.exportLoading = true
+      let type = 1 // 1、全部订单 2、我的订单 3、我的审核
+      if (this.search.activeName === '全部订单') {
+        type = 1
+      } else if (this.search.activeName === '我的订单') {
+        type = 2
+      } else if (this.search.activeName === '我的审批') {
+        type = 3
+        if (this.search.approvalName === '初审订单') {
+          console.log('初审订单')
+          // this.search.orderAudit === 0 || this.search.orderAudit === '' ? this.search.orderAudit = 0 : ''
+        } else if (this.search.approvalName === '复审订单') {
+          console.log('复审订单')
+          // this.search.orderAudit === 1 || this.search.orderAudit === '' ? this.search.orderAudit = 1 : ''
+        }
+      }
+      const params = {
+        // ...this.search,
+        // order: this.search.order.value,
+        current: this.search.current,
+        size: this.search.size,
+        [this.search.order.label]: this.search.order.value,
+        timeType: this.search.time.label,
+        startTime: this.search.time.value && this.search.time.value[0],
+        endTime: this.search.time.value && this.search.time.value[1],
+        orderStatus: this.search.orderStatus || '',
+        paymentType: this.search.paymentType || '',
+        userTerminal: this.search.userTerminal || '',
+        channelSource: this.search.channelSource,
+        thirdShopId: this.search.thirdShopId,
+        folowerId: this.search.folowerId,
+        payPromotion: this.search.payPromotion,
+        examineStatus: this.search.orderAudit,
+        orderMax: this.search.endPrice,
+        orderMin: this.search.starPrice,
+        orderConfigId: this.search.orderType,
+        type
+      }
+      const starPrice = this.search.starPrice
+      const endPrice = this.search.endPrice
+      if (starPrice !== '' && starPrice !== undefined && starPrice !== null || endPrice !== '' && endPrice !== undefined && endPrice !== null) {
+        if (this.isNumeric(starPrice) && this.isNumeric(endPrice)) {
+          if (endPrice - starPrice >= 0) {
+            // 请求
+            this.goodsOrderExportApi(params)
+          } else {
+            this.$message.error('订单金额开始值不能大于结束值')
+          }
+        } else {
+          this.$message.error('订单金额请输入数字')
+        }
+      } else {
+        // 请求
+        this.goodsOrderExportApi(params)
+      }
+      console.log(params, '导出请求参数')
+    },
+    goodsOrderExportApi(params) {
+      goodsOrderExport(params)
+        .then((res) => {
+          this.exportLoading = false
+          console.log(res)
+          // window.location = res.data
+          // window.open(res.data, '_self')
+          var newWin = window.open('loading page', '_self')
+          newWin.location.href = res.data // 成功 重定向到目标页面
+        })
+        .catch(() => {
+          this.exportLoading = false
+        })
+    },
+    tableDataNumChange(e) {
+      console.log('更新数据', e)
+      this.tableDataNum = e
+    },
+    // 认领搜索
+    onClickReceiveModelSearch() {
+      const label = this.receiveModel.order.label
+      const value = this.receiveModel.order.value
+      console.log(label)
+      console.log(value)
+      const params = {
+        [label]: value,
+        type: 2 // 1 赠送关联订单精准查询 2 认领订单精准查询
+      }
+      this.$refs.orderList.searchPrecisen(params)
+    },
+    tableDataPrecisen(e) {
+      console.log(e, '搜索结果')
+      this.searchPrecisen = e
+    },
+    // 认领重置
+    onClickReceiveModelReset() {
+      this.receiveModel.order = { label: 'orderNo', value: '' }
+      const params = {
+        orderNo: '-',
+        type: 2 // 1 赠送关联订单精准查询 2 认领订单精准查询
+      }
+      this.$refs.orderList.searchPrecisen(params)
+      this.searchPrecisen = { // 精准搜索
+        content: '',
+        isGive: ''
+      }
+    },
+    // 订单认领
+    onClickReceiveModel() {
+      this.receiveModel.visible = !this.receiveModel.visible
+    },
+    async onClickReceiveModelOk() {
+      if (!this.searchPrecisen.isGive) {
+        this.$message.error(this.searchPrecisen.content ? this.searchPrecisen.content : '没有可认领的关联订单')
+      } else {
+        const formData = new FormData()
+        const value = this.receiveModel.order.value
+        formData.append('orderNo', value)
+        formData.append('taskId', this.form.taskId)
+        const adoptData = await orderAdopt(formData)
+        if (adoptData.code === 1) {
+          this.$message({
+            message: '认领成功',
+            type: 'success'
+          })
+          this.onClickReceiveModel()
+          this.onClickReceiveModelReset()
+        }
+      }
+    },
+    handleAuditTypeChange() {
+      this.search.current = 1
+      this.$emit('search', this.search)
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.search-box {
+  width: 100%;
+  // display: flex;
+  position: relative;
+  .search-main {
+      .input-with-select {
+          width: 108px;
+          height: 32px;
+          font-size: 14px;
+          font-family: MicrosoftYaHei;
+          color: #333333;
+          border-radius: 3px 0px 0px 3px;
+
+      }
+      .input-with-select-chang {
+          ::v-deep  .el-input__inner {
+              border: none;
+              border-radius: 3px 0px 0px 3px;
+              border: 1px solid #D8DCE6;
+              border-right: none;
+          }
+      }
+      .input-with-input {
+          width: 308px;
+      }
+      .input-with-time {
+          width: 228px;
+          border: none;
+          border-radius: 0px 3px 3px 0px;
+          border: 1px solid #D8DCE6;
+      }
+      .order-time-box {
+          display: flex;
+      }
+      .select-width-200 {
+          width: 200px;
+      }
+      .common-width {
+          width: 308px;
+          .folower-btn {
+              width: 200px;
+          }
+          .price-in {
+              width: 92px;
+          }
+      }
+      .common-w336 {
+        width: 336px;
+      }
+  }
+  .search-control {
+      display: flex;
+      margin: 0 20px;
+      padding-bottom: 16px;
+      justify-content: space-between;
+      border-bottom: 1px solid #E7E7E7;
+      margin-bottom: 15px;
+      .search-control-l {
+          margin-left: 10px;
+          .more-box {
+              margin-left: 26px;
+          }
+      }
+      .search-control-r {
+        margin-right: 10px;
+      }
+      .control-btn-primary {
+          font-size: 14px;
+          font-family: MicrosoftYaHei;
+          color: #FFFFFF;
+      }
+      .control-btn {
+          font-size: 14px;
+          font-family: MicrosoftYaHei;
+          color: #161616;
+      }
+  }
+  .approval-control {
+      background: #F3F3F3;
+      border-radius: 4px;
+      padding: 2px;
+      margin: 15px 30px;
+      display: inline-block;
+      .approval-list {
+          display: flex;
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+          -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+          supported by Chrome, Edge, Opera and Firefox */
+          .approval-child {
+              width: 88px;
+              height: 32px;
+              line-height: 32px;
+              background: #F3F3F3;
+              border-radius: 2px;
+              font-size: 14px;
+              font-family: MicrosoftYaHei;
+              color: #333333;
+              text-align: center;
+              cursor: pointer;
+          }
+          .approval-active {
+              font-size: 14px;
+              font-family: MicrosoftYaHei;
+              color: #0C6FFF;
+              background: #FFFFFF;
+          }
+      }
+
+  }
+}
+.filter-module {
+  padding: 16px 16px 0 16px;
+  width: 100%;
+}
+
+.btn_ground {
+  display: flex;
+  margin-left: 8px;
+  .btn {
+    padding: 0 16px;
+    color: #333;
+    margin-right: 8px;
+    margin-bottom: 0;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    background: #fff;
+    cursor: pointer;
+  }
+  .active {
+    border-color: #2a75ed;
+  }
+}
+.btn_more {
+  transition: all 0.4s;
+}
+.btn_close {
+  transform: rotate(180deg);
+}
+.model-conten {
+  .notice-box {
+      padding: 16px 20px 0 20px;
+      .notice-title {
+          font-size: 16px;
+          font-family: MicrosoftYaHei;
+          color: #777777;
+          margin-bottom: 8px;
+      }
+      .notice-info {
+          font-size: 14px;
+          font-family: MicrosoftYaHei;
+          color: #333333;
+      }
+  }
+  .notice-top {
+      margin-top: 4px;
+  }
+  .list-box {
+      padding: 16px 20px;
+      .list-title {
+          font-size: 16px;
+          font-family: MicrosoftYaHei;
+          color: #777777;
+      }
+      .list-info {
+          .info-search {
+          margin-top: 8px;
+          .model-with-input {
+              width: 426px;
+              font-size: 14px;
+              font-family: MicrosoftYaHei;
+              color: #333333;
+              margin-right: 8px;
+          }
+          .model-with-select {
+              width: 130px;
+              font-size: 14px;
+              font-family: MicrosoftYaHei;
+              color: #333333;
+              height: 10px;
+          }
+          }
+          .info-item {
+            margin-top: 10px;
+            height: 186px;
+            overflow-x: auto;
+          // overflow: scroll;
+          }
+          .info-pop {
+          font-size: 16px;
+          font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+          font-weight: bold;
+          color: #F53F3F;
+          .icon-svg {
+              margin: 16px 8px 0 0;
+          }
+          }
+          .info-pop-pass {
+          color: #00B42A;
+          }
+      }
+  }
+}
+.footer-box {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+.w-200 {
+  width: 200px;
+}
+::v-deep .el-input-group__prepend {
+  background-color: #FFFFFF;
+}
+::v-deep .el-form-item__label {
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  // color: #333333;
+}
+::v-deep .el-input__inner{
+  height: 32px;
+}
+::v-deep .ss-material-box-header-title {
+  font-size: 16px;
+  font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+  font-weight: bold !important;
+  color: #333333;
+}
+::v-deep ::-webkit-scrollbar-track {
+  background: #ededed;
+  border-radius: 0;
+}
+::v-deep ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+}
+::v-deep :hover ::-webkit-scrollbar-track-piece {
+  cursor: pointer;
+  background: #ededed;
+  border-radius: 0;
+}
+
+::v-deep :hover::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background: #acacac;
+  transition: color 0.2s ease;
+}
+
+::v-deep :hover::-webkit-scrollbar-thumb:vertical {
+  cursor: pointer;
+  border-radius: 5px;
+  background: #acacac;
+  transition: color 0.2s ease;
+}
+</style>
+

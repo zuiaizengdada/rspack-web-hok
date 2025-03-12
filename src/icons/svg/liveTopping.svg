@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="22" viewBox="0 0 21 22" fill="none">
+<rect x="4" y="3" width="13" height="1"   fill="#333333" >
+</rect>
+<rect x="11" y="7" width="12" height="1" transform="rotate(90 11 7)"   fill="#333333" >
+</rect>
+<path d="M16.3169 11.9969L10.66 6.34L5.00315 11.9969L5.71025 12.704L10.66 7.75421L15.6097 12.704L16.3169 11.9969Z" fill-rule="evenodd"  fill="#333333" >
+</path>
+</svg>

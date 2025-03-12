@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-140" transform="translate(-0.000000, 0.000000)">
+            <rect id="矩形" x="1.42108547e-14" y="0" width="120" height="120"></rect>
+            <g id="编组-138" fill-rule="nonzero">
+                <path d="M60,0 C93.1371094,0 120,26.8628906 120,60 C120,93.1371094 93.1371094,120 60,120 C26.8628906,120 0,93.1371094 0,60 C0,26.8628906 26.8628906,0 60,0 Z" id="路径" fill="#DADADA"></path>
+                <path d="M60.5,73 C79.7304926,73 95.7512985,86.7423027 99.2777468,104.942237 C88.6923169,114.312204 74.7728765,120 59.5249687,120 C45.0789551,120 31.8253538,114.89472 21.4699664,106.389963 C24.4077437,87.4750811 40.7634537,73 60.5,73 Z M60,19 C73.254834,19 84,29.745166 84,43 C84,56.254834 73.254834,67 60,67 C46.745166,67 36,56.254834 36,43 C36,29.745166 46.745166,19 60,19 Z" id="形状结合" fill="#FFFFFF"></path>
+            </g>
+            <g id="编组-147" transform="translate(42.000000, 90.000000)" fill="#333333" fill-opacity="0.899999976" font-family="MicrosoftYaHei, Microsoft YaHei" font-size="12" font-weight="normal" line-spacing="20">
+                <text id="已绑定">
+                    <tspan x="0" y="13">已绑定</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

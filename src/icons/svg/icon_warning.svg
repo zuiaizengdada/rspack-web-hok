@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_zhuyi</title>
+    <g id="讲师管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="讲师评估备份" transform="translate(-572.000000, -793.000000)">
+            <g id="编组-8" transform="translate(540.000000, 712.000000)">
+                <g id="编组-2" transform="translate(32.000000, 73.000000)">
+                    <g id="编组-3" transform="translate(0.000000, 8.000000)">
+                        <g id="编组" transform="translate(1.000000, 1.000000)">
+                            <path d="M13,26 C16.58982,26 19.83982,24.54491 22.192365,22.192365 C24.54491,19.83982 26,16.58982 26,13 C26,9.41018 24.54491,6.16018 22.192365,3.807609 C19.83982,1.455077 16.58982,0 13,0 C9.41018,0 6.16018,1.455077 3.807609,3.807609 C1.455077,6.16018 0,9.41018 0,13 C0,16.58982 1.455077,19.83982 3.807609,22.192365 C6.16018,24.54491 9.41018,26 13,26 Z" id="路径" stroke="#FF7D00" stroke-width="1.5" stroke-linejoin="round"></path>
+                            <path d="M13,21.45 C13.897455,21.45 14.625,20.722455 14.625,19.825 C14.625,18.927545 13.897455,18.2 13,18.2 C12.102545,18.2 11.375,18.927545 11.375,19.825 C11.375,20.722455 12.102545,21.45 13,21.45 Z" id="路径" fill="#FF7D00"></path>
+                            <line x1="13" y1="5.2" x2="13" y2="15.6" id="路径" stroke="#FF7D00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

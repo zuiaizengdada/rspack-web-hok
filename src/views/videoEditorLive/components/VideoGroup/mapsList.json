@@ -1,0 +1,37 @@
+[
+    {
+        "name":"色块",
+        "color":"#fff",
+        "id":0,
+        "type":"color",
+        "dragId":""
+    },
+    {
+        "name":"贴图1.JPG",
+        "src":"https://test.cover.hokkj.cn/tos-vod-cn-v-fe072b997a80c0ae/20510579a76b42d7aacd3b5133421304~tplv-vod-obj.image",
+        "id":1,
+        "type":"image",
+        "dragId":""
+    },
+    {
+        "name":"贴图2.JPG",
+        "src":"https://test.cover.hokkj.cn/tos-vod-cn-v-fe072b997a80c0ae/20510579a76b42d7aacd3b5133421304~tplv-vod-obj.image",
+        "id":2,
+        "type":"image",
+        "dragId":""
+    },
+    {
+        "name":"贴图3.JPG",
+        "src":"https://test.cover.hokkj.cn/tos-vod-cn-v-fe072b997a80c0ae/20510579a76b42d7aacd3b5133421304~tplv-vod-obj.image",
+        "id":3,
+        "type":"image",
+        "dragId":""
+    },
+    {
+        "name":"贴图4.JPG",
+        "src":"https://test.cover.hokkj.cn/tos-vod-cn-v-fe072b997a80c0ae/20510579a76b42d7aacd3b5133421304~tplv-vod-obj.image",
+        "id":4,
+        "type":"image",
+        "dragId":""
+    }
+]

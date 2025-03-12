@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <g id="我的店铺" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="菜单栏图标" transform="translate(-449.000000, -86.000000)">
+            <g id="编组-2" transform="translate(421.000000, 66.000000)">
+                <g id="Group-6备份" transform="translate(8.000000, 11.000000)">
+                    <g id="编组" transform="translate(20.000000, 9.000000)">
+                        <rect id="矩形" fill-rule="nonzero" x="0" y="0" width="20" height="20"></rect>
+                        <g id="编组-8" transform="translate(1.000000, 1.000000)" stroke="#FFFFFF">
+                            <path d="M6.28342525,18 L6.28342525,15 C6.28342525,13.3431458 7.626571,12 9.28342525,12 C10.9402795,12 12.2834252,13.3431458 12.2834252,15 L12.2834252,18 L12.2834252,18" id="路径"></path>
+                            <polyline id="路径" stroke-linecap="round" stroke-linejoin="round" points="17.3030752 8 17.3030752 18 1.30308025 18 1.30308025 8"></polyline>
+                            <path d="M0.204580246,3.8883 C-0.560194754,5.86885 0.914960246,8 3.03802525,8 C4.69487525,8 6.04722525,6.65685 6.04722525,5 C6.04722525,6.65685 7.39037525,8 9.04722525,8 L9.55642525,8 C11.2132752,8 12.5564252,6.65685 12.5564252,5 C12.5564252,6.65685 13.9093252,8 15.5661752,8 C17.6903752,8 19.1669252,5.8676 18.4015252,3.88615 L16.9002752,0 L1.70604025,0 L0.204580246,3.8883 Z" id="路径" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

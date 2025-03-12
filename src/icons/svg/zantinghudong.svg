@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="直播列表-原型修改" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4-1.2-运营直播间-公共" transform="translate(-995.000000, -627.000000)">
+            <g id="编组-78" transform="translate(975.000000, 567.000000)">
+                <g id="编组-58" transform="translate(0.000000, 50.000000)">
+                    <g id="表情备份-3" transform="translate(20.000000, 10.000000)">
+                        <circle id="椭圆形" stroke="#333333" stroke-width="1.4" fill="#FFFFFF" fill-rule="nonzero" cx="10" cy="10" r="9.3"></circle>
+                        <rect id="矩形" fill="#333333" x="6.66666667" y="5.83333333" width="1.66666667" height="8.33333333" rx="0.833333333"></rect>
+                        <rect id="矩形备份-3" fill="#333333" x="11.6666667" y="5.83333333" width="1.66666667" height="8.33333333" rx="0.833333333"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

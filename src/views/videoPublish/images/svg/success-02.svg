@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>成功</title>
+    <defs>
+        <linearGradient x1="78.063293%" y1="5.95820474%" x2="23.5987747%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#00D151" offset="0%"></stop>
+            <stop stop-color="#00B42A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="60.1027855%" y1="5.95820474%" x2="40.4955589%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#00D151" offset="0%"></stop>
+            <stop stop-color="#00B42A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="账号管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="数据一键同步-4" transform="translate(-660.000000, -371.000000)">
+            <rect fill="#EEEEEE" x="0" y="0" width="1440" height="1024"></rect>
+            <rect id="矩形" fill-opacity="0.4" fill="#000000" x="0" y="0" width="1440" height="1024"></rect>
+            <g id="弹窗" transform="translate(373.000000, 276.000000)" fill="#FFFFFF">
+                <rect id="蒙版" x="0" y="0" width="694" height="473" rx="10"></rect>
+            </g>
+            <g id="成功" transform="translate(660.000000, 371.000000)">
+                <rect id="矩形" x="0" y="0" width="120" height="120"></rect>
+                <g id="编组">
+                    <circle id="椭圆形备份" fill="#E6F7EA" cx="60" cy="60" r="55"></circle>
+                    <path d="M60,0 C26.862915,0 0,26.862915 0,60 C0,93.137085 26.862915,120 60,120 C93.137085,120 120,93.137085 120,60 C120,26.862915 93.137085,0 60,0 Z M60,10 C87.6142375,10 110,32.3857625 110,60 C110,87.6142375 87.6142375,110 60,110 C32.3857625,110 10,87.6142375 10,60 C10,32.3857625 32.3857625,10 60,10 Z" id="椭圆形" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                    <path d="M47,84 C44.2385763,84 42,81.7614237 42,79 C42,76.2385763 44.2385763,74 47,74 L68,74 L68,29 C68,26.2385763 70.2385763,24 73,24 C75.7614237,24 78,26.2385763 78,29 L78,79 L78,79 C78,81.6887547 75.8776933,83.8818181 73.2168896,83.9953805 L73,84 L73,84 L47,84 Z" id="形状结合" fill="url(#linearGradient-2)" transform="translate(60.000000, 54.000000) rotate(-315.000000) translate(-60.000000, -54.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

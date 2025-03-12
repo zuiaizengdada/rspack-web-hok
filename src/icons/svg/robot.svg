@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <g id="直播列表-原型修改" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4-1.1-运营直播间-公共" transform="translate(-414.000000, -245.000000)">
+            <g id="编组-59" transform="translate(340.000000, 69.000000)">
+                <g id="编组-60" transform="translate(0.000000, 84.000000)">
+                    <g id="编组-49备份" transform="translate(23.000000, 90.000000)">
+                        <g id="编组-67" transform="translate(51.000000, 0.000000)">
+                            <g id="编组-64" transform="translate(0.000000, 2.000000)">
+                                <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
+                                <g id="数字人" transform="translate(0.000000, 0.000000)">
+                                    <rect id="矩形" stroke="#0099FF" stroke-width="0.8" x="1.73333333" y="4.4" width="12.5333333" height="9.86666667" rx="1"></rect>
+                                    <rect id="矩形" fill="#0099FF" x="7.6" y="1.33333333" width="1" height="2.66666667"></rect>
+                                    <rect id="矩形备份-3" fill="#0099FF" x="0" y="7.33333333" width="1" height="4"></rect>
+                                    <rect id="矩形备份-4" fill="#0099FF" x="15.2" y="7.33333333" width="1" height="4"></rect>
+                                    <circle id="椭圆形" fill="#0099FF" cx="8" cy="0.933333333" r="1"></circle>
+                                    <circle id="椭圆形备份" fill="#0099FF" cx="5.2" cy="8.66666667" r="1"></circle>
+                                    <circle id="椭圆形备份-2" fill="#0099FF" cx="10.9333333" cy="8.66666667" r="1"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

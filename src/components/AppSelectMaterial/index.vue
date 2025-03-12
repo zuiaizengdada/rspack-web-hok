@@ -1,0 +1,1320 @@
+<template>
+  <AppDialog
+    v-model="visible"
+    :title="title"
+    width="1200px"
+    height="545px"
+    top="10vh"
+    @success="successFn"
+  >
+    <div class="ele-tabs-wrap">
+      <el-tabs v-model="type" @tab-click="getClassList()">
+        <el-tab-pane v-for="item in types" :key="item" :name="String(item)">
+          <span slot="label">
+            {{ tabs[item].name }}
+          </span>
+        </el-tab-pane>
+      </el-tabs>
+
+      <div class="ss-material-picture">
+        <div class="left-wrap">
+          <el-button
+            v-if="type === '0'"
+            class="m-r-20"
+            @click.native="openUpImg"
+          >上传图片</el-button>
+          <el-button
+            v-if="type === '1'"
+            class="m-r-20"
+            @click.native="openUpVideo"
+          >上传音频</el-button>
+          <el-button
+            v-if="type === '2'"
+            class="m-r-20"
+            @click.native="uploadVideo"
+          >上传视频</el-button>
+          <el-button
+            v-if="type === '4'"
+            class="m-r-20"
+            @click.native="openUpFile"
+          >上传文档</el-button>
+
+          <span
+            class="ss-material-button"
+            @click="gotoMaterial()"
+          >前往素材中心</span>
+        </div>
+
+        <div class="right-wrap">
+          <i
+            v-if="type === '0' || type === '2'"
+            class="el-icon-s-fold"
+            :class="{ active: listType === 'list' }"
+            @click="changeListType('list')"
+          />
+          <i
+            v-if="type === '0' || type === '2'"
+            class="el-icon-menu"
+            :class="{ active: listType === 'card' }"
+            @click="changeListType('card')"
+          />
+          <el-input
+            v-model.trim="search"
+            placeholder="图片名称"
+            prefix-icon="el-icon-search"
+            @keyup.enter.native="getList()"
+          />
+          <el-button
+            icon="el-icon-refresh"
+            type="text"
+            class="m-l-10"
+            @click="init()"
+          />
+        </div>
+      </div>
+      <div class="ss-material-main">
+        <div class="ss-material-main-left">
+          <div class="ss-material-main-tree">
+            <AppTree
+              ref="appTreeForImage"
+              v-model="classlist"
+              v-loading="loading"
+              :auto-expand-parent="true"
+              style="width: 200px"
+              :loading="treeLoading"
+              :nobtn="true"
+              @node-click="treeClick"
+            />
+          </div>
+        </div>
+        <div v-loading="loading" class="ss-material-main-right">
+          <div class="content-wrap">
+            <!-- 卡片模式 -->
+            <div v-show="listType === 'card'" class="card-pattern-list-wrap">
+              <el-checkbox
+                v-if="Boolean(multiple && type == '2' && optionType === 'add')"
+                v-model="checkAll"
+                style="margin-bottom: 10px"
+                :indeterminate="isIndeterminate"
+                @change="handleCheckAllChange"
+              >全选
+              </el-checkbox>
+              <el-checkbox-group
+                v-if="Boolean(multiple && type == '2' && optionType === 'add')"
+                v-model="multipleSelection"
+                @change="handleSelectionChange"
+              >
+                <div
+                  v-for="item in tableData"
+                  :key="item.materialId"
+                  class="picture-card"
+                >
+                  <div class="content">
+                    <ImagePreviewer
+                      v-if="type === '0'"
+                      class="el-image"
+                      :src="item.materialUrl"
+                      fit="contain"
+                      :preview-src-list="srcList"
+                    />
+                    <img
+                      v-if="type === '2'"
+                      :src="item.materialFrameUrl"
+                      :alt="item.materialName"
+                      @click="playVideo(item)"
+                    />
+                    <div v-if="type === '0'" class="resolution">
+                      {{ item.materialDes | filterDes }}
+                    </div>
+                    <div v-else class="resolution">
+                      {{ item.materialDes | filterTime }}
+                    </div>
+                  </div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <el-checkbox :label="item" :disabled="disabledFn(item)">
+                        <div :title="item.materialName" class="title">
+                          {{ item.materialName }}
+                        </div>
+                      </el-checkbox>
+                    </div>
+                    <div class="common-row">{{ item.createTime }}</div>
+                    <div class="common-row">
+                      {{ item.materialSize | filterSize }}
+                    </div>
+                  </div>
+                </div>
+              </el-checkbox-group>
+              <el-radio-group v-else v-model="radio">
+                <div
+                  v-for="item in tableData"
+                  :key="item.materialId"
+                  class="picture-card"
+                >
+                  <div class="content">
+                    <ImagePreviewer
+                      v-if="type === '0'"
+                      class="el-image"
+                      :src="item.materialUrl"
+                      fit="contain"
+                      :preview-src-list="srcList"
+                    />
+                    <img
+                      v-if="type === '2'"
+                      :src="item.materialFrameUrl"
+                      :alt="item.materialName"
+                      @click="playVideo(item)"
+                    />
+                    <div v-if="type === '0'" class="resolution">
+                      {{ item.materialDes | filterDes }}
+                    </div>
+                    <div v-else class="resolution">
+                      {{ item.materialDes | filterTime }}
+                    </div>
+                  </div>
+                  <div class="detail">
+                    <div class="title-wrap">
+                      <el-radio :label="item" :disabled="disabledFn(item)">
+                        <div :title="item.materialName" class="title">
+                          {{ item.materialName }}
+                        </div>
+                      </el-radio>
+                    </div>
+                    <div class="common-row">{{ item.createTime }}</div>
+                    <div class="common-row">
+                      {{ item.materialSize | filterSize }}
+                    </div>
+                  </div>
+                </div>
+              </el-radio-group>
+            </div>
+
+            <!-- 列表模式 -->
+            <div v-show="listType === 'list'" class="table-wrap">
+              <template
+                v-if="Boolean(multiple && type == '2' && optionType === 'add')"
+              >
+                <div class="header-wrap" style="width: 100%">
+                  <el-table
+                    ref="multipleTable"
+                    height="360"
+                    :data="tableData"
+                    tooltip-effect="dark"
+                    style="width: 100%"
+                    :row-key="rowKey"
+                    :header-cell-style="{ background: '#f5f5f5', padding: '0' }"
+                    @selection-change="handleSelectionChange"
+                  >
+                    <el-table-column
+                      type="selection"
+                      :reserve-selection="true"
+                    />
+                    <el-table-column
+                      width="400"
+                      prop="materialName"
+                      :label="['图片', '音频', '视频', '', '文档'][type]"
+                    >
+                      <template slot-scope="{ row, $index }">
+                        <div v-if="type == '0'" class="fl fl_ai_c">
+                          <ImagePreviewer
+                            style="
+                              max-width: 100px;
+                              height: 100px;
+                              min-width: 100px;
+                            "
+                            :src="row.materialUrl"
+                            fit="contain"
+                            :preview-src-list="srcList"
+                            :preview-index="$index"
+                          />
+                          <div class="m-l-20">
+                            <div
+                              class="m-picture-title"
+                              :title="row.materialName"
+                            >
+                              {{ row.materialName }}
+                            </div>
+                            <div class="m-picture-property">
+                              {{ row.materialDes | filterDes }}
+                            </div>
+                          </div>
+                        </div>
+                        <div v-if="type === '1'" class="fl fl_ai_c">
+                          <svg-icon
+                            class-name="size-icon"
+                            style="width: 60px; height: 60px; font-size: 60px"
+                            icon-class="audio"
+                            @click="play(row.materialUrl)"
+                          />
+                          <span class="m-l-10" :title="row.materialName">{{
+                            row.materialName
+                          }}</span>
+                        </div>
+                        <div v-if="type === '2'" class="fl fl_ai_c">
+                          <div class="videoImg">
+                            <img
+                              :src="row.materialFrameUrl"
+                              alt=""
+                              @click="playVideo(row)"
+                            />
+                          </div>
+                          <span
+                            class="m-l-10 text_hidden"
+                            :title="row.materialName"
+                          >{{ row.materialName }}</span>
+                        </div>
+                        <div v-if="type === '4'" class="fl fl_ai_c">
+                          <img
+                            v-if="
+                              ['xls', 'xlsx', 'cvs', 'xlsm'].includes(
+                                row.materialName.split('.').pop().toLowerCase()
+                              )
+                            "
+                            src="@/assets/image/pdf.png"
+                            fit="contain"
+                            class="size-icon"
+                          />
+                          <img
+                            v-else-if="
+                              ['ppt', 'pptx'].includes(
+                                row.materialName.split('.').pop().toLowerCase()
+                              )
+                            "
+                            src="@/assets/image/ppt.png"
+                            fit="contain"
+                            class="size-icon"
+                          />
+                          <img
+                            v-else-if="
+                              ['doc', 'docx', 'pdf'].includes(
+                                row.materialName.split('.').pop().toLowerCase()
+                              )
+                            "
+                            src="@/assets/image/ppt2.png"
+                            fit="contain"
+                            class="size-icon"
+                          />
+                          <img
+                            v-else-if="
+                              ['word'].includes(
+                                row.materialName.split('.').pop().toLowerCase()
+                              )
+                            "
+                            src="@/assets/image/word.png"
+                            fit="contain"
+                            class="size-icon"
+                          />
+                          <img
+                            v-else-if="
+                              ['txt'].includes(
+                                row.materialName.split('.').pop().toLowerCase()
+                              )
+                            "
+                            src="@/assets/image/txt.png"
+                            fit="contain"
+                            class="size-icon"
+                          />
+                          <img
+                            v-else
+                            src="@/assets/image/weizhigeshi.png"
+                            fit="contain"
+                            class="size-icon"
+                          />
+                          <span class="m-l-10" :title="row.materialName">{{
+                            row.materialName
+                          }}</span>
+                        </div>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      v-if="type === '1' || type === '2'"
+                      prop="materialDes"
+                      label="时长"
+                    >
+                      <template slot-scope="{ row }">
+                        {{ row.materialDes | filterTime }}
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      prop="materialSize"
+                      label="大小"
+                      show-overflow-tooltip
+                    >
+                      <template slot-scope="{ row }">
+                        {{ row.materialSize | filterSize }}
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      prop="createTime"
+                      label="上传时间"
+                      show-overflow-tooltip
+                    />
+                  </el-table>
+                </div>
+              </template>
+              <template v-else>
+                <el-radio-group v-model="radio" style="width: 100%">
+                  <div class="header-wrap" style="width: 100%">
+                    <el-table
+                      ref="multipleTable"
+                      height="360"
+                      :data="tableData"
+                      tooltip-effect="dark"
+                      style="width: 100%"
+                      :row-key="rowKey"
+                      :header-cell-style="{
+                        background: '#f5f5f5',
+                        padding: '0'
+                      }"
+                    >
+                      <el-table-column>
+                        <template slot-scope="{ row }">
+                          <el-radio
+                            :label="row"
+                            style="width: 14px; overflow: hidden"
+                            :disabled="disabledFn(row)"
+                          >
+                            <span />
+                          </el-radio>
+                        </template>
+                      </el-table-column>
+                      <el-table-column
+                        width="400"
+                        prop="materialName"
+                        :label="['图片', '音频', '视频', '', '文档'][type]"
+                      >
+                        <template slot-scope="{ row, $index }">
+                          <div v-if="type == '0'" class="fl fl_ai_c">
+                            <ImagePreviewer
+                              style="
+                                max-width: 100px;
+                                height: 100px;
+                                min-width: 100px;
+                              "
+                              :src="row.materialUrl"
+                              fit="contain"
+                              :preview-src-list="srcList"
+                              :preview-index="$index"
+                            />
+                            <div class="m-l-20">
+                              <div
+                                class="m-picture-title"
+                                :title="row.materialName"
+                              >
+                                {{ row.materialName }}
+                              </div>
+                              <div class="m-picture-property">
+                                {{ row.materialDes | filterDes }}
+                              </div>
+                            </div>
+                          </div>
+                          <div v-if="type === '1'" class="fl fl_ai_c">
+                            <svg-icon
+                              class-name="size-icon"
+                              style="width: 60px; height: 60px; font-size: 60px"
+                              icon-class="audio"
+                              @click="play(row.materialUrl)"
+                            />
+                            <span class="m-l-10" :title="row.materialName">{{
+                              row.materialName
+                            }}</span>
+                          </div>
+                          <div v-if="type === '2'" class="fl fl_ai_c">
+                            <div class="videoImg">
+                              <img
+                                :src="row.materialFrameUrl"
+                                alt=""
+                                @click="playVideo(row)"
+                              />
+                            </div>
+                            <span
+                              class="m-l-10 text_hidden"
+                              :title="row.materialName"
+                            >{{ row.materialName }}</span>
+                          </div>
+                          <div v-if="type === '4'" class="fl fl_ai_c">
+                            <img
+                              v-if="
+                                ['xls', 'xlsx', 'cvs', 'xlsm'].includes(
+                                  row.materialName
+                                    .split('.')
+                                    .pop()
+                                    .toLowerCase()
+                                )
+                              "
+                              src="@/assets/image/pdf.png"
+                              fit="contain"
+                              class="size-icon"
+                            />
+                            <img
+                              v-else-if="
+                                ['ppt', 'pptx'].includes(
+                                  row.materialName
+                                    .split('.')
+                                    .pop()
+                                    .toLowerCase()
+                                )
+                              "
+                              src="@/assets/image/ppt.png"
+                              fit="contain"
+                              class="size-icon"
+                            />
+                            <img
+                              v-else-if="
+                                ['doc', 'docx', 'pdf'].includes(
+                                  row.materialName
+                                    .split('.')
+                                    .pop()
+                                    .toLowerCase()
+                                )
+                              "
+                              src="@/assets/image/ppt2.png"
+                              fit="contain"
+                              class="size-icon"
+                            />
+                            <img
+                              v-else-if="
+                                ['word'].includes(
+                                  row.materialName
+                                    .split('.')
+                                    .pop()
+                                    .toLowerCase()
+                                )
+                              "
+                              src="@/assets/image/word.png"
+                              fit="contain"
+                              class="size-icon"
+                            />
+                            <img
+                              v-else-if="
+                                ['txt'].includes(
+                                  row.materialName
+                                    .split('.')
+                                    .pop()
+                                    .toLowerCase()
+                                )
+                              "
+                              src="@/assets/image/txt.png"
+                              fit="contain"
+                              class="size-icon"
+                            />
+                            <img
+                              v-else
+                              src="@/assets/image/weizhigeshi.png"
+                              fit="contain"
+                              class="size-icon"
+                            />
+                            <span class="m-l-10" :title="row.materialName">{{
+                              row.materialName
+                            }}</span>
+                          </div>
+                        </template>
+                      </el-table-column>
+                      <el-table-column
+                        v-if="type === '1' || type === '2'"
+                        prop="materialDes"
+                        label="时长"
+                      >
+                        <template slot-scope="{ row }">
+                          {{ row.materialDes | filterTime }}
+                        </template>
+                      </el-table-column>
+                      <el-table-column
+                        prop="materialSize"
+                        label="大小"
+                        show-overflow-tooltip
+                      >
+                        <template slot-scope="{ row }">
+                          {{ row.materialSize | filterSize }}
+                        </template>
+                      </el-table-column>
+                      <el-table-column
+                        prop="createTime"
+                        label="上传时间"
+                        show-overflow-tooltip
+                      />
+                    </el-table>
+                  </div>
+                </el-radio-group>
+              </template>
+            </div>
+          </div>
+
+          <!-- 分页器 -->
+          <div class="pagination-wrap">
+            <el-pagination
+              background
+              layout="total, sizes, prev, pager, next, jumper"
+              :total="total"
+              @current-change="handleCurrentChange"
+              @size-change="handleSizeChange"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </AppDialog>
+</template>
+<script>
+import AppDialog from '@/components/AppDialog'
+import AppTree from '@/components/AppTree'
+import store from '@/store'
+import { materialPage, material } from '@/api/course'
+import AppVideo from '@/components/AppVideo'
+// import router from '@/router'
+import { getSourceFileUrl } from '@/api/file'
+export default {
+  components: {
+    AppDialog,
+    AppTree
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: '选择'
+    },
+    types: {
+      type: Array,
+      default: () => {
+        return [0, 1, 2, 3]
+      }
+    },
+    type: {
+      type: String,
+      default: '0'
+    },
+    success: {
+      type: Function,
+      default: () => {
+        return () => {}
+      }
+    },
+    defaultValue: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    },
+    disabledFn: {
+      type: Function,
+      default: () => {
+        return false
+      }
+    },
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    optionType: {
+      type: String,
+      default: 'add'
+    }
+  },
+  data() {
+    return {
+      expandedKeys: '',
+      loading: false,
+      treeLoading: false,
+      checkAll: false,
+      listType: 'list', // 列表模式：list:列表；card：卡片
+      search: '',
+      tabs: [
+        { id: '1', name: '图片', type: '0' },
+        { id: '2', name: '音频', type: '1' },
+        { id: '3', name: '视频', type: '2' },
+        { id: '4', name: '', type: '3' },
+        { id: '5', name: '文档', type: '4' }
+      ],
+      imageList: [],
+      audioList: [],
+      videoList: [],
+      fileList: [],
+      classlist: [],
+      size: 10, // 每页显示条数
+      current: 1, // 当前页
+      total: 0, // 总条数
+      dirId: '', // 目录id
+      form: {
+        id: '',
+        name: ''
+      },
+      // name: '', // 目录名称
+      tableData: [], // 表格/列表数据
+      multipleSelection: [], // 全选数据
+      srcList: [], // 预览图片地址
+      isIndeterminate: false, // 选中但未全选
+      // checkAll: false, // 全选状态
+      radio: {} // 选中的数据
+    }
+  },
+  watch: {
+    // eslint-disable-next-line vue/no-dupe-keys
+    visible: function (value) {
+      if (value) {
+        this.current = 1
+        this.total = 0
+        this.dirId = ''
+        this.getClassList()
+      }
+    }
+  },
+  mounted() {},
+  methods: {
+    rowKey(row) {
+      return row.materialId
+    },
+    init() {
+      this.current = 1
+      this.tableData = []
+      this.getClassList()
+    },
+    close() {
+      this.visible = false
+    },
+    successFn() {
+      this.visible = false
+      if (this.multiple) {
+        if (this.optionType === 'add') {
+          this.success && this.success(this.multipleSelection)
+        } else {
+          this.success && this.success(this.radio)
+        }
+      } else {
+        this.success && this.success(this.radio)
+      }
+      this.multipleSelection = []
+      this.$refs.multipleTable.clearSelection()
+    },
+    treeClick(data, node) {
+      console.log('点击触发', data)
+      this.dirId = data.dirId === '-1' ? '' : data.dirId
+      this.form.id = data.id === '-1' ? '' : data.id
+      this.form.name = data.dirName
+      this.current = 1
+      this.getList()
+    },
+    async getClassList() {
+      this.tableData = []
+      this.loading = true
+      this.radio = {}
+      this.dirId = ''
+      this.form = {
+        id: '',
+        name: ''
+      }
+      const res = await store.dispatch('option/getClass')
+      if (this.type === '0') {
+        this.classlist = res.imageClass
+      } else if (this.type === '1') {
+        this.classlist = res.audioClass
+        this.listType = 'list'
+      } else if (this.type === '2') {
+        this.classlist = res.videoClass
+      } else {
+        this.classlist = res.fileClass
+        this.listType = 'list'
+      }
+      this.getList()
+    },
+    getList() {
+      this.loading = true
+      this.tableData = []
+      const params = {
+        dirId: this.dirId,
+        materialName: this.search,
+        current: this.current,
+        size: this.size,
+        materialType: this.type
+      }
+      if (!this.dirId || this.dirId === '-1') {
+        delete params.dirId
+      }
+      materialPage(params)
+        .then(res => {
+          if (res.data) {
+            this.tableData = res.data.records
+            this.srcList = []
+            this.tableData &&
+              this.tableData.map(v => {
+                this.srcList.push(v.materialUrl)
+              })
+            this.total = res.data.total
+            this.loading = false
+          }
+        })
+        .catch(() => {
+          this.loading = false
+        })
+    },
+    changeListType(val) {
+      this.listType = val
+      this.$nextTick(() => {
+        this.$refs.multipleTable.doLayout()
+        if (this.multipleSelection.length > 0) {
+          this.multipleSelection.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row, true)
+          })
+        }
+        this.$forceUpdate()
+      })
+    },
+    // 每页条数改变
+    handleSizeChange(val) {
+      this.size = val
+      this.getList()
+    },
+    // 当前页改变
+    handleCurrentChange(val) {
+      this.current = val
+      this.getList()
+    },
+    // 点击全选按钮
+    handleSelectionChange(val) {
+      console.log('表格全选', val)
+      const checkedCount = val.length
+      this.multipleSelection = val
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.tableData.length
+      this.checkAll = checkedCount === this.tableData.length
+    },
+    // 点击播放音频
+    play(row) {
+      if (row.materialId) {
+        this.loading = true
+        const params = {
+          materialId: row.materialId
+        }
+        getSourceFileUrl(params)
+          .then(res => {
+            this.loading = false
+            this.$AppAudio({
+              visible: true,
+              src: res.data
+            })
+          })
+          .catch(() => {
+            this.loading = false
+          })
+      }
+    },
+    // 点击播放视频
+    playVideo(row) {
+      console.log(row, '点击播放视频')
+      if (row.materialId) {
+        this.loading = true
+        const params = {
+          materialId: row.materialId
+        }
+        getSourceFileUrl(params)
+          .then(res => {
+            this.loading = false
+            AppVideo.play({
+              url: res.data,
+              materialId: row.materialId,
+              poster: row.materialFrameUrl || ''
+            })
+          })
+          .catch(() => {
+            this.loading = false
+          })
+      }
+    },
+    // 全选
+    handleCheckAllChange(val) {
+      this.isIndeterminate = false
+      if (val) {
+        this.multipleSelection = this.tableData
+        this.$refs.multipleTable.clearSelection()
+        this.$refs.multipleTable.toggleAllSelection()
+      } else {
+        this.multipleSelection = []
+        this.$refs.multipleTable.clearSelection()
+      }
+    },
+    // 多选框组选中触发
+    handleCheckedChange(value) {
+      console.log(value)
+
+      const checkedCount = value.length
+      this.checkAll = checkedCount === this.tableData.length
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.tableData.length
+
+      if (value.length > 0) {
+        this.$refs.multipleTable.clearSelection()
+        value.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row)
+        })
+      } else {
+        this.$refs.multipleTable.clearSelection()
+      }
+    },
+    // 点击前往素材中心
+    gotoMaterial() {
+      window.open(window.location.origin + '#/shop/material', '_blank')
+    },
+    uploadVideo() {
+      this.$AppUpload({
+        treeSelectData: this.classlist,
+        visible: true,
+        type: 2,
+        accept:
+          'video/mp4,video/ogg,video/flv,video/avi,video/wmv,video/rmvb,video/mov,video/quicktime',
+        beforeUpload: this.onBeforeUploadVideo,
+        form: this.form,
+        tips: '支持上传5GB以内的mp4、avi、wmv、mov、flv、rmvb、3gp、m4v、mkv、webm格式视频，一次最多上传100个文件',
+        success: (res, form) => {
+          console.log(form, 'form')
+          this.form = form
+          this.dirId = form.id
+          this.sureSend(res)
+        }
+      })
+    },
+    // 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
+    onBeforeUploadVideo(file) {
+      console.log(file)
+      console.log(file.type, 'file.type')
+      const isVideo =
+        [
+          'video/mp4',
+          'video/ogg',
+          'video/flv',
+          'video/avi',
+          'video/wmv',
+          'video/rmvb',
+          'video/mov',
+          'video/quicktime'
+        ].indexOf(file.type) === -1
+      console.log(isVideo, 'isVideo')
+      const isLT5G = file.size / 1024 / 1024 / 1024 < 5
+      if (isVideo) {
+        this.$message.error('请上传正确的视频格式')
+        return false
+      }
+      if (!isLT5G) {
+        this.$message.error('视频大小不能超过5GB')
+        return false
+      }
+    },
+
+    // 点击上传音频弹框确定按钮
+    sureSend(list) {
+      this.loading = true
+      const param = {
+        list: list
+      }
+      material(param)
+        .then(res => {
+          this.uploadLoading = false
+          this.getList()
+        })
+        .catch(() => {
+          this.loading = false
+        })
+    },
+    // 点击打开上传音频
+    openUpVideo() {
+      this.$AppUpload({
+        treeSelectData: this.classlist,
+        visible: true,
+        type: 1,
+        accept: 'audio/*',
+        form: this.form,
+        beforeUpload: this.onBeforeUploadAudio,
+        tips: '支持上传500MB以内的m4a、mp3格式音频，一次最多上传100个文件',
+        success: (res, form) => {
+          this.form = form
+          this.dirId = form.id
+          this.sureSend(res)
+        }
+      })
+    },
+    // 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
+    onBeforeUploadAudio(file) {
+      // 文件类型进行判断
+      console.log(file, 'file')
+      const isAudio = /^audio/.test(file.type)
+      // 限制上传文件大小 500M
+      const isLt500M = file.size / 1024 / 1024 < 500
+      if (!isAudio) {
+        this.$message.error('上传文件只能是Mp3,m4a格式!')
+      } else if (!isLt500M) {
+        this.$message.error('上传文件大小不能超过 500MB!')
+      }
+      return isAudio && isLt500M
+    },
+    openUpImg() {
+      this.$AppUploadImagAndFile({
+        treeSelectData: this.classlist,
+        visible: true,
+        type: 1, // 1: 图片; 2: 文件
+        accept: 'image/jpeg,image/png,image/jpg',
+        form: this.form,
+        beforeUpload: this.onBeforeUploadImage,
+        tips: '支持上传5MB以内的jpg、jpeg、png、gif、bmp格式图片，一次最多上传100个文件',
+        success: (res, form) => {
+          if (res && form) {
+            this.form = form
+            this.dirId = form.id
+            this.sureSend(res)
+          }
+          if (res) {
+            this.expandedKeys = ''
+            const parentId = this.getParentNodeId(this.classlist, res.id)
+            this.expandedKeys = parentId + ''
+            this.$refs.appTreeForImage.setCurrentKey(res.id)
+            this.$refs.appTreeForImage.defaultKeys = parentId
+            this.getList()
+            this.$forceUpdate()
+            console.log('this.expandedKeys:', this.expandedKeys)
+          }
+        }
+      })
+    },
+    getParentNodeId(tree, childId) {
+      // 遍历树节点
+      for (const node of tree) {
+        // 如果当前节点就是目标节点的父节点，直接返回当前节点id
+        if (
+          node.children &&
+          node.children.some(child => child.id === childId)
+        ) {
+          return node.id
+        }
+        // 否则继续遍历当前节点的子节点
+        if (node.children) {
+          const parentId = this.getParentNodeId(node.children, childId)
+          if (parentId !== null) {
+            return parentId
+          }
+        }
+      }
+      // 如果没有找到父节点，则返回null
+      return null
+    },
+    onBeforeUploadImage(file) {
+      const isIMAGE = file.type === 'image/jpeg' || 'image/jpg' || 'image/png'
+      const isLt5M = file.size / 1024 / 1024 < 5
+      if (!isIMAGE) {
+        this.$message.error('上传文件只能是图片格式!')
+      }
+      if (!isLt5M) {
+        this.$message.error('上传文件大小不能超过 5MB!')
+      }
+      return isIMAGE && isLt5M
+    },
+    openUpFile() {
+      this.$AppUploadImagAndFile({
+        treeSelectData: this.classlist,
+        visible: true,
+        type: 2, // 1: 图片; 2: 文件
+        accept: '.pdf,.ppt,.xls,.txt,.doc,.csv,.xlsx,.pptx,.docx,.xlsm',
+        form: this.form,
+        beforeUpload: this.onBeforeUploadFile,
+        tips: '支持上传100MB以内的pptx、ppt、docx、doc、xls、xlsx、pdf、csv、xlsm、txt格式文档，一次最多上传100个文件',
+        success: (res, form) => {
+          this.form = form
+          this.dirId = form.id
+          this.sureSend(res)
+        }
+      })
+    },
+    // 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
+    onBeforeUploadFile(file) {
+      console.log(file, 'file')
+      var fileExtension = file.name.split('.').pop().toLowerCase()
+      console.log(fileExtension, 'fileExtension')
+      if (
+        ![
+          'pdf',
+          'ppt',
+          'pptx',
+          'xls',
+          'txt',
+          'doc',
+          'csv',
+          'docx',
+          'xlsm',
+          'xlsx'
+        ].includes(fileExtension)
+      ) {
+        this.$message.error('请上传符合格式的文件')
+        return false
+      }
+      // 限制上传文件大小 100M
+      const isLt100M = file.size / 1024 / 1024 < 100
+      if (!isLt100M) {
+        this.$message.error('上传文件大小不能超过 100MB!')
+        this.fileList = []
+      }
+      return isLt100M
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+::v-deep {
+  .ele-tabs-wrap {
+    .el-tabs__header {
+      margin: 0;
+      .el-tabs__nav-wrap {
+        padding: 0 24px;
+        .el-tabs__item {
+          height: 48px;
+          line-height: 48px;
+        }
+      }
+    }
+  }
+}
+
+.ss-material-picture {
+  padding: 16px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .left-wrap {
+    display: flex;
+    align-items: center;
+    .ss-material-button {
+      color: #105cfb;
+      border-color: transparent;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+  .right-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      color: #cdcdcd;
+      font-size: 20px;
+      margin-right: 5px;
+    }
+    .active {
+      color: #1890ff;
+    }
+  }
+}
+.ss-material-main {
+  display: flex;
+  margin: 12px 24px 0;
+  .ss-material-main-left {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 421px;
+    border: 1px solid #eee;
+    flex: none;
+    .ss-material-main-tree {
+      height: 100%;
+      flex: 1;
+      overflow: hidden;
+      .ss-search-wrap {
+        width: 200px;
+        padding: 12px 8px 7px;
+        box-sizing: border-box;
+      }
+      .ss-scroll {
+        width: 200px;
+        // height: calc(100% - 55px);
+        height: 100%;
+        ::-webkit-scrollbar {
+          display: none;
+        }
+        .ss-all {
+          > .title {
+            padding-left: 8px;
+            font-size: 12px;
+            color: #999;
+          }
+        }
+      }
+    }
+  }
+  .ss-material-main-right {
+    flex: 1;
+    border: 1px solid #eee;
+    border-top: none;
+    border-left: none;
+    .content-wrap {
+      height: 360px;
+      width: 100%;
+      overflow-y: auto;
+      .card-pattern-list-wrap {
+        padding: 0 20px;
+        height: 100%;
+        ::v-deep {
+          .el-radio-group,
+          .el-checkbox-group {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+        }
+        .check {
+          margin-bottom: 6px;
+        }
+        .picture-card {
+          border-radius: 4px;
+          border: 1px solid #eee;
+          font-size: 12px;
+          width: 23%;
+          margin: 0 12px 13px 0;
+          .content {
+            position: relative;
+            overflow: hidden;
+            padding-top: 100%;
+            > .el-image {
+              cursor: pointer;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              top: 0;
+              right: 0;
+              width: 100%;
+              height: 100%;
+              -o-object-fit: scale-down;
+              object-fit: scale-down;
+              background: #fafafa;
+            }
+            img {
+              cursor: pointer;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              top: 0;
+              right: 0;
+              width: 100%;
+              height: 100%;
+              -o-object-fit: scale-down;
+              object-fit: scale-down;
+              background: #fafafa;
+            }
+            .resolution {
+              position: absolute;
+              bottom: 8px;
+              right: 8px;
+              padding: 2px 8px;
+              color: #fff;
+              background: #333;
+              border-radius: 4px;
+              opacity: 0.7;
+            }
+          }
+          .detail {
+            padding: 8px;
+            .title-wrap {
+              // text-overflow: -o-ellipsis-lastline;
+              // overflow: hidden;
+              // text-overflow: ellipsis;
+              // display: -webkit-box;
+              // -webkit-line-clamp: 2;
+              // line-clamp: 2;
+              // -webkit-box-orient: vertical;
+              // ::v-deep {
+              //   .el-radio__label {
+              //     width: 160px;
+              //     overflow:hidden;  //超出部分隐藏
+              //     text-overflow:ellipsis;  //超出部分显示...
+              //     white-space:nowrap;  //文本强制一行显示
+              //   }
+              // }
+            }
+            .common-row {
+              color: #999;
+              width: 100%;
+              display: flex;
+              -webkit-box-pack: justify;
+              -webkit-justify-content: space-between;
+              -ms-flex-pack: justify;
+              justify-content: space-between;
+              -webkit-box-align: center;
+              -webkit-align-items: center;
+              -ms-flex-align: center;
+              align-items: center;
+              margin-top: 9px;
+              font-size: 12px;
+            }
+            .title {
+              display: inline-block;
+              width: 140px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            ::v-deep {
+              .el-radio__label {
+                display: inline-flex;
+              }
+            }
+          }
+        }
+      }
+    }
+    .pagination-wrap {
+      height: 52px;
+      // border-top: 1px solid red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .table-wrap {
+      height: 360px;
+      width: 100%;
+      .header-wrap {
+        height: 40px;
+        background-color: #f6f8fa;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        line-height: 40px;
+        > table {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.m-picture-title {
+  width: 230px;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+}
+.m-picture-property {
+  height: 18px;
+  line-height: 18px;
+  color: #888;
+}
+.size-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.videoImg {
+  width: 80px;
+  height: 60px;
+  min-width: 80px;
+  max-width: 80px;
+  object-fit: contain;
+  cursor: pointer;
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>

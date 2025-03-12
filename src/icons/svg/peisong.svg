@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="其他状态" transform="translate(-237.000000, -211.000000)">
+            <g id="编组" transform="translate(237.000000, 211.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="配送icon-(Background/Mask)"></g>
+                <path d="M1,14 L1,10.1194941 C1,9.79383729 1.15857438,9.48857787 1.42501506,9.30133011 L3.86995858,7.58308571 C4.03941897,7.46399325 4.16771867,7.29521972 4.2371368,7.10007629 L5.45914734,3.66484543 C5.60094249,3.26624078 5.97823659,3 6.4013105,3 L18,3 C18.5522847,3 19,3.44771525 19,4 L19,13 C19,13.5522847 18.5522847,14 18,14 L16,14 L16,14" id="Vector-1" stroke="#333333" stroke-linecap="round" stroke-dasharray="0,0" mask="url(#mask-2)"></path>
+                <line x1="9" y1="14" x2="12" y2="14" id="Line-15" stroke="#333333" stroke-dasharray="0,0" mask="url(#mask-2)"></line>
+                <path d="M7,17 C8.1045695,17 9,16.1045695 9,15 C9,13.8954305 8.1045695,13 7,13 C5.8954305,13 5,13.8954305 5,15 C5,16.1045695 5.8954305,17 7,17 Z" id="Ellipse-8" stroke="#0C6FFF" stroke-dasharray="0,0" mask="url(#mask-2)"></path>
+                <path d="M14,17 C15.1045695,17 16,16.1045695 16,15 C16,13.8954305 15.1045695,13 14,13 C12.8954305,13 12,13.8954305 12,15 C12,16.1045695 12.8954305,17 14,17 Z" id="Ellipse-9" stroke="#0C6FFF" stroke-dasharray="0,0" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

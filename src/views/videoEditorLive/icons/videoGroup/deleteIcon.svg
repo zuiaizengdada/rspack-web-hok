@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 6</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-3剪辑视频界面（大）-点击" transform="translate(-251.000000, -271.000000)">
+            <g id="编组-6" transform="translate(251.000000, 271.000000)">
+                <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
+                <g id="编组-97" transform="translate(1.000000, 1.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                    <line x1="9" y1="6" x2="9" y2="11" id="路径"></line>
+                    <line x1="5" y1="11" x2="5" y2="6" id="路径"></line>
+                    <path d="M1,3 L13,3 L13,12.2 C13,13.1941126 12.1941126,14 11.2,14 L2.79999995,14 C1.80588743,14 1,13.1941126 1,12.2 L1,3 L1,3 Z" id="矩形"></path>
+                    <path d="M3,0 L11,0 L11,1.20000005 C11,2.19411257 10.1941126,3 9.20000005,3 L4.79999995,3 C3.80588743,3 3,2.19411257 3,1.20000005 L3,0 L3,0 Z" id="矩形" transform="translate(7.000000, 1.500000) scale(1, -1) translate(-7.000000, -1.500000) "></path>
+                    <polyline id="路径" points="0 3 0 3 14 3"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

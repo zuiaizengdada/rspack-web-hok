@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 26</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-1剪辑视频界面（大）" transform="translate(-28.000000, -68.000000)">
+            <g id="编组-26" transform="translate(28.000000, 68.000000)">
+                <rect id="矩形" x="0" y="0" width="32" height="32"></rect>
+                <g id="编组" transform="translate(2.000000, 3.000000)" stroke="#FFFFFF" stroke-width="1.2">
+                    <line x1="0" y1="9" x2="28" y2="9" id="路径"></line>
+                    <path d="M12.0238856,13 C11.4925278,13 11,13.3872778 11,13.9373246 L11,21.0626754 C11,21.6127222 11.4925278,22 12.0238856,22 C12.2119045,22 12.4040107,21.9522919 12.5797675,21.8465856 L18.5371056,18.282507 C19.1542981,17.9139383 19.1542981,17.0860617 18.5371056,16.717493 L12.5797675,13.1543499 C12.4040107,13.0477081 12.2119045,13 12.0238856,13" id="路径"></path>
+                    <line x1="10" y1="1.12632126e-12" x2="12" y2="9" id="路径-2备份-3" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="22" y1="1.12632126e-12" x2="24" y2="9" id="路径-2备份-5" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="4" y1="1.12632126e-12" x2="6" y2="9" id="路径-2备份-2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="16" y1="1.12632126e-12" x2="18" y2="9" id="路径-2备份-4" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+                <path d="M25.0588235,3 L6.94117647,3 C4.21282353,3 2,5.05476471 2,7.58823529 L2,24.4117647 C2,26.9452353 4.21282353,29 6.94117647,29 L25.0588235,29 C27.7871765,29 30,26.9452353 30,24.4117647 L30,7.58823529 C30,5.05476471 27.7871765,3 25.0588235,3" id="路径" stroke="#FFFFFF" stroke-width="2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>二维码</title>
+    <g id="1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="应聘人员" transform="translate(-1739.000000, -243.000000)">
+            <g id="二维码" transform="translate(1739.000000, 243.000000)">
+                <rect id="矩形" x="0" y="0" width="18" height="18"></rect>
+                <rect id="矩形" stroke="#4F525C" stroke-width="1.2" stroke-linejoin="round" x="2" y="2" width="6" height="6"></rect>
+                <rect id="矩形备份-11" stroke="#4F525C" stroke-width="1.2" stroke-linejoin="round" x="2" y="10" width="6" height="6"></rect>
+                <g id="编组-7" transform="translate(10.000000, 10.000000)" stroke="#4F525C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+                    <polyline id="路径" points="0 6 0 0 3 0"></polyline>
+                    <polyline id="路径" points="6 0 6 3 3 3 3 0"></polyline>
+                    <line x1="6" y1="6" x2="3" y2="6" id="路径" fill="#D8D8D8"></line>
+                </g>
+                <rect id="矩形备份-10" stroke="#4F525C" stroke-width="1.2" stroke-linejoin="round" x="10" y="2" width="6" height="6"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
