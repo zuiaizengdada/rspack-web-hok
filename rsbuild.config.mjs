@@ -11,8 +11,10 @@ function resolve(dir) {
 
 // 根据环境加载对应的环境变量文件
 const envMode = process.env.NODE_ENV || 'development'
+console.log(envMode, 'envMode')
 const envFiles = {
-  development: '.env.development',
+  dev: '.env.development',
+  test: '.env.test',
   beta: '.env.beta',
   production: '.env.production'
 }
@@ -35,6 +37,9 @@ export default defineConfig({
     },
     alias: {
       '@': resolve('src')
+    },
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(envMode)
     }
   },
   tools: {
@@ -79,14 +84,14 @@ export default defineConfig({
         }
       },
       '/api': {
-        target: 'https://beta.cloud.hokkj.cn/cloud/admin',
+        target: process.env.VUE_APP_BASE_API,
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
         }
       },
       '/newApi': {
-        target: 'https://beta.cloud.hokkj.cn',
+        target: process.env.VUE_APP_BASE_API_NEW,
         changeOrigin: true,
         pathRewrite: {
           '^/newApi': ''

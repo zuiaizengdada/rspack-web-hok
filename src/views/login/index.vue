@@ -591,6 +591,7 @@ export default {
     //   //   this.feishuOrgName = `https://${process.env.NODE_ENV}.webhok.hokkj.cn`
     //   // }
     if (window.location.hostname === 'localhost') {
+      console.log('process.env.NODE_ENV', process.env.NODE_ENV)
       this.feishuOrgName = `https://${
         process.env.NODE_ENV === 'development' ? 'dev' : process.env.NODE_ENV
       }.webhok.hokkj.cn`
