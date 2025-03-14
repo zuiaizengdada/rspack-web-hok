@@ -93,7 +93,7 @@
           @mouseup="mouseup"
           @mousemove="mousemove"
         >
-          <div class="title flex flex-middle">
+          <div class="flex title flex-middle">
             视频文案
 
             <div class="standard-text">
@@ -1956,7 +1956,7 @@ export default {
               .as-input-count {
                 height: 100%;
                 display: flex;
-                align-items: end;
+                align-items: flex-end;
                 font-size: 12px;
                 font-family: PingFangSC, PingFang SC;
                 font-weight: 400;
@@ -1966,7 +1966,7 @@ export default {
               .as-input-time {
                 height: 100%;
                 display: flex;
-                align-items: end;
+                align-items: flex-end;
                 font-size: 12px;
                 font-family: PingFangSC, PingFang SC;
                 font-weight: 400;

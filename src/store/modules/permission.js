@@ -115,7 +115,7 @@ const actions = {
 }
 
 export const loadView = (view) => {
-  return (resolve) => require([`@/views/${view}.vue`], resolve)
+  return () => import(`@/views/${view}.vue`)
 }
 
 export default {

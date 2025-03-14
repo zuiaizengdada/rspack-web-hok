@@ -123,7 +123,7 @@ export default {
     .router-link-active {
       .is-active,
       li {
-        background-color: $subMenuActive !important;
+        background-color: var(--subMenuActive) !important;
         height: 38px;
         line-height: 38px;
       }

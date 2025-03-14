@@ -84,9 +84,12 @@
 import draggable from 'vuedraggable'
 // pdf插件
 import { fabric } from 'fabric'
+// 设置 worker 路径
 import workerSrc from 'pdfjs-dist/es5/build/pdf.worker.entry'
 const pdfjsLib = require('pdfjs-dist/es5/build/pdf.js')
-pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc
+pdfjsLib.GlobalWorkerOptions.workerSrc = window.URL.createObjectURL(
+  new Blob([`importScripts('${workerSrc}');`], { type: 'application/javascript' })
+)
 import singleLineTextPng from '@/assets/image/oa/singleLineText.png'
 import numberPng from '@/assets/image/oa/number.png'
 import officialSealPng from '@/assets/image/oa/officialSeal.png'

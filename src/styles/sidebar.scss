@@ -162,10 +162,10 @@
       right: 16px;
     }
     .el-menu-item.is-active:not(.submenu-home) {
-      background-color: $subMenuActive !important;
+      background-color: var(--subMenuActive) !important;
       margin: 5px 0;
       &:hover {
-        background-color: $subMenuActive !important;
+        background-color: var(--subMenuActive) !important;
         margin: 5px 0;
       }
       span {

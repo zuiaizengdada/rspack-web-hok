@@ -7,7 +7,7 @@
       :close-on-click-modal="false"
     >
       <div class="show overflowOuto overflowOutoStop" @scroll="scrollEvent">
-        <pdf v-for="i in numPages" ref="pdf" :key="i" :src="pdfUrl" :page="i" />
+        <vue-pdf-embed :source="pdfUrl" />
       </div>
       <div slot="footer" class="dialog-footer">
         <el-button @click="handleRejectAudt" :loading="loading"
@@ -41,32 +41,33 @@
 </template>
 <script>
 import { signAuditAjax } from '../../../../api/staff.js'
-
 import reviewRejectDialog from './reviewRejectDialog.vue'
-import vuePdf from 'vue-pdf'
-import CMapReaderFactory from 'vue-pdf/src/CMapReaderFactory.js'
-const pdf = { ...vuePdf, destroyed: undefined }
+import VuePdfEmbed from 'vue-pdf-embed'
+
 export default {
-  components: { reviewRejectDialog, pdf },
+  components: { reviewRejectDialog, VuePdfEmbed },
   model: { prop: 'visible', event: 'getVisible' },
   props: {
     visible: { type: Boolean, default: false },
+    row: {
+      type: Object,
+      default: () => ({})
+    },
     signFileList: {
       type: Array,
-      default: () => {
-        return []
-      }
+      default: () => []
+    },
+    index: {
+      type: Number,
+      default: 0
     }
   },
   data() {
     return {
       form: {},
+      loading: false,
       rejectAudtVisible: false,
-      isReadOver: false,
-      numPages: null, // pdf 总页数
-      pdfUrl: '',
-      index: 0,
-      loading: false
+      pdfUrl: ''
     }
   },
   computed: {
@@ -80,98 +81,53 @@ export default {
     }
   },
   created() {
-    this.form = { ...this.signFileList[this.index] }
-  },
-  mounted() {
-    this.pdfUrl = this.form.signedContractUrl
-    this.getNumPages(this.pdfUrl)
+    this.pdfUrl = this.row.url
   },
   methods: {
-    getNumPages(url) {
-      if (!url) {
-        this.$message.warning('pdf 加载失败')
-      }
-      let loadingTask = pdf.createLoadingTask({
-        url: url,
-        CMapReaderFactory
-      })
-      loadingTask.promise
-        .then(pdf => {
-          this.numPages = pdf.numPages
-        })
-        .catch(err => {
-          console.error('pdf 加载失败', err)
-        })
-      this.$forceUpdate()
-    },
     handleClose() {
-      this.$emit('close')
+      this.getVisible = false
     },
-    submit() {},
+    scrollEvent() {
+      // 实现滚动逻辑
+    },
     handleRejectAudt() {
       this.rejectAudtVisible = true
     },
-    closerejectAudtDialog() {},
-    submitRejectAudtDialog() {},
-    scrollEvent(event) {
-      let scrollBottom =
-        event.target.scrollHeight -
-        event.target.scrollTop -
-        event.target.clientHeight
-      if (scrollBottom < 5) {
-        this.isReadOver = true
-      }
-    },
-    //处理下一份
-    handleNext() {
-      if (this.index < this.signFileList.length - 1) {
-        this.index++
-        this.form = { ...this.signFileList[this.index] }
-        this.pdfUrl = this.form.signedContractUrl
-      }
-    },
-    handleSuccssNextAudt() {
-      const params = {
-        reviewStatus: 1,
-        contractRelationId: this.form.contractRelationId
-      }
-      this.loading = true
-      signAuditAjax(params)
-        .then(res => {
-          if (res.code === 1) {
-            this.$emit('search')
-            this.handleNext()
-          }
+    async handleSuccssAudt() {
+      try {
+        this.loading = true
+        await signAuditAjax({
+          id: this.row.id,
+          status: 1
         })
-        .finally(() => {
-          this.loading = false
-        })
-    },
-    handleSuccssAudt() {
-      const params = {
-        reviewStatus: 1,
-        contractRelationId: this.form.contractRelationId
-      }
-      this.loading = true
-      signAuditAjax(params)
-        .then(res => {
-          if (res.code === 1) {
-            this.$emit('success')
-          }
-        })
-        .finally(() => {
-          this.loading = false
-        })
-    },
-    rejectAudtSuccess() {
-      this.rejectAudtVisible = false
-      if (this.index === this.signFileList.length - 1) {
-        //最后一个
+        this.$message.success('审核成功')
         this.$emit('success')
-      } else {
-        this.$emit('search')
-        this.handleNext()
+        this.handleClose()
+      } catch (error) {
+        console.error(error)
+      } finally {
+        this.loading = false
       }
+    },
+    async handleSuccssNextAudt() {
+      try {
+        this.loading = true
+        await signAuditAjax({
+          id: this.row.id,
+          status: 1
+        })
+        this.$message.success('审核成功')
+        this.$emit('success', true)
+        this.handleClose()
+      } catch (error) {
+        console.error(error)
+      } finally {
+        this.loading = false
+      }
+    },
+    async rejectAudtSuccess() {
+      this.$emit('success')
+      this.handleClose()
     }
   }
 }

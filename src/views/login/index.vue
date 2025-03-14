@@ -107,7 +107,7 @@
                   slot="prefix"
                   :src="emailIcon"
                   alt=""
-                  style="width:20px;height:20px;margin-top: 10px"
+                  style="width: 20px; height: 20px; margin-top: 10px"
                 />
               </el-input>
             </el-form-item>
@@ -159,7 +159,7 @@
                     slot="prefix"
                     :src="codeLoginType === 1 ? emailIcon : phoneIcon"
                     alt=""
-                    style="width:20px;height:20px;margin-right:5px"
+                    style="width: 20px; height: 20px; margin-right: 5px"
                   />
                   {{
                     codeLoginType === 1 ? '切换为邮箱登录' : '切换为手机号登录'
@@ -319,30 +319,30 @@
                 2:
                   active === 3
                     ? `当前飞书手机号【${pageConfig.userInfo[0].phoneNumber.replace(
-                      /^(\d{3})\d{4}(\d{4})$/,
-                      '$1****$2'
-                    )}】，未找到匹配的伏羲云账号。`
+                        /^(\d{3})\d{4}(\d{4})$/,
+                        '$1****$2'
+                      )}】，未找到匹配的伏羲云账号。`
                     : `当前企微账号未找到匹配的伏羲云账号。`,
                 4:
                   active === 3
                     ? `你的伏羲云账号【${pageConfig.userInfo[0].phoneNumber.replace(
-                      /^(\d{3})\d{4}(\d{4})$/,
-                      '$1****$2'
-                    )}】状态已设置为离职，无法绑定。`
+                        /^(\d{3})\d{4}(\d{4})$/,
+                        '$1****$2'
+                      )}】状态已设置为离职，无法绑定。`
                     : `你的伏羲云账号状态已设置为离职，无法绑定`,
                 5:
                   active === 3
                     ? `你的伏羲云账号【${pageConfig.userInfo[0].phoneNumber.replace(
-                      /^(\d{3})\d{4}(\d{4})$/,
-                      '$1****$2'
-                    )}】已删除，无法绑定。`
+                        /^(\d{3})\d{4}(\d{4})$/,
+                        '$1****$2'
+                      )}】已删除，无法绑定。`
                     : `你的伏羲云账号已删除，无法绑定。`,
                 7:
                   active === 3
                     ? `你的伏羲云账号【${pageConfig.userInfo[0].phoneNumber.replace(
-                      /^(\d{3})\d{4}(\d{4})$/,
-                      '$1****$2'
-                    )}】已被其他飞书绑定。`
+                        /^(\d{3})\d{4}(\d{4})$/,
+                        '$1****$2'
+                      )}】已被其他飞书绑定。`
                     : `你的伏羲云账号已被其他企微绑定。`
               }[pageConfig.accountBindingStatus]
             }}
@@ -401,7 +401,7 @@
               <img
                 v-if="
                   item.organizationId === pageConfig.orgInfo.organizationId &&
-                    item.status !== 1
+                  item.status !== 1
                 "
                 src="~@/assets/image/login/check.png"
                 alt=""
@@ -831,8 +831,8 @@ export default {
         this.active = this.pageConfig.orgWecom
           ? 4
           : this.pageConfig.orgFeisu
-            ? 3
-            : 2
+          ? 3
+          : 2
       } catch (error) {
         console.log(error)
       }
@@ -893,8 +893,6 @@ export default {
             query: { ...this.$route.query, from: 'login' }
           })
         } else {
-          // this.$router.replace({ path: this.redirect || '/' })
-          // redirect地址存在不完整和地址访问不了情况，会出现地址报错，从而导致页面访问不了，和产品沟通后，登录后统一跳到首页处理
           this.$router.replace({ path: '/' })
         }
       } catch (e) {
@@ -954,8 +952,6 @@ export default {
             query: { ...this.$route.query, from: 'login' }
           })
         } else {
-          // this.$router.replace({ path: this.redirect || '/' })
-          // redirect地址存在不完整和地址访问不了情况，会出现地址报错，从而导致页面访问不了，和产品沟通后，登录后统一跳到首页处理
           this.$router.replace({ path: '/' })
         }
         // this.$router.replace({ path: '/' })
@@ -978,8 +974,8 @@ export default {
           this.active = this.pageConfig.orgFeisu
             ? 3
             : this.pageConfig.orgWecom
-              ? 4
-              : 2
+            ? 4
+            : 2
         })
         .catch(() => {
           // this.errTips = err
@@ -1049,6 +1045,7 @@ export default {
         }
         setItem('logoList', obj.mediaDtoList)
         setItem('orgInfo', obj)
+        console.log(obj, 'obj')
         if (this.feishuOrgName !== obj.organizationRequestName) {
           const url = `${obj.organizationRequestName}/#/desktopToWeb?organizationId=${obj.organizationId}&userId=${data.userId}&path=addLiveRoom&token=${data.token}`
           console.log(url, 'url')
@@ -1074,8 +1071,6 @@ export default {
             query: { ...this.$route.query, from: 'login' }
           })
         } else {
-          // this.$router.replace({ path: this.redirect || '/' })
-          // redirect地址存在不完整和地址访问不了情况，会出现地址报错，从而导致页面访问不了，和产品沟通后，登录后统一跳到首页处理
           this.$router.replace({ path: '/' })
         }
       } catch (e) {
@@ -1094,7 +1089,10 @@ export default {
         if (!valid) {
           this.btnLoading = true
           const Pro = this.codeLoginType === 1 ? sendCode2 : sendEmailCode
-          const code = this.codeLoginType === 1 ? this.loginForm.phone : this.loginForm.email
+          const code =
+            this.codeLoginType === 1
+              ? this.loginForm.phone
+              : this.loginForm.email
           Pro(code)
             .then(res => {
               const _this = this

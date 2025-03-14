@@ -8,16 +8,15 @@
       top="5vh"
     >
       <div class="show overflowOuto overflowOutoStop" @scroll="scrollEvent">
-        <pdf v-for="i in numPages" ref="pdf" :key="i" :src="pdfUrl" :page="i" />
+        <vue-pdf-embed :source="pdfUrl" />
       </div>
     </el-dialog>
 </template>
 <script>
-import vuePdf from 'vue-pdf'
-import CMapReaderFactory from 'vue-pdf/src/CMapReaderFactory.js'
-const pdf = { ...vuePdf, destroyed: undefined }
+import VuePdfEmbed from 'vue-pdf-embed'
+
 export default {
-  components: { pdf },
+  components: { VuePdfEmbed },
   model: { prop: 'visible', event: 'getVisible' },
   props: {
     visible: { type: Boolean, default: false },
@@ -40,7 +39,6 @@ export default {
     return {
       form: {},
       isReadOver: false,
-      numPages: null, // pdf 总页数
       pdfUrl: '',
       index: 0
     }
@@ -56,41 +54,14 @@ export default {
     }
   },
   created() {
-  },
-  mounted() {
     this.pdfUrl = this.url
-    this.getNumPages(this.pdfUrl)
   },
   methods: {
-    getNumPages(url) {
-       if (!url) {
-        this.$message.warning('pdf 加载失败')
-      }
-      let loadingTask = pdf.createLoadingTask({
-        url: url,
-        CMapReaderFactory
-      })
-      loadingTask.promise
-        .then(pdf => {
-          this.numPages = pdf.numPages
-        })
-        .catch(err => {
-          console.error('pdf 加载失败', err)
-        })
-      this.$forceUpdate()
-    },
     handleClose() {
-      this.$emit('close')
+      this.getVisible = false
     },
-    submit() {},
-    scrollEvent(event) {
-      let scrollBottom =
-        event.target.scrollHeight -
-        event.target.scrollTop -
-        event.target.clientHeight
-      if (scrollBottom < 5) {
-        this.isReadOver = true
-      }
+    scrollEvent() {
+      // 实现滚动逻辑
     }
   }
 }

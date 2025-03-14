@@ -64,7 +64,7 @@ export default {
       line-height: 48px;
       height: 48px;
       &.is-active {
-        color: $subMenuActive;
+        color: var(--subMenuActive);
       }
     }
   }

@@ -60,9 +60,9 @@ import AppDialog from '@/components/AppDialog'
 import {
   researchProgressOption,
   sortLabelOption,
-  deliveryMainBodyArray,
   goodsAttributeArray
 } from '@/views/live/columns.js'
+import { deliveryMainBodyArray } from '@/views/product/columns.js'
 import { productDispersing } from '@/api/product/productManage.js'
 import fileUpload from '@/views/product/productManage/uploadFile'
 // import { filtersMoneyByZero } from '@/filters/index'

@@ -39,7 +39,7 @@
 
 <script>
 import dynamicTable from '@/components/DynamicTable/table'
-import { taskStatFollowerDetail } from '@/api/privateArea/clue'
+import { getTaskFollowerDetail } from '@/api/privateArea/clue'
 export default {
   name: 'AddQwProcessTable',
   components: {
@@ -74,8 +74,8 @@ export default {
     }
   },
   methods: {
-    getList() {
-      return taskStatFollowerDetail
+    getList: function() {
+      return getTaskFollowerDetail;
     },
     handleReset() {
       this.form = {

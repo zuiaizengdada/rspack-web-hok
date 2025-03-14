@@ -18,7 +18,7 @@
       </div>
       <div
         :style="{ width: width, height: height }"
-        class="dialog-body-content flex my_content"
+        class="flex dialog-body-content my_content"
       >
         <!-- 左边部分 -->
         <div class="my_left">
@@ -607,3 +607,26 @@ export default {
   }
 }
 </style>
+
+<template>
+  <div class="video-add-material">
+    <!-- 组件内容 -->
+  </div>
+</template>
+
+<script>
+import icnWjj from '@/assets/image/video/wenjianjia_icon.png'
+import icnWj from '@/assets/image/video/wenjian_icon.png'
+
+export default {
+  name: 'VideoAddMaterial',
+  data() {
+    return {
+      icn_wjj: icnWjj,
+      icn_wj: icnWj,
+      visible: false,
+      listData: []
+    }
+  }
+}
+</script>

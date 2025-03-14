@@ -466,7 +466,7 @@ export default {
   .bt-col {
     flex: 1;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
   .footer {
     height: 68px;

@@ -37,11 +37,11 @@ const state = {
     avatar: ''
   },
   envList: {
-    development: 'https://dev.cloud.hokkj.cn',
-    staging: 'https://dev.cloud.hokkj.cn',
-    test: 'https://test.cloud.hokkj.cn',
-    beta: 'https://beta.cloud.hokkj.cn',
-    production: 'https://cloud.hokkj.cn'
+    development: process.env.VUE_APP_BASE_API_NEW,
+    staging: process.env.VUE_APP_BASE_API_NEW,
+    test: process.env.VUE_APP_BASE_API_NEW,
+    beta: process.env.VUE_APP_BASE_API_NEW,
+    production: process.env.VUE_APP_BASE_API_NEW
   },
   accountList: [],
   accountNum: 0,

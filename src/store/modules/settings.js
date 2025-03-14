@@ -1,11 +1,11 @@
-import variables from '@/styles/element-variables.scss'
+
 import defaultSettings from '@/settings'
 import { saveAccounts, insertApiStat, insertFuxiyunApiStat } from '@/api/videoManagement/videoPublish'
 
 const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings
 
 const state = {
-  theme: variables.theme,
+  theme: '#0C6FFF',
   showSettings: showSettings,
   tagsView: tagsView,
   fixedHeader: fixedHeader,
@@ -55,4 +55,3 @@ export default {
   mutations,
   actions
 }
-

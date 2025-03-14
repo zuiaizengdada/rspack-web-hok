@@ -57,30 +57,29 @@ export function getColumns() {
           ? 0
           : 10000
 
-        console.log(tm, '===============')
         if (tm > 0) {
           setTimeout(() => {
             localStorage.setItem('digitalVideoManageStatusShowTooltip', true)
           }, 3000)
         }
-        return (
-          <span>
-            {column.label}
-            <el-tooltip
-              class='item'
-              effect='dark'
-              content='数字人视频先审批，后生成。等待生成成功后，可预览使用。'
-              placement='top'
-              value={tm > 0}
-              hide-after={tm}
-            >
-              <i
-                class='el-icon-warning-outline'
-                style='font-size: 14px; color: #999; margin-left: 5px;'
-              ></i>
-            </el-tooltip>
-          </span>
-        )
+        return h('span', [
+          column.label,
+          h('el-tooltip', {
+            props: {
+              class: 'item',
+              effect: 'dark',
+              content: '数字人视频先审批，后生成。等待生成成功后，可预览使用。',
+              placement: 'top',
+              value: tm > 0,
+              'hide-after': tm
+            }
+          }, [
+            h('i', {
+              class: 'el-icon-warning-outline',
+              style: 'font-size: 14px; color: #999; margin-left: 5px;'
+            })
+          ])
+        ])
       }
     },
     {

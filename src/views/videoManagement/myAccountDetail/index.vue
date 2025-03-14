@@ -62,7 +62,7 @@
           <img :src="detailMessage.avatar" />
         </div>
         <div class="right-mess">
-          <div class="right-mess-line flex flex-middle">
+          <div class="flex right-mess-line flex-middle">
             <span class="title-span">{{ detailMessage.name }}</span>
             <em class="title-em">{{ detailMessage.platformName }}</em>
             <div v-if="logList.length">
@@ -77,7 +77,7 @@
                     <!-- <span class="title_time">2023-10-12～2023-11-10</span> -->
                   </div>
                   <div class="record_details overflowOuto">
-                    <div class="user_info flex flex-middle">
+                    <div class="flex user_info flex-middle">
                       <span class="user_info_platformImg">
                         <img :src="detailMessage.avatar" />
                       </span>
@@ -93,7 +93,7 @@
                           :timestamp="activity.time"
                           placement="top"
                         >
-                          <div class="timeLine_content flex flex-middle">
+                          <div class="flex timeLine_content flex-middle">
                             <span class="timeLine_content_title1 m-r-20"> {{ typeMap[activity.type] }} </span>
                             <span class="timeLine_content_title2 m-r-20">{{ activity.content }}</span>
                           </div>
@@ -325,11 +325,11 @@ export default {
       syncLoading: false,
       logList: [],
       envList: {
-        'development': 'https://dev.cloud.hokkj.cn',
-        'staging': 'https://dev.cloud.hokkj.cn',
-        'test': 'https://test.cloud.hokkj.cn',
-        'beta': 'https://beta.cloud.hokkj.cn',
-        'production': 'https://cloud.hokkj.cn'
+        'development': process.env.VUE_APP_BASE_API_NEW,
+        'staging': process.env.VUE_APP_BASE_API_NEW,
+        'test': process.env.VUE_APP_BASE_API_NEW,
+        'beta': process.env.VUE_APP_BASE_API_NEW,
+        'production': process.env.VUE_APP_BASE_API_NEW
       },
       platformArray: [],
       merchantData: null,

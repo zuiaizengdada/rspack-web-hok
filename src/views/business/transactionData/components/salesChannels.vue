@@ -364,7 +364,7 @@ $w100: 587;
   .childPrice {
     flex-direction: column;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
   }
   .childListRatio {
     font-size: 12px;

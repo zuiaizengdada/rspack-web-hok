@@ -7,10 +7,10 @@
         ref="menuRef"
         :class="['hok-menu']"
         :default-active="activeMenu"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
+        background-color="#263480"
+        text-color="#ffffff"
         :unique-opened="false"
-        :active-text-color="variables.menuActiveText"
+        active-text-color="#ffffff"
         :collapse-transition="false"
         mode="vertical"
       >
@@ -44,7 +44,7 @@ import SidebarItem from './SidebarItem'
 // import Hamburger from '@/components/Hamburger'
 import SiderAvatar from './avatar.vue'
 
-import variables from '@/styles/variables.scss'
+// import variables from '@/styles/variables.scss'
 export default {
   components: { SidebarItem, SiderAvatar },
   data() {
@@ -67,9 +67,9 @@ export default {
     showLogo() {
       return this.$store.state.settings.sidebarLogo
     },
-    variables() {
-      return variables
-    },
+    // variables() {
+    //   return variables
+    // },
     isCollapse() {
       return !this.sidebar.opened
     }

@@ -80,7 +80,7 @@ import {
   sortLabelOption,
   deliveryMainBodyArray,
   goodsAttributeArray
-} from '@/views/live/columns.js'
+} from '@/views/product/columns.js'
 import { productUpdating } from '@/api/product/productManage.js'
 import fileUpload from '@/views/product/productManage/uploadFile'
 // import moment from 'moment'

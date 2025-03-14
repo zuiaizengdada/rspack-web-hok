@@ -52,7 +52,7 @@ export default {
 <style lang='scss' scoped>
 .p4header {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-top: 7px;
     padding-right: 7px;
     background: linear-gradient(180deg, #D7FEFF 0%, #D9FEFF 100%);

@@ -515,7 +515,7 @@ export default {
   background-color: #fff;
   border-top: 1px solid #f0f0f0;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 20px;
 }

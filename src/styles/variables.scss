@@ -8,18 +8,6 @@ $tiffany: #4ab7bd;
 $yellow: #fec171;
 $panGreen: #30b08f;
 
-// sidebar
-// $menuText: #333333;
-// $menuActiveText: #fff;
-// $subMenuActiveText: #333333; // https://github.com/ElemeFE/element/issues/12951
-// $menuBg: #fff;
-// $menuHover: #f3f3f3;
-
-// $subMenuBg: #fff;
-// $subMenuHover: #f3f3f3;
-// $subMenuActive: #0c6fff;
-// $sideBarWidth: 231px;
-
 $menuText: #ffffff;
 $menuActiveText: #ffffff;
 $subMenuActiveText: #ffffff;
@@ -28,38 +16,24 @@ $menuHover: rgba(255, 255, 255, 0.1);
 $subMenuBg: #263480;
 $subMenuHover: rgba(255, 255, 255, 0.1);
 $subMenuActive: #0c6fff;
-$sideBarWidth: 160px; // 侧边栏所占宽度
-$headHeight: 68px; // 头部导航条 所占高度
-$historyHeight: 72px; // 历史记录面包屑 所占高度
+$sideBarWidth: 160px;
+$headHeight: 68px;
+$historyHeight: 72px;
 $pageBg: #f6faff;
 $primaryColor: #0c6fff;
+
 @mixin responsive-height($pxHeight) {
   height: calc(100vh - (#{$headHeight} + #{$historyHeight}) - #{$pxHeight});
 }
-// the :export directive is the magic sauce for webpack
-// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
-:export {
-  theme: $primaryColor;
-  menuText: $menuText;
-  menuActiveText: $menuActiveText;
-  subMenuActiveText: $subMenuActiveText;
-  menuBg: $menuBg;
-  menuHover: $menuHover;
-  subMenuBg: $subMenuBg;
-  subMenuHover: $subMenuHover;
-  sideBarWidth: $sideBarWidth;
-  subMenuActive: $subMenuActive;
-}
 
-:export {
-  theme: $primaryColor;
-  menuText: $menuText;
-  menuActiveText: $menuActiveText;
-  subMenuActiveText: $subMenuActiveText;
-  menuBg: $menuBg;
-  menuHover: $menuHover;
-  subMenuBg: $subMenuBg;
-  subMenuHover: $subMenuHover;
-  sideBarWidth: $sideBarWidth;
-  subMenuActive: $subMenuActive;
+:root {
+  --menuText: #{$menuText};
+  --menuActiveText: #{$menuActiveText};
+  --subMenuActiveText: #{$subMenuActiveText};
+  --menuBg: #{$menuBg};
+  --menuHover: #{$menuHover};
+  --subMenuBg: #{$subMenuBg};
+  --subMenuHover: #{$subMenuHover};
+  --sideBarWidth: #{$sideBarWidth};
+  --subMenuActive: #{$subMenuActive};
 }

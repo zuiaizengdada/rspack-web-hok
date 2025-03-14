@@ -126,7 +126,7 @@ import {
   sortLabelOption,
   deliveryMainBodyArray,
   goodsAttributeArray
-} from '@/views/live/columns.js'
+} from '@/views/product/columns.js'
 import { productAddAjax, productEditAjax } from '@/api/product/productManage.js'
 import { getIds } from '@/utils/index'
 import moment from 'moment'

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div>    <van-cell title="产品研发演示" />  </div>
+    <div>
+      <van-cell title="产品研发演示" />
+    </div>
     <el-cascader
       :key="resetCascader"
       ref="cascader"
@@ -12,12 +14,21 @@
     />
   </div>
 </template>
-<script setup>
-import { useRouter } from 'vue-router'
+<template>
+  <div></div>
+</template>
+<script>
 import { openUrl } from '@/utils/index'
-const router = useRouter()
-const url = router.currentRoute.value.query?.url
-openUrl(decodeURIComponent(url))
+
+export default {
+  name: 'AppChinaArea',
+  created() {
+    const url = this.$route.query.url
+    if (url) {
+      window.location.href = decodeURIComponent(url)
+    }
+  }
+}
 </script>
 <template>
 </template>
