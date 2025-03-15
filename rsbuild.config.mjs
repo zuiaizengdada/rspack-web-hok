@@ -11,7 +11,6 @@ function resolve(dir) {
 
 // 根据环境加载对应的环境变量文件
 const envMode = process.env.NODE_ENV || 'development'
-console.log(envMode, 'envMode')
 const envFiles = {
   dev: '.env.development',
   test: '.env.test',
@@ -130,71 +129,4 @@ export default defineConfig({
       }
     }
   }
-  // dev: {
-  //   server: {
-  //     port: 9528,
-  //     middlewares: [
-  //       (req, res, next) => {
-  //         if (req.url.startsWith('/api/mock')) {
-  //           req.url = req.url.replace('/api/mock', '')
-  //         }
-  //         next()
-  //       }
-  //     ]
-  //   },
-  //   proxy: {
-  //     '/api/mock': {
-  //       target: 'http://localhost:3000',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/api/mock': ''
-  //       }
-  //     },
-  //     '/api': {
-  //       target: 'https://beta.cloud.hokkj.cn/cloud/admin',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/api': ''
-  //       }
-  //     },
-  //     '/newApi': {
-  //       target: 'https://beta.cloud.hokkj.cn',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/newApi': ''
-  //       }
-  //     },
-  //     '/mock': {
-  //       target: 'http://localhost:5000',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/mock': ''
-  //       }
-  //     },
-  //     '/baidu': {
-  //       target: 'https://haokan.baidu.com',
-  //       ws: true,
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/baidu': ''
-  //       }
-  //     },
-  //     '/bibili': {
-  //       target: 'https://api.bilibili.com',
-  //       ws: true,
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/bibili': ''
-  //       }
-  //     },
-  //     '/whosecard': {
-  //       target: 'https://api.whosecard.com',
-  //       ws: true,
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/whosecard': ''
-  //       }
-  //     }
-  //   }
-  // }
 })
