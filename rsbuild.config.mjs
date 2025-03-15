@@ -38,7 +38,7 @@ export default defineConfig({
       '@': resolve('src')
     },
     define: {
-      'process.env.NODE_ENV': JSON.stringify(envMode)
+      'process.env.VUE_APP_ENV': JSON.stringify(envMode)
     }
   },
   tools: {
